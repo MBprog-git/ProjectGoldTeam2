@@ -7,8 +7,13 @@ public class Swipe : MonoBehaviour
     private Vector2 startPosition;
     private Vector2 endPosition;
 
+    private Vector2 fingerPosition;
+
     public float minimalSwipeDistance = 150;
-    // Start is called before the first frame update
+
+    public GameObject mask;
+    private bool isOnNoteBook = true;
+
     void Start()
     {
 
@@ -20,15 +25,24 @@ public class Swipe : MonoBehaviour
         if (Input.touchCount == 1)
         {
             var touch = Input.touches[0];
-            switch (touch.phase)
+            if (!isOnNoteBook)
             {
-                case TouchPhase.Began:
-                    startPosition = touch.position;
-                    break;
-                case TouchPhase.Ended:
-                    endPosition = touch.position;
-                    AnalyzeSwipeDistance(startPosition, endPosition);
-                    break;
+                switch (touch.phase)
+                {
+                    case TouchPhase.Began:
+                        startPosition = touch.position;
+                        break;
+                    case TouchPhase.Ended:
+                        endPosition = touch.position;
+                        AnalyzeSwipeDistance(startPosition, endPosition);
+                        break;
+                }
+            }
+            else
+            {
+                Debug.Log(touch.position);
+                GameObject maskClone = Instantiate(mask, touch.position, transform.rotation);
+                maskClone.transform.position = touch.position;
             }
         }
     }
