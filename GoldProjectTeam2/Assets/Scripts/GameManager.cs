@@ -1,16 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
 
     public Camera cam;
     public GameObject Journal;
+    public Text Clocky;
+    public float RythmeClock;
+    float timerClock;
+    public int heure= 12;
+    public int minute;
+
 
  public static GameManager instance;
+
     void Awake()
     {
+        timerClock = RythmeClock;
+
         if (instance == null)
             instance = this;
     }
@@ -22,6 +32,12 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        timerClock -= Time.deltaTime;
+        if (timerClock < 0)
+        {
+            UpdateTime();
+        }
+
         if (Input.GetMouseButtonUp(0))
         {
             Vector3 Mouspos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -43,5 +59,21 @@ public class GameManager : MonoBehaviour
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(nameScene);
      
+    }
+
+    void UpdateTime()
+    {
+        minute ++;
+        if(minute == 6)
+        {
+            minute = 0;
+            heure++;
+             
+        }
+
+        Clocky.text = heure + " : " + minute + "0"; 
+
+
+        timerClock = RythmeClock;
     }
 }
