@@ -6,15 +6,21 @@ public class GommeTestMB : MonoBehaviour
 {
     Vector3 OldPos;
     public GameObject GOMME;
+    public GameObject StockMask;
+    public bool Cangomme;
 
     void Update()
     {
-        Vector3 mousePos = FindObjectOfType<Camera>().ScreenToWorldPoint(Input.mousePosition);
-        mousePos.z = 0;
-        if (Input.GetKey(KeyCode.Mouse0) && mousePos != OldPos)
+        if (Cangomme)
         {
-            Instantiate(GOMME, mousePos, transform.rotation);
-            OldPos = mousePos;
+            Vector3 mousePos = FindObjectOfType<Camera>().ScreenToWorldPoint(Input.mousePosition);
+            mousePos.z = 0;
+            if (Input.GetKey(KeyCode.Mouse0) && mousePos != OldPos)
+            {
+                GameObject go = Instantiate(GOMME, mousePos, transform.rotation);
+                go.transform.SetParent(StockMask.transform);
+                OldPos = mousePos;
+            }
         }
 
         /*// Track a single touch as a direction control.
