@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     private float smoothStopMove = 2.0f;
 
     private Rigidbody rb;
-    private ManagerButtonPlayer manageButton;
+    [HideInInspector] public ManagerButtonPlayer manageButton;
 
     private void Start()
     {

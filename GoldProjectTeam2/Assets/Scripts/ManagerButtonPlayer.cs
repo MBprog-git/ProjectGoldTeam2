@@ -49,6 +49,7 @@ public class ManagerButtonPlayer : MonoBehaviour
 
     public void ButtonMainMenu()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(nameSceneMainMenu);
     }
 
