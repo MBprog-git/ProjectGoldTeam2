@@ -14,6 +14,11 @@ public class JournalMB : MonoBehaviour
     public GameObject StockMask;
     public bool Cangomme;
 
+    private GameObject turnPage;
+    private GameObject actualPage;
+    public GameObject buttonNextPage;
+    public GameObject buttonPreviousPage;
+
     int countMask;
 
     // Start is called before the first frame update
@@ -76,5 +81,53 @@ public class JournalMB : MonoBehaviour
             Destroy(child.gameObject);
         }
         countMask = 0;
+    }
+
+    public void NextPage()
+    {
+        GameObject book = gameObject.transform.GetChild(4).gameObject;
+        Debug.Log(book);
+        for (int i = 0; i < book.transform.childCount; i++)
+        {
+            if (book.transform.GetChild(i).gameObject.activeSelf == true)
+            {
+                actualPage = book.transform.GetChild(i).gameObject;
+                turnPage = book.transform.GetChild(i + 1).gameObject;
+
+                actualPage.SetActive(false);
+                turnPage.SetActive(true);
+
+                if (i + 1 >= 4)
+                {
+                    buttonNextPage.SetActive(false);
+                }
+                buttonPreviousPage.SetActive(true);
+                return;
+            }
+        }
+    }
+
+    public void PreviousPage()
+    {
+        GameObject book = gameObject.transform.GetChild(4).gameObject;
+        Debug.Log(book);
+        for (int i = 0; i < book.transform.childCount; i++)
+        {
+            if (book.transform.GetChild(i).gameObject.activeSelf == true)
+            {
+                actualPage = book.transform.GetChild(i).gameObject;
+                turnPage = book.transform.GetChild(i - 1).gameObject;
+
+                actualPage.SetActive(false);
+                turnPage.SetActive(true);
+
+                if (i - 1 <= 0)
+                {
+                    buttonPreviousPage.SetActive(false);
+                }
+                buttonNextPage.SetActive(true);
+                return;
+            }
+        }
     }
 }
