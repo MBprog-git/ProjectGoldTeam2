@@ -829,7 +829,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19c4dc9b6b08a8141ad411db46c20f5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameScenePlay: Vincent Scene
+  nameScenePlay: MainScene
   nameSceneMainMenu: MainMenu
 --- !u!1 &1173030242
 GameObject:
