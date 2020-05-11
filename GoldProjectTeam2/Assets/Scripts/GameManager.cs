@@ -14,15 +14,20 @@ public class GameManager : MonoBehaviour
     public int heure= 12;
     public int minute;
 
+public      SpriteRenderer s;
+
 
  public static GameManager instance;
 
     void Awake()
     {
-        timerClock = RythmeClock;
-
         if (instance == null)
             instance = this;
+
+        TestFonct();
+
+        timerClock = RythmeClock;
+
     }
     // Start is called before the first frame update
     void Start()
@@ -75,5 +80,20 @@ public class GameManager : MonoBehaviour
 
 
         timerClock = RythmeClock;
+    }
+
+
+    public void TestFonct()
+    {
+        Texture2D t = s.sprite.texture;
+        /* Color32[] pix = t.GetPixels32();
+         Debug.Log(pix.Length);
+         */
+        List<Color> pix = new List<Color>();
+        pix.AddRange(t.GetPixels());
+
+        Debug.Log("Transparent : " + pix.FindAll(x => x == Color.clear).Count);
+        Debug.Log("White : " + pix.FindAll(x => x == Color.white).Count);
+        Debug.Log("Black : " + pix.FindAll(x => x == Color.black).Count);
     }
 }

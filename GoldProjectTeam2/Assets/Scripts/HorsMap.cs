@@ -5,6 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class HorsMap : MonoBehaviour
 {
+
+    [SerializeField] private Transform posPlayer;
+
+    private void Update()
+    {
+        transform.position = new Vector3( posPlayer.position.x, transform.position.y, transform.position.z );
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
