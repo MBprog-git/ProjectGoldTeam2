@@ -37,9 +37,11 @@ public class TestLineMB : MonoBehaviour
 
     void CreateLine()
     {
-        currentLine = Instantiate(linePrefab, Vector3.zero, Quaternion.identity);
+        
+
+        currentLine = Instantiate(linePrefab, Vector3.zero,transform.rotation);
         lineRenderer = currentLine.GetComponent<LineRenderer>();
-      
+      lineRenderer.alignment = LineAlignment.Local;
         fingerPositions.Clear();
         fingerPositions.Add(Camera.main.ScreenToWorldPoint(Input.mousePosition));
         fingerPositions.Add(Camera.main.ScreenToWorldPoint(Input.mousePosition));
