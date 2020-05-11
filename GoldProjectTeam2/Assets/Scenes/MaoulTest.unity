@@ -1028,7 +1028,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1620370730}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 955ee7ad1fce7b64b93a0d8cc121b2b2, type: 3}
   m_Name: 
@@ -1127,6 +1127,8 @@ MonoBehaviour:
   Cangomme: 0
   buttonNextPage: {fileID: 1963340110}
   buttonPreviousPage: {fileID: 233019698}
+  DessinActif: 
+  DessinChrono: []
 --- !u!1 &1640457136
 GameObject:
   m_ObjectHideFlags: 0
