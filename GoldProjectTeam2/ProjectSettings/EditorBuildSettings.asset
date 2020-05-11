@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 7403ec828caee634c860d57fedcd6911
   - enabled: 1
-    path: Assets/Scenes/Vincent Scene.unity
-    guid: 6f83eed291b95bf45ba2f11aa9eabc75
+    path: Assets/Scenes/MainScene.unity
+    guid: 5e4348083d1190740aeda4bf43864c8f
   - enabled: 1
     path: Assets/Scenes/VictoryScene.unity
     guid: 68c554b445e224d4abc87d4f9eb59041
