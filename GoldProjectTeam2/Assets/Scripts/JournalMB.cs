@@ -21,15 +21,20 @@ public class JournalMB : MonoBehaviour
 
     int countMask;
 
-    // Start is called before the first frame update
+    public bool[] DessinActif;
+    public float[] DessinChrono;
+    int nextdessin;
+
+   
     void Start()
     {
         Eljournal = GameManager.instance.Journal;
     }
 
-    // Update is called once per frame
     void Update()
     {
+
+        //GOMME MASK
         if (Cangomme && Input.GetKey(KeyCode.Mouse0))
         {
            
@@ -55,8 +60,8 @@ public class JournalMB : MonoBehaviour
                     }
                 }
             }
-            
-        
+
+        DrawingEvolution();
     }
 
     public void CallIn()
@@ -127,6 +132,28 @@ public class JournalMB : MonoBehaviour
                 }
                 buttonNextPage.SetActive(true);
                 return;
+            }
+        }
+    }
+
+    public void AddDrawing(GameObject collider)
+    {
+        DessinActif[nextdessin] = true;
+        nextdessin++;
+        collider.SetActive(false);
+    }
+
+    public void DrawingEvolution()
+    {
+        for(int i=0; i<DessinActif.Length; i++)
+        {
+            if (DessinActif[i])
+            {
+                DessinChrono[i] -= Time.deltaTime;
+                if (DessinChrono[i] < 0)
+                {
+                //effet
+                }
             }
         }
     }
