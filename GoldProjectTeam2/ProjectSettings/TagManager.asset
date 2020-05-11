@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Dessin
   - Drawing
+  - Note
+  - LongNote
   layers:
   - Default
   - TransparentFX
