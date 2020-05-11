@@ -20,15 +20,19 @@ public class JournalMB : MonoBehaviour
     public GameObject buttonPreviousPage;
 
     int countMask;
+   public int nbPixelTouch;
 
     public bool[] DessinActif;
     public float[] DessinChrono;
     int nextdessin;
 
+    public float rayonCleaner;
+
    
     void Start()
     {
         Eljournal = GameManager.instance.Journal;
+
     }
 
     void Update()
@@ -46,17 +50,23 @@ public class JournalMB : MonoBehaviour
             {
                 if (hit2D.collider.tag == "Dessin" && mousePos != OldPos)
                 {
-                        GameObject go = Instantiate(GOMME, mousePos, transform.rotation);
-                        go.transform.SetParent(StockMask.transform);
-                        OldPos = mousePos;
-                        countMask++;
+                    GameObject go = Instantiate(GOMME, mousePos, transform.rotation);
+                    go.transform.SetParent(StockMask.transform);
+                    OldPos = mousePos;
+                    countMask++;
 
-                        if (countMask > 20)
-                        {
-                        //EFFET
-                        Debug.Log("EFFET DESSIN");
-                        DeleteMask();
-                        }
+                    if (countMask > 20)
+                    {
+                    //EFFET
+                    Debug.Log("EFFET DESSIN");
+                    DeleteMask();
+                    }/*
+                    EffaceDetect(mousePos, hit2D.collider.GetComponent<SpriteRenderer>());
+                    if (nbPixelTouch > 1000)
+                    {
+                        Debug.Log("EFFECT");
+                        nbPixelTouch = 0;
+                    }*/
                     }
                 }
             }
@@ -157,4 +167,29 @@ public class JournalMB : MonoBehaviour
             }
         }
     }
+
+    /* public void EffaceDetect(Vector2 mousePos, SpriteRenderer maskImage)
+     {
+     Vector2 sprite_size = GetComponent<SpriteRenderer>().sprite.rect.size;
+         Debug.Log("Hoy");
+     Vector2 min = new Vector2(mousePos.x - rayonCleaner, mousePos.y - rayonCleaner);
+     Vector2 max = new Vector2(mousePos.x + rayonCleaner, mousePos.y + rayonCleaner);
+
+                 for (int i = (int) min.x; i <= max.x; i++)
+                 {
+                     for (int j = (int) min.y; j <= max.y; j++)
+                     {
+                         if (Vector2.Distance(new Vector2(i, j), mousePos) <= rayonCleaner)
+                         {
+                             if (maskImage.sprite.texture.GetPixel(i, j).a != 0.0f)
+                             {
+                                 maskImage.sprite.texture.SetPixel(i, j, new Color(0,0,0,0));
+                                 nbPixelTouch += 1;
+
+                             }
+
+                         }
+                     }
+                 }
+     }*/
 }
