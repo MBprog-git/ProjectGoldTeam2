@@ -306,7 +306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a60f2c87ab763448b5f8991d32cb8cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ActionID: 5
+  ActionID: 6
 --- !u!61 &233019700
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -414,7 +414,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &442746196
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1227,6 +1227,13 @@ MonoBehaviour:
   buttonNextPage: {fileID: 1963340110}
   buttonPreviousPage: {fileID: 233019698}
   nbPixelTouch: 0
+  Dessin:
+  - {fileID: 1737584085}
+  - {fileID: 1985830891}
+  - {fileID: 1952008695}
+  - {fileID: 1650809355}
+  - {fileID: 720093808}
+  pageactif: 0
   DessinActif: 
   DessinChrono: []
   rayonCleaner: 5
@@ -1747,7 +1754,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a60f2c87ab763448b5f8991d32cb8cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ActionID: 4
+  ActionID: 7
 --- !u!61 &1963340113
 BoxCollider2D:
   m_ObjectHideFlags: 0

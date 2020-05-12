@@ -24,7 +24,7 @@ public      SpriteRenderer s;
         if (instance == null)
             instance = this;
 
-        TestFonct();
+      //  TestFonct();
 
         timerClock = RythmeClock;
 

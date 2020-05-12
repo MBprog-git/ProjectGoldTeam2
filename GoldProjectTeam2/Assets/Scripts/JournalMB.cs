@@ -22,6 +22,9 @@ public class JournalMB : MonoBehaviour
     int countMask;
    public int nbPixelTouch;
 
+    public GameObject[] Dessin;
+    public int pageactif;
+
     public bool[] DessinActif;
     public float[] DessinChrono;
     int nextdessin;
@@ -51,7 +54,7 @@ public class JournalMB : MonoBehaviour
             {
                 if (hit2D.collider.tag == "Dessin" && mousePos != OldPos)
                 {
-                   /* GameObject go = Instantiate(GOMME, mousePos, transform.rotation);
+                    GameObject go = Instantiate(GOMME, mousePos, transform.rotation);
                     go.transform.SetParent(StockMask.transform);
                     OldPos = mousePos;
                     countMask++;
@@ -59,12 +62,12 @@ public class JournalMB : MonoBehaviour
                    if (countMask > 20)
                     {
                     //EFFET
-                    Debug.Log("EFFET DESSIN");
-                        GameManager.instance.TestFonct();
-                    //DeleteMask();
-                    }*/
+         
+                       
+                    DeleteMask();
+                    }
                    
-                   EffaceDetect(mousePos, hit2D.collider.gameObject.GetComponent<SpriteRenderer>());
+                  // EffaceDetect(mousePos, hit2D.collider.gameObject.GetComponent<SpriteRenderer>());
                     /*if (nbPixelTouch > 1000)
                     {
                         Debug.Log("EFFECT");
@@ -100,6 +103,31 @@ public class JournalMB : MonoBehaviour
         }
         countMask = 0;
     }
+    public void PageV2(bool next)
+    {
+        Dessin[pageactif].SetActive(false);
+        if (next)
+        {
+        pageactif++;
+        buttonPreviousPage.SetActive(true);
+        }
+        else
+        {
+            pageactif--;
+            buttonNextPage.SetActive(true);
+        }
+        Dessin[pageactif].SetActive(true);
+        if (pageactif == Dessin.Length -1)
+        {
+            buttonNextPage.SetActive(false);
+        }
+        if(pageactif == 0)
+        {
+        buttonPreviousPage.SetActive(false);
+
+        }
+    }
+
 
     public void NextPage()
     {
@@ -124,6 +152,9 @@ public class JournalMB : MonoBehaviour
             }
         }
     }
+
+
+
 
     public void PreviousPage()
     {
@@ -206,12 +237,12 @@ public class JournalMB : MonoBehaviour
                      }
                  }
      }
-    private void OnDrawGizmos()
+    /*private void OnDrawGizmos()
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 min = new Vector2(mousePos.x - rayonCleaner, mousePos.y - rayonCleaner);
         Vector2 max = new Vector2(mousePos.x + rayonCleaner, mousePos.y + rayonCleaner);
         mousePos.z = 0;
         Gizmos.DrawCube(mousePos,Vector3.one * rayonCleaner);
-    }
+    }*/
 }
