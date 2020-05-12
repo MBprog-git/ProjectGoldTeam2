@@ -8,6 +8,7 @@ TagManager:
   - Drawing
   - Note
   - LongNote
+  - Balance
   layers:
   - Default
   - TransparentFX

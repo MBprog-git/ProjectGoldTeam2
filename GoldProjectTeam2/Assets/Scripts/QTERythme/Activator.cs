@@ -12,6 +12,8 @@ public class Activator : MonoBehaviour
 
     private float pressedTime;
 
+    public float neededTimeToPressForLongNote = 1.0f;
+
     SpriteRenderer sr;
     Color oldColor;
 
@@ -103,7 +105,7 @@ public class Activator : MonoBehaviour
         if (col.gameObject.tag == "LongNote" && failLongNote == true)
         {
             Debug.Log(pressedTime);
-            if(pressedTime >= 1.0f)
+            if(pressedTime >= neededTimeToPressForLongNote)
             {
                 Destroy(col.gameObject);
                 pressedTime = 0.0f;
