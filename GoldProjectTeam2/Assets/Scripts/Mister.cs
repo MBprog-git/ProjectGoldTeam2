@@ -5,18 +5,49 @@ using UnityEngine;
 public class Mister : MonoBehaviour
 {
     public GameObject player;
+    public int speed = 15;
+    public float halfwayDistance = 50.0f;
+    public float almostInScreenDistance = 20.0f;
 
-    private Vector2 playerPos;
+    private float distanceToPlayer;
+    private bool halfway = false;
+    private bool almostInScreen = false;
 
-    // Start is called before the first frame update
-    void Start()
+    Rigidbody2D rb;
+
+    void Awake()
     {
-         
+        rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
+    void Start()
+    {
+        rb.velocity = new Vector2(speed, 0);
+        Handheld.Vibrate();
+    }
+
     void Update()
     {
-        playerPos = player.transform.position;       
+        distanceToPlayer = player.transform.position.x - transform.position.x;
+        if(distanceToPlayer <= halfwayDistance && halfway == false)
+        {
+            halfway = true;
+            Debug.Log("halfway");
+            Handheld.Vibrate();
+        }
+        else if (distanceToPlayer <= almostInScreenDistance && almostInScreen == false)
+        {
+            almostInScreen = true;
+            Debug.Log("Almost in screen");
+            Handheld.Vibrate();
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if(col.gameObject.tag == "Player")
+        {
+            Debug.Log("Death");
+        }
     }
 }
