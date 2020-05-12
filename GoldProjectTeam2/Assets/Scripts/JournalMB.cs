@@ -127,6 +127,8 @@ public class JournalMB : MonoBehaviour
         buttonPreviousPage.SetActive(false);
 
         }
+        Cangomme = false;
+        DeleteMask();
     }
 
     /*

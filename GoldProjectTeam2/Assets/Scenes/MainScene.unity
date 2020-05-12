@@ -1293,7 +1293,7 @@ MonoBehaviour:
   cam: {fileID: 1374988434}
   Journal: {fileID: 308200025}
   Clocky: {fileID: 936861082}
-  RythmeClock: 10
+  RythmeClock: 25
   heure: 12
   minute: 0
 --- !u!4 &1253488176
