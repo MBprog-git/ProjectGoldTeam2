@@ -33,12 +33,12 @@ public class BoutonMB : MonoBehaviour
             case 3:
                 GameManager.instance.Journal.GetComponent<JournalMB>().Cangomme = !GameManager.instance.Journal.GetComponent<JournalMB>().Cangomme;
                 break;
-            case 4:
+          /*  case 4:
                 GameManager.instance.Journal.GetComponent<JournalMB>().NextPage();
                 break;
             case 5:
                 GameManager.instance.Journal.GetComponent<JournalMB>().PreviousPage();
-                break;     
+                break;   */  
             
             case 6:
                 GameManager.instance.Journal.GetComponent<JournalMB>().PageV2(false);

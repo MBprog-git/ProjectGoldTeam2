@@ -14,13 +14,14 @@ public class JournalMB : MonoBehaviour
     public GameObject StockMask;
     public bool Cangomme;
 
-    private GameObject turnPage;
-    private GameObject actualPage;
+    // private GameObject turnPage;
+  //  private GameObject actualPage;
     public GameObject buttonNextPage;
     public GameObject buttonPreviousPage;
 
     int countMask;
-   public int nbPixelTouch;
+    public int MaxMask;
+  // public int nbPixelTouch;
 
     public GameObject[] Dessin;
     public int pageactif;
@@ -29,7 +30,7 @@ public class JournalMB : MonoBehaviour
     public float[] DessinChrono;
     int nextdessin;
 
-    public float rayonCleaner;
+    //public float rayonCleaner;
 
    
     void Start()
@@ -59,7 +60,7 @@ public class JournalMB : MonoBehaviour
                     OldPos = mousePos;
                     countMask++;
 
-                   if (countMask > 20)
+                   if (countMask > MaxMask)
                     {
                     //EFFET
          
@@ -128,7 +129,7 @@ public class JournalMB : MonoBehaviour
         }
     }
 
-
+    /*
     public void NextPage()
     {
         GameObject book = gameObject.transform.GetChild(4).gameObject;
@@ -178,7 +179,7 @@ public class JournalMB : MonoBehaviour
                 return;
             }
         }
-    }
+    }*/
 
     public void AddDrawing(GameObject collider)
     {
@@ -202,7 +203,7 @@ public class JournalMB : MonoBehaviour
         }
     }
 
-     public void EffaceDetect(Vector2 mousePos, SpriteRenderer maskImage)
+    /* public void EffaceDetect(Vector2 mousePos, SpriteRenderer maskImage)
      {
         Texture2D t = maskImage.sprite.texture;
         //Vector2 sprite_size = GetComponent<SpriteRenderer>().sprite.rect.size;
@@ -230,14 +231,14 @@ public class JournalMB : MonoBehaviour
 
                        /* Texture2D t = maskImage.sprite.texture;
                         Color32[] pix = t.GetPixels32();
-                        Debug.Log(pix.Length);*/
+                        Debug.Log(pix.Length);
                     }
 
                     }
                      }
                  }
      }
-    /*private void OnDrawGizmos()
+    private void OnDrawGizmos()
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 min = new Vector2(mousePos.x - rayonCleaner, mousePos.y - rayonCleaner);
