@@ -5,7 +5,9 @@ using UnityEngine;
 public class SpawnNote : MonoBehaviour
 {
     public float spawnRate = 0.1f;
-    public float spawnCoolDown = 1.5f;
+    //public float spawnCoolDown = 1.5f;
+    public GameObject spawnPoint;
+    public List<GameObject> listSpawnPoint = new List<GameObject>();
 
     private float randomValue;
     private float addedValue;
@@ -21,7 +23,6 @@ public class SpawnNote : MonoBehaviour
     void Start()
     {
         addedValue = spawnRate;
-        spawnPosition = this.transform.position;
     }
 
     void Update()
@@ -31,7 +32,7 @@ public class SpawnNote : MonoBehaviour
 
     void GetRandomValue()
     {
-        randomValue = Random.value;
+        randomValue = Random.value;    
     }
 
     void CompareValue()
@@ -39,10 +40,12 @@ public class SpawnNote : MonoBehaviour
         WhichNote();
         if(addedValue >= randomValue)
         {
-            Instantiate(noteToSpawn, spawnPosition, Quaternion.identity);
+            spawnPosition = listSpawnPoint[Random.Range(0, 2)].transform.position;
+            GameObject spawnedNote = Instantiate(noteToSpawn, spawnPosition, Quaternion.identity);
+            spawnedNote.transform.SetParent(spawnPoint.transform);
             GetRandomValue();
             addedValue = spawnRate;
-            StartCoroutine(CoolDown());
+            //StartCoroutine(CoolDown());
             return;
         }
         addedValue += spawnRate;
@@ -58,10 +61,10 @@ public class SpawnNote : MonoBehaviour
         }
         noteToSpawn = longNote;
     }
-
-    IEnumerator CoolDown()
-    {
-        yield return new WaitForSeconds(spawnCoolDown);
-    }
+    //IEnumerator CoolDown()
+    //{
+    //    Debug.Log("test");
+    //    yield return new WaitForSeconds(spawnCoolDown);
+    //}
 
 }

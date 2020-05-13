@@ -5,7 +5,7 @@ using UnityEngine;
 public class Accelerometer : MonoBehaviour
 {
     public float smooth = 0.4f;
-    public float sensitivity = 6;
+    public float speed = 6;
     public float limite = 5.0f;
 
     private Vector3 balance;
@@ -20,7 +20,16 @@ public class Accelerometer : MonoBehaviour
     void Update()
     {
         currentAcceleration = Vector3.Lerp(currentAcceleration, Input.acceleration - initialAcceleration, Time.deltaTime / smooth);
-        balance.x = Mathf.Clamp(currentAcceleration.x * sensitivity, -limite, limite);
-        transform.localPosition = balance;
+        balance.x = Mathf.Clamp(currentAcceleration.x * speed, -limite, limite);
+        transform.localPosition += balance;
+
+        if (transform.localPosition.x > limite)
+        {
+            transform.localPosition = new Vector2(limite, 0);
+        }
+        if (transform.localPosition.x < -limite)
+        {
+            transform.localPosition = new Vector2(-limite, 0);
+        }
     }
 }
