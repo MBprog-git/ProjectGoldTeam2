@@ -36,7 +36,7 @@ public class Zone : MonoBehaviour
 
         if(!isInZone)
         {
-            Debug.Log("Hors de la zone");
+            //Debug.Log("Hors de la zone");
         }
     }
 
@@ -48,13 +48,13 @@ public class Zone : MonoBehaviour
         }
     }
 
-    void OnTriggerStay2D(Collider2D col)
-    {
-        if (col.gameObject.tag == "Balance")
-        {
-            isInZone = true;
-        }
-    }
+    //void OnTriggerStay2D(Collider2D col)
+    //{
+    //    if (col.gameObject.tag == "Balance")
+    //    {
+    //        isInZone = true;
+    //    }
+    //}
 
     void OnTriggerExit2D(Collider2D col)
     {
