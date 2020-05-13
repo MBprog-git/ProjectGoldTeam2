@@ -7,6 +7,11 @@ public class GameManager : MonoBehaviour
 {
 
     public Camera cam;
+    public GameObject Player;
+    public GameObject Hideout;
+    public float DecalHid1;
+    public float DecalHid2;
+
     public GameObject Journal;
     public Text Clocky;
     public float RythmeClock;
@@ -53,6 +58,11 @@ public class GameManager : MonoBehaviour
                 {
                     hit2D.collider.GetComponent<BoutonMB>().Action();
                     break;
+                }   
+                if (hit2D.collider.GetComponent<HideoutMB>() != null)
+                {
+                    Player.GetComponent<PlayerMovement>().HideMe();
+                    break;
                 }
             }
         }
@@ -82,19 +92,26 @@ public class GameManager : MonoBehaviour
 
         timerClock = RythmeClock;
     }
-
-
-   /* public void TestFonct()
+    public void SpawnHid()
     {
-        Texture2D t = s.sprite.texture;
-         Color32[] pix = t.GetPixels32();
-         Debug.Log(pix.Length);
-         
-        List<Color> pix = new List<Color>();
-        pix.AddRange(t.GetPixels());
+        Vector2 pos1 = new Vector2(Player.transform.position.x + DecalHid1, Player.transform.position.y);
+        Vector2 pos2 = new Vector2(Player.transform.position.x + DecalHid2, Player.transform.position.y);
 
-        Debug.Log("Transparent : " + pix.FindAll(x => x == Color.clear).Count);
-        Debug.Log("White : " + pix.FindAll(x => x == Color.white).Count);
-        Debug.Log("Black : " + pix.FindAll(x => x == Color.black).Count);
-    }*/
+        Instantiate(Hideout, pos1, transform.rotation);
+        Instantiate(Hideout, pos2, transform.rotation);
+    }
+
+    /* public void TestFonct()
+     {
+         Texture2D t = s.sprite.texture;
+          Color32[] pix = t.GetPixels32();
+          Debug.Log(pix.Length);
+
+         List<Color> pix = new List<Color>();
+         pix.AddRange(t.GetPixels());
+
+         Debug.Log("Transparent : " + pix.FindAll(x => x == Color.clear).Count);
+         Debug.Log("White : " + pix.FindAll(x => x == Color.white).Count);
+         Debug.Log("Black : " + pix.FindAll(x => x == Color.black).Count);
+     }*/
 }

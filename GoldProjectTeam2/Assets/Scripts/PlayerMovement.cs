@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private float speed = 5.0f;
     [SerializeField]
     private float smoothStopMove = 2.0f;
+    bool Hidden;
 
     private Rigidbody rb;
     [HideInInspector] public ManagerButtonPlayer manageButton;
@@ -30,29 +31,44 @@ public class PlayerMovement : MonoBehaviour
             manageButton.goLeft = false;
             manageButton.goRight = false;
         }
-
-        if (manageButton.goRight && !manageButton.goLeft)
+        if (!Hidden)
         {
-            if (rb.velocity.x < speed)
+            if (manageButton.goRight && !manageButton.goLeft)
             {
-                rb.AddForce(new Vector3(speed * Time.timeScale, 0, 0), ForceMode.Force);
+                if (rb.velocity.x < speed)
+                {
+                    rb.AddForce(new Vector3(speed * Time.timeScale, 0, 0), ForceMode.Force);
+                }
+                else
+                {
+                    rb.velocity = new Vector3(speed, rb.velocity.y, rb.velocity.z);
+                }
             }
-            else
+            else if (manageButton.goLeft && !manageButton.goRight)
             {
-                rb.velocity = new Vector3(speed, rb.velocity.y, rb.velocity.z);
-            }
-        }
-        else if (manageButton.goLeft && !manageButton.goRight)
-        {
-            if (rb.velocity.x > -speed)
-            {
-                rb.AddForce(new Vector3(-speed * Time.timeScale, 0, 0), ForceMode.Force);
-            }
-            else
-            {
-                rb.velocity = new Vector3(-speed, rb.velocity.y, rb.velocity.z);
+                if (rb.velocity.x > -speed)
+                {
+                    rb.AddForce(new Vector3(-speed * Time.timeScale, 0, 0), ForceMode.Force);
+                }
+                else
+                {
+                    rb.velocity = new Vector3(-speed, rb.velocity.y, rb.velocity.z);
+                }
             }
         }
     }
 
+    public void HideMe()
+    {
+        Hidden = !Hidden;
+        if (Hidden)
+        {
+        //anim caché
+
+        }
+        else
+        {
+            //canmove
+        }
+    }
 }
