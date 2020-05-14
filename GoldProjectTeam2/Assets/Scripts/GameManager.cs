@@ -19,6 +19,9 @@ public class GameManager : MonoBehaviour
     public int heure= 12;
     public int minute;
 
+    public GameObject mister;
+    public Vector2 misterPosition;
+
 //public      SpriteRenderer s;
 
 
@@ -91,7 +94,20 @@ public class GameManager : MonoBehaviour
 
 
         timerClock = RythmeClock;
+
+        HourEvent();
     }
+
+    public void HourEvent()
+    {
+        switch(heure)
+        {
+            //case 17:
+            //    SpawnMan();
+            //    break;
+        }
+    }
+
     public void SpawnHid()
     {
         Vector2 pos1 = new Vector2(Player.transform.position.x + DecalHid1, Player.transform.position.y);
@@ -99,6 +115,11 @@ public class GameManager : MonoBehaviour
 
         Instantiate(Hideout, pos1, transform.rotation);
         Instantiate(Hideout, pos2, transform.rotation);
+    }
+
+    public void SpawnMan()
+    {
+        Instantiate(mister, misterPosition, transform.rotation);
     }
 
     /* public void TestFonct()

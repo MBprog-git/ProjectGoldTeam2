@@ -5,19 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/MainMenu.unity
-    guid: 7403ec828caee634c860d57fedcd6911
-  - enabled: 0
-    path: Assets/Scenes/MainScene.unity
-    guid: 5e4348083d1190740aeda4bf43864c8f
-  - enabled: 0
-    path: Assets/Scenes/VictoryScene.unity
-    guid: 68c554b445e224d4abc87d4f9eb59041
-  - enabled: 0
-    path: Assets/Scenes/LoseScene.unity
-    guid: 03aa26192350f224fbb8dfc4ba4c0e5e
   - enabled: 1
-    path: Assets/Scenes/David.unity
-    guid: 4ec4ad797bdace14abb3b473da6242b2
+    path: Assets/Scenes/BuildScene/MainMenu.unity
+    guid: 7403ec828caee634c860d57fedcd6911
+  - enabled: 1
+    path: Assets/Scenes/BuildScene/MainScene.unity
+    guid: 5e4348083d1190740aeda4bf43864c8f
+  - enabled: 1
+    path: Assets/Scenes/BuildScene/VictoryScene.unity
+    guid: 68c554b445e224d4abc87d4f9eb59041
+  - enabled: 1
+    path: Assets/Scenes/BuildScene/LoseScene.unity
+    guid: 03aa26192350f224fbb8dfc4ba4c0e5e
   m_configObjects: {}
