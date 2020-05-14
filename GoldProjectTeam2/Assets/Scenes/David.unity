@@ -1136,9 +1136,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 302649766}
-  speed: 15
+  rythmQTE: {fileID: 507567507}
+  balanceQTE: {fileID: 1236824420}
+  speed: 10
   halfwayDistance: 50
   almostInScreenDistance: 20
+  distanceForRythmeQTE: 15
+  distanceForBalanceQTE: 5
 --- !u!50 &504626166
 Rigidbody2D:
   serializedVersion: 4
@@ -1974,7 +1978,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1236824421
 RectTransform:
   m_ObjectHideFlags: 0

@@ -5,9 +5,13 @@ using UnityEngine;
 public class Mister : MonoBehaviour
 {
     public GameObject player;
+    public GameObject rythmQTE;
+    public GameObject balanceQTE;
     public int speed = 15;
     public float halfwayDistance = 50.0f;
     public float almostInScreenDistance = 20.0f;
+    public float distanceForRythmeQTE = 15.0f;
+    public float distanceForBalanceQTE = 5.0f;
 
     private float distanceToPlayer;
     private bool halfway = false;
@@ -41,12 +45,33 @@ public class Mister : MonoBehaviour
             Debug.Log("Almost in screen");
             Handheld.Vibrate();
         }
+
+        if(distanceToPlayer <= distanceForRythmeQTE && distanceToPlayer >= distanceForBalanceQTE)
+        {
+            rythmQTE.SetActive(true);
+            balanceQTE.SetActive(false);
+        }
+
+        if(distanceToPlayer <= distanceForBalanceQTE && distanceToPlayer >= -distanceForBalanceQTE)
+        {
+            rythmQTE.SetActive(false);
+            balanceQTE.SetActive(true);
+        }
+
+        if(distanceToPlayer <= -distanceForBalanceQTE)
+        {
+            rythmQTE.SetActive(false);
+            balanceQTE.SetActive(false);
+            Debug.Log("esquiver");
+        }
     }
 
     void OnTriggerEnter2D(Collider2D col)
     {
         if(col.gameObject.tag == "Player")
         {
+            rythmQTE.SetActive(false);
+            balanceQTE.SetActive(false);
             Debug.Log("Death");
         }
     }
