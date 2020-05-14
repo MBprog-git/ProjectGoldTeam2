@@ -46,6 +46,10 @@ public class BoutonMB : MonoBehaviour
             
             case 7:
                 GameManager.instance.Journal.GetComponent<JournalMB>().PageV2(true);
+                break; 
+            
+            case 8:
+                GameManager.instance.Journal.GetComponent<JournalMB>().RemoveItems();
                 break;
         }
     }

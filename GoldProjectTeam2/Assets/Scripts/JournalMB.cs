@@ -106,7 +106,11 @@ public class JournalMB : MonoBehaviour
     }
     public void PageV2(bool next)
     {
-        Dessin[pageactif].SetActive(false);
+        if (Dessin[pageactif] != null)
+        {
+            Dessin[pageactif].SetActive(false);
+
+        }
         if (next)
         {
         pageactif++;
@@ -117,7 +121,12 @@ public class JournalMB : MonoBehaviour
             pageactif--;
             buttonNextPage.SetActive(true);
         }
+
+        if(Dessin[pageactif] != null)
+        {
+
         Dessin[pageactif].SetActive(true);
+        }
         if (pageactif == Dessin.Length -1)
         {
             buttonNextPage.SetActive(false);
@@ -248,4 +257,43 @@ public class JournalMB : MonoBehaviour
         mousePos.z = 0;
         Gizmos.DrawCube(mousePos,Vector3.one * rayonCleaner);
     }*/
+
+    public void AddItems(GameObject go)
+    {
+       for(int i=0; i < Dessin.Length; i++)
+        {
+            if (Dessin[i] == null)
+            {
+                Dessin[i] = go;
+                DessinActif[i] = true;
+                return;
+            }
+        }
+       
+
+       //EFFET inventaire plein
+
+    }
+
+    public void RemoveItems()
+    {
+        Dessin[pageactif].SetActive(false);
+        for(int i = pageactif; i<Dessin.Length; i++)
+        {
+           
+            if(i+1 == Dessin.Length)
+            {
+                Dessin[i] = null;
+            }
+            else
+            {
+        Dessin[i] = Dessin[i+1];
+
+            }
+
+        }
+
+        Dessin[pageactif].SetActive(true);
+        
+    }
 }
