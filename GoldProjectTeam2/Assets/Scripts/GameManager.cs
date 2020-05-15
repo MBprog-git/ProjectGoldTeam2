@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour
                     hit2D.collider.GetComponent<BoutonMB>().Action();
                     break;
                 }   
-                if (hit2D.collider.GetComponent<HideoutMB>() != null)
+                if (hit2D.collider.tag == "Hideout")
                 {
                     Player.GetComponent<PlayerMovement>().HideMe();
                     break;

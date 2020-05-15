@@ -8,11 +8,13 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
 
-    [SerializeField]
-    private float speed = 5.0f;
+    public float speedBase = 5.0f;
+    public float speed;
     [SerializeField]
     private float smoothStopMove = 2.0f;
+
     bool Hidden;
+   public bool Canhide = true;
 
     private Rigidbody rb;
     [HideInInspector] public ManagerButtonPlayer manageButton;
@@ -21,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         manageButton = GetComponent<ManagerButtonPlayer>();
+        speed = speedBase;
     }
 
     public void Update()
@@ -60,15 +63,17 @@ public class PlayerMovement : MonoBehaviour
 
     public void HideMe()
     {
-        Hidden = !Hidden;
-        if (Hidden)
-        {
-        //anim caché
+        if (Canhide || Hidden) {
 
-        }
-        else
-        {
-            //canmove
-        }
+            Hidden = !Hidden;
+            if (Hidden)
+            {
+                //anim caché +QTE;
+
+            }
+         
+        } 
     }
+
+
 }

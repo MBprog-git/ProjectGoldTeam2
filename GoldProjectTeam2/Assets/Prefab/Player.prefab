@@ -203,21 +203,19 @@ MonoBehaviour:
   ActivePoint: {fileID: 1734037377}
   InactivePoint: {fileID: 450757867}
   activated: 0
-  GOMME: {fileID: 5967142464927241471, guid: 0f0ff6da9d6be7641b8bc837a5f46403, type: 3}
-  StockMask: {fileID: 866577326}
-  Cangomme: 0
   buttonNextPage: {fileID: 1930880810}
   buttonPreviousPage: {fileID: 1927380624}
-  MaxMask: 50
-  Dessin:
-  - {fileID: 498736439}
-  - {fileID: 1224952332}
-  - {fileID: 1363105910}
-  - {fileID: 1327880370}
-  - {fileID: 1359354920}
   pageactif: 0
-  DessinActif: 
-  DessinChrono: []
+  Dessin:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  DessinChrono:
+  - 0
+  - 0
+  - 0
+  - 0
 --- !u!1 &450757866
 GameObject:
   m_ObjectHideFlags: 0
@@ -3418,8 +3416,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 120cbfdf41b277a4285dffd1df89f14b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speedBase: 5
   speed: 7
   smoothStopMove: 2
+  Canhide: 1
   manageButton: {fileID: 0}
 --- !u!114 &3508645415307656418
 MonoBehaviour:
