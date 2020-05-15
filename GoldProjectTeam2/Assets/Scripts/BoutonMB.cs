@@ -30,10 +30,10 @@ public class BoutonMB : MonoBehaviour
             case 2:
                 GameManager.instance.Journal.GetComponent<JournalMB>().CallOut();
                 break; 
-            case 3:
+          /*  case 3:
                 GameManager.instance.Journal.GetComponent<JournalMB>().Cangomme = !GameManager.instance.Journal.GetComponent<JournalMB>().Cangomme;
                 break;
-          /*  case 4:
+            case 4:
                 GameManager.instance.Journal.GetComponent<JournalMB>().NextPage();
                 break;
             case 5:
@@ -50,6 +50,14 @@ public class BoutonMB : MonoBehaviour
             
             case 8:
                 GameManager.instance.Journal.GetComponent<JournalMB>().RemoveItems();
+                break; 
+            
+            case 9:
+                GameManager.instance.Journal.GetComponent<JournalMB>().Selfie();
+                break;
+            
+            case 10:
+                GameManager.instance.Journal.GetComponent<JournalMB>().AddItems(transform.parent.gameObject.GetComponent<PhotoZone>().Myphoto);
                 break;
         }
     }

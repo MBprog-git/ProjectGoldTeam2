@@ -9,101 +9,59 @@ public class JournalMB : MonoBehaviour
     public Transform InactivePoint;
     public bool activated;
 
-    Vector3 OldPos;
+   /* Vector3 OldPos;
     public GameObject GOMME;
     public GameObject StockMask;
-    public bool Cangomme;
+    int countMask;
+    public int MaxMask;
+   public int nbPixelTouch;
+    public float rayonCleaner;
+    public bool Cangomme;*/
 
     // private GameObject turnPage;
   //  private GameObject actualPage;
     public GameObject buttonNextPage;
     public GameObject buttonPreviousPage;
-
-    int countMask;
-    public int MaxMask;
-  // public int nbPixelTouch;
-
-    public GameObject[] Dessin;
     public int pageactif;
 
-    public bool[] DessinActif;
+    int ChargePhoto = 10;
+public bool canSelfie = true;
+
+ //   public bool[] DessinActif;
+    public GameObject[] Dessin;
     public float[] DessinChrono;
     int nextdessin;
 
-    //public float rayonCleaner;
 
    
     void Start()
     {
         Eljournal = GameManager.instance.Journal;
-
     }
 
     void Update()
     {
-
-        //GOMME MASK
-        if (Cangomme && Input.GetKey(KeyCode.Mouse0))
-        {
-           
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mousePos.z = 0;
-            RaycastHit2D[] hits2D = Physics2D.RaycastAll(mousePos, Vector3.back);
-           
-
-            foreach (RaycastHit2D hit2D in hits2D)
-            {
-                if (hit2D.collider.tag == "Dessin" && mousePos != OldPos)
-                {
-                    GameObject go = Instantiate(GOMME, mousePos, transform.rotation);
-                    go.transform.SetParent(StockMask.transform);
-                    OldPos = mousePos;
-                    countMask++;
-
-                   if (countMask > MaxMask)
-                    {
-                    //EFFET
-         
-                       
-                    DeleteMask();
-                    }
-                   
-                  // EffaceDetect(mousePos, hit2D.collider.gameObject.GetComponent<SpriteRenderer>());
-                    /*if (nbPixelTouch > 1000)
-                    {
-                        Debug.Log("EFFECT");
-                        nbPixelTouch = 0;
-                    }*/
-                    }
-                }
-            }
-
         DrawingEvolution();
+
+       
+
     }
 
     public void CallIn()
     {
         Eljournal.transform.position = ActivePoint.transform.position;
         activated = true;
-        countMask = 0;
+       // countMask = 0;
     }
     public void CallOut()
     {
         Eljournal.transform.position = InactivePoint.transform.position;
         activated = false;
-        Cangomme = false;
+       /* Cangomme = false;
         DeleteMask();
-        countMask = 0;
+        countMask = 0;*/
     }
 
-    public void DeleteMask()
-    {
-        foreach(Transform child in StockMask.transform)
-        {
-            Destroy(child.gameObject);
-        }
-        countMask = 0;
-    }
     public void PageV2(bool next)
     {
         if (Dessin[pageactif] != null)
@@ -136,9 +94,139 @@ public class JournalMB : MonoBehaviour
         buttonPreviousPage.SetActive(false);
 
         }
-        Cangomme = false;
-        DeleteMask();
+       /* Cangomme = false;
+        DeleteMask();*/
     }
+
+
+    public void DrawingEvolution()
+    {
+        for(int i=0; i<Dessin.Length; i++)
+        {
+            if (Dessin[i]!=null)
+            {
+                DessinChrono[i] += Time.deltaTime;
+                
+                
+                
+                    Dessin[i].GetComponent<PhotoAction>().EFFET(DessinChrono[i]);  
+
+            }
+        }
+    }
+
+
+    public void AddItems(GameObject go)
+    {
+        if (ChargePhoto > 0)
+        {
+            for (int i = 1; i < Dessin.Length; i++)
+            {
+                if (Dessin[i] == null)
+                {
+                    ChargePhoto--;
+                    Dessin[i] = go;
+                    DessinChrono[i] = 0;
+                    return;
+                }
+            }
+        }
+       
+
+       //EFFET inventaire plein
+
+    }
+
+    public void RemoveItems()
+    {
+        if(pageactif == 0)
+        {
+            return; //Photo Humaine
+        }
+        Dessin[pageactif].GetComponent<PhotoAction>().DiscardPhoto();
+        Dessin[pageactif].SetActive(false);
+
+        for (int i = pageactif; i < Dessin.Length; i++)
+        {
+
+            if (i + 1 == Dessin.Length)
+            {
+                Dessin[i] = null;
+
+
+            }
+            else
+            {
+                Dessin[i] = Dessin[i + 1];
+                DessinChrono[i] = DessinChrono[i + 1];
+
+            }
+
+        }
+
+        Dessin[pageactif].SetActive(true);
+
+
+    }
+
+    public void Selfie()
+    {
+        if (canSelfie)
+        {
+
+        // modifier Dessin[0];
+        }
+       
+
+    }
+
+   /* public void Gomme()
+    {
+
+        /* //GOMME MASK
+        if (Cangomme && Input.GetKey(KeyCode.Mouse0))
+        {
+           
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mousePos.z = 0;
+            RaycastHit2D[] hits2D = Physics2D.RaycastAll(mousePos, Vector3.back);
+           
+
+            foreach (RaycastHit2D hit2D in hits2D)
+            {
+                if (hit2D.collider.tag == "Dessin" && mousePos != OldPos)
+                {
+                    GameObject go = Instantiate(GOMME, mousePos, transform.rotation);
+                    go.transform.SetParent(StockMask.transform);
+                    OldPos = mousePos;
+                    countMask++;
+
+                   if (countMask > MaxMask)
+                    {
+                    //EFFET
+         
+                       
+                    DeleteMask();
+                    }
+                   
+                  // EffaceDetect(mousePos, hit2D.collider.gameObject.GetComponent<SpriteRenderer>());
+                    if (nbPixelTouch > 1000)
+                    {
+                        Debug.Log("EFFECT");
+                        nbPixelTouch = 0;
+                    }
+                    }
+                }
+            }
+    }*/
+    /* public void DeleteMask()
+     {
+         foreach(Transform child in StockMask.transform)
+         {
+             Destroy(child.gameObject);
+         }
+         countMask = 0;
+     }*/
 
     /*
     public void NextPage()
@@ -192,27 +280,14 @@ public class JournalMB : MonoBehaviour
         }
     }*/
 
-    public void AddDrawing(GameObject collider)
-    {
-        DessinActif[nextdessin] = true;
-        nextdessin++;
-        collider.SetActive(false);
-    }
+    /* public void AddDrawing(GameObject collider)
+     {
+         DessinActif[nextdessin] = true;
+         nextdessin++;
+         collider.SetActive(false);
+     }*/
 
-    public void DrawingEvolution()
-    {
-        for(int i=0; i<DessinActif.Length; i++)
-        {
-            if (DessinActif[i])
-            {
-                DessinChrono[i] -= Time.deltaTime;
-                if (DessinChrono[i] < 0)
-                {
-                //effet
-                }
-            }
-        }
-    }
+
 
     /* public void EffaceDetect(Vector2 mousePos, SpriteRenderer maskImage)
      {
@@ -257,43 +332,4 @@ public class JournalMB : MonoBehaviour
         mousePos.z = 0;
         Gizmos.DrawCube(mousePos,Vector3.one * rayonCleaner);
     }*/
-
-    public void AddItems(GameObject go)
-    {
-       for(int i=0; i < Dessin.Length; i++)
-        {
-            if (Dessin[i] == null)
-            {
-                Dessin[i] = go;
-                DessinActif[i] = true;
-                return;
-            }
-        }
-       
-
-       //EFFET inventaire plein
-
-    }
-
-    public void RemoveItems()
-    {
-        Dessin[pageactif].SetActive(false);
-        for(int i = pageactif; i<Dessin.Length; i++)
-        {
-           
-            if(i+1 == Dessin.Length)
-            {
-                Dessin[i] = null;
-            }
-            else
-            {
-        Dessin[i] = Dessin[i+1];
-
-            }
-
-        }
-
-        Dessin[pageactif].SetActive(true);
-        
-    }
 }
