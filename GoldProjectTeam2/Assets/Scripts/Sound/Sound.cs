@@ -2,7 +2,9 @@
 
 public enum TYPE_AUDIO
 {
-    MusiqueAmbiance
+    MusiqueAmbianceSoleil,
+    MusiqueAmbianceDemiLune,
+    MusiqueAmbianceLune
 }
 
 [System.Serializable]

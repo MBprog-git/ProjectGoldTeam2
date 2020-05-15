@@ -4,8 +4,6 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class PlayMultipleSound : MonoBehaviour
 {
-    [HideInInspector]
-    public bool declencherAudio = false;
 
     [SerializeField]
     private TYPE_AUDIO[] typeAudio;
@@ -13,6 +11,7 @@ public class PlayMultipleSound : MonoBehaviour
     private SoundManager soundManager;
     private Sound[] soundsToPlay;
     private AudioSource audioSource;
+    private TYPE_AUDIO typeAudioPlaying;
 
     // Start is called before the first frame update
     void Start()
@@ -45,7 +44,6 @@ public class PlayMultipleSound : MonoBehaviour
 
     public void PlaySound(TYPE_AUDIO typeAudio)
     {
-        declencherAudio = true;
         for (int i = 0; i < soundsToPlay.Length; i++)
         {
             if (soundsToPlay[i].audioFor == typeAudio)
@@ -54,6 +52,7 @@ public class PlayMultipleSound : MonoBehaviour
                 audioSource.clip = soundsToPlay[i].audio;
                 audioSource.loop = soundsToPlay[i].loop;
                 audioSource.Play();
+                typeAudioPlaying = soundsToPlay[i].audioFor;
                 return;
             }
         }
@@ -69,9 +68,15 @@ public class PlayMultipleSound : MonoBehaviour
                 audioSource.clip = soundsToPlay[i].audio;
                 audioSource.loop = soundsToPlay[i].loop;
                 audioSource.Play();
+                typeAudioPlaying = soundsToPlay[i].audioFor;
                 return;
             }
         }
+    }
+
+    public TYPE_AUDIO GetEnumOfAudioPlaying()
+    {
+        return typeAudioPlaying;
     }
 
 }
