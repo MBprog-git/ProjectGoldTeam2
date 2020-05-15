@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ManagerButtonPlayer : MonoBehaviour
 {
@@ -44,6 +45,7 @@ public class ManagerButtonPlayer : MonoBehaviour
     {
         panelPlay.SetActive(true);
         panelPause.SetActive(false);
+        GameManager.instance.Journal.GetComponent<JournalMB>().CallOut();
         Time.timeScale = 1;
     }
 
@@ -51,6 +53,13 @@ public class ManagerButtonPlayer : MonoBehaviour
     {
         Time.timeScale = 1;
         SceneManager.LoadScene(nameSceneMainMenu);
+    }
+
+    public void ButtonGoJournal()
+    {
+        panelPlay.SetActive(false);
+        panelPause.SetActive(false);
+        GameManager.instance.Journal.GetComponent<JournalMB>().CallIn();
     }
 
     public void ButtonExit()
