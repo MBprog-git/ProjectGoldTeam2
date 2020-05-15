@@ -14,7 +14,11 @@ public class PlayerMovement : MonoBehaviour
     private float smoothStopMove = 2.0f;
 
     bool Hidden;
-   public bool Canhide = true;
+    public bool Canhide = true;
+
+    public float distanceInOrderToSpawnMan = 100.0f;
+    public GameObject shadowMan;
+    private bool shadowManIsRelease = false;
 
     private Rigidbody rb;
     [HideInInspector] public ManagerButtonPlayer manageButton;
@@ -58,6 +62,10 @@ public class PlayerMovement : MonoBehaviour
                     rb.velocity = new Vector3(-speed, rb.velocity.y, rb.velocity.z);
                 }
             }
+            if (transform.position.x >= distanceInOrderToSpawnMan && !shadowManIsRelease)
+            {
+                SpawnMan();
+            }
         }
     }
 
@@ -75,5 +83,10 @@ public class PlayerMovement : MonoBehaviour
         } 
     }
 
-
+    public void SpawnMan()
+    {
+        GameObject badGuy = Instantiate(shadowMan);
+        badGuy.transform.position = new Vector2(0, 0);
+        shadowManIsRelease = true;
+    }
 }

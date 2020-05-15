@@ -206,6 +206,7 @@ MonoBehaviour:
   buttonNextPage: {fileID: 1930880810}
   buttonPreviousPage: {fileID: 1927380624}
   pageactif: 0
+  canSelfie: 1
   Dessin:
   - {fileID: 0}
   - {fileID: 0}
@@ -3420,6 +3421,9 @@ MonoBehaviour:
   speed: 7
   smoothStopMove: 2
   Canhide: 1
+  distanceInOrderToSpawnMan: 100
+  shadowMan: {fileID: 8457590945120473954, guid: 07fadb42adcb6b5419f846aa4ec54369,
+    type: 3}
   manageButton: {fileID: 0}
 --- !u!114 &3508645415307656418
 MonoBehaviour:
