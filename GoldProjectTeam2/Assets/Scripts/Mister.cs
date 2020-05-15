@@ -8,7 +8,8 @@ public class Mister : MonoBehaviour
     public GameObject rythmQTE;
     public GameObject balanceQTE;
     public int speed = 15;
-    public float halfwayDistance = 50.0f;
+    private float spawnDistanceToPlayer;
+    private float halfwayDistance;
     public float almostInScreenDistance = 20.0f;
     public float distanceForRythmeQTE = 15.0f;
     public float distanceForBalanceQTE = 5.0f;
@@ -17,53 +18,79 @@ public class Mister : MonoBehaviour
     private bool halfway = false;
     private bool almostInScreen = false;
 
+    private float randomDistance;
+    private bool isRandomDistanceVibrationActivated = false;
+
     Rigidbody2D rb;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        spawnDistanceToPlayer = player.transform.position.x;
     }
 
     void Start()
     {
         rb.velocity = new Vector2(speed, 0);
         Handheld.Vibrate();
+        randomDistance = Random.Range(10, 100) - 5;
+        halfwayDistance = spawnDistanceToPlayer / 2 * -1;
+        Debug.Log(randomDistance);
     }
 
     void Update()
     {
-        distanceToPlayer = player.transform.position.x - transform.position.x;
-        if(distanceToPlayer <= halfwayDistance && halfway == false)
+        FunctionDistance();
+    }
+
+    void FunctionDistance()
+    {
+        distanceToPlayer = (player.transform.position.x + transform.position.x) * -1;
+        if (distanceToPlayer <= halfwayDistance && halfway == false)
         {
             halfway = true;
             Debug.Log("halfway");
             Handheld.Vibrate();
         }
-        else if (distanceToPlayer <= almostInScreenDistance && almostInScreen == false)
+
+        if (distanceToPlayer <= almostInScreenDistance && almostInScreen == false)
         {
             almostInScreen = true;
             Debug.Log("Almost in screen");
             Handheld.Vibrate();
         }
 
-        if(distanceToPlayer <= distanceForRythmeQTE && distanceToPlayer >= distanceForBalanceQTE)
+        if (!isRandomDistanceVibrationActivated)
+        {
+            if (transform.position.x >= randomDistance)
+            {
+                Handheld.Vibrate();
+                isRandomDistanceVibrationActivated = true;
+            }
+        }
+
+        if (distanceToPlayer <= distanceForRythmeQTE && distanceToPlayer >= distanceForBalanceQTE)
         {
             rythmQTE.SetActive(true);
             balanceQTE.SetActive(false);
+            return;
         }
 
-        if(distanceToPlayer <= distanceForBalanceQTE && distanceToPlayer >= -distanceForBalanceQTE)
+        if (distanceToPlayer <= distanceForBalanceQTE && distanceToPlayer >= -distanceForBalanceQTE)
         {
             rythmQTE.SetActive(false);
             balanceQTE.SetActive(true);
+            return;
         }
 
-        if(distanceToPlayer <= -distanceForBalanceQTE)
+        if (distanceToPlayer <= -distanceForBalanceQTE)
         {
             rythmQTE.SetActive(false);
             balanceQTE.SetActive(false);
             Debug.Log("esquiver");
+            return;
         }
+
     }
 
     void OnTriggerEnter2D(Collider2D col)
