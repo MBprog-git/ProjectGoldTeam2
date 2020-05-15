@@ -5,10 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Dessin
-  - Drawing
   - Note
   - LongNote
   - Balance
+  - Hideout
   layers:
   - Default
   - TransparentFX
