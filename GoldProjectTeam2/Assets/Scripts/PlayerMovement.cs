@@ -78,6 +78,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 //anim caché +QTE;
                 transform.position = Cachette.transform.position;
+                rb.velocity = Vector3.zero;
             }
          
         } 
