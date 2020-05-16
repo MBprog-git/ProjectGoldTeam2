@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Mister : MonoBehaviour
 {
-    public GameObject player;
-    public GameObject rythmQTE;
-    public GameObject balanceQTE;
+    private GameObject player;
+    private GameObject rythmQTE;
+    private GameObject balanceQTE;
     public int speedBase = 15;
     public float speed;
     private float spawnDistanceToPlayer;
@@ -28,9 +28,11 @@ public class Mister : MonoBehaviour
     {
         speed = speedBase;
         rb = GetComponent<Rigidbody>();
-        spawnDistanceToPlayer = player.transform.position.x;
 
         player = GameManager.instance.Player;
+        rythmQTE = GameManager.instance.QTERythme;
+        balanceQTE = GameManager.instance.QTEBalance;
+        spawnDistanceToPlayer = player.transform.position.x;
     }
 
     void Start()
@@ -38,8 +40,7 @@ public class Mister : MonoBehaviour
         rb.velocity = new Vector2(speed, 0);
         Handheld.Vibrate();
         randomDistance = Random.Range(10, 100) - 5;
-        halfwayDistance = spawnDistanceToPlayer / 2 * -1;
-        Debug.Log(randomDistance);
+        halfwayDistance = spawnDistanceToPlayer / 2 * -1; 
     }
 
     void Update()

@@ -6,7 +6,10 @@ public class GameManager : MonoBehaviour
 {
     public Camera cam;
     public GameObject Player;
+    public GameObject QTEBalance;
+    public GameObject QTERythme;
     public GameObject Hideout;
+
     public float DecalHid1;
     public float DecalHid2;
 

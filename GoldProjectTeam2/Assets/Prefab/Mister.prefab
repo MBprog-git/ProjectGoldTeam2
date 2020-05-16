@@ -96,13 +96,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed6b925511508164ab950267ddf7b515, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 3508645415307656427, guid: 53ae6985a8e15ad4d9a0b129b62b82b7, type: 3}
-  rythmQTE: {fileID: 8630299726447343419, guid: af9b4482cf9114b48ac00ceb885c121f,
-    type: 3}
-  balanceQTE: {fileID: 5255624003167247413, guid: 45b8dadbf66603b42bb7aa5ad6127d6e,
-    type: 3}
-  speedBase: 5
-  speed: 5
+  speedBase: 2
+  speed: 2
   almostInScreenDistance: 20
   distanceForRythmeQTE: 15
   distanceForBalanceQTE: 5

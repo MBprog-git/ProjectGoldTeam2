@@ -202,6 +202,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &24834499 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4308690717958617169, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1374988433}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &33543497
 GameObject:
   m_ObjectHideFlags: 0
@@ -1356,7 +1362,7 @@ PrefabInstance:
     - target: {fileID: 2834385169165682083, guid: 14f2d709118c94f4f898e83f0c8bdf15,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 60
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 2834385169165682083, guid: 14f2d709118c94f4f898e83f0c8bdf15,
         type: 3}
@@ -1446,6 +1452,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 1374988434}
   Player: {fileID: 1374988436}
+  QTEBalance: {fileID: 24834499}
+  QTERythme: {fileID: 1391907408}
   Hideout: {fileID: 2834385169165682111, guid: 14f2d709118c94f4f898e83f0c8bdf15, type: 3}
   DecalHid1: 20
   DecalHid2: 40
@@ -2208,6 +2216,12 @@ Transform:
 --- !u!1 &1374988436 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3508645415307656427, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1374988433}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1391907408 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1530726960169291895, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
     type: 3}
   m_PrefabInstance: {fileID: 1374988433}
   m_PrefabAsset: {fileID: 0}
