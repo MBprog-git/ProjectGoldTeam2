@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8457590945120473954}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 45.63184, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -148,7 +148,11 @@ MonoBehaviour:
     type: 3}
   balanceQTE: {fileID: 5255624003167247413, guid: 45b8dadbf66603b42bb7aa5ad6127d6e,
     type: 3}
+  speedBase: 15
   speed: 5
   almostInScreenDistance: 20
   distanceForRythmeQTE: 15
   distanceForBalanceQTE: 5
+  distanceToPlayer: 0
+  halfway: 0
+  almostInScreen: 0

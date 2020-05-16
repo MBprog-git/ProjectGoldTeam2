@@ -52,7 +52,10 @@ public bool canSelfie = true;
     {
         Eljournal.transform.position = ActivePoint.transform.position;
         activated = true;
-       // countMask = 0;
+        if (Dessin[pageactif] != null)
+        {
+            Dessin[pageactif].SetActive(true);
+        }// countMask = 0;
     }
     public void CallOut()
     {
@@ -102,7 +105,7 @@ public bool canSelfie = true;
 
     public void DrawingEvolution()
     {
-        for(int i=0; i<Dessin.Length; i++)
+        for(int i=1; i<Dessin.Length; i++)
         {
             if (Dessin[i]!=null)
             {
