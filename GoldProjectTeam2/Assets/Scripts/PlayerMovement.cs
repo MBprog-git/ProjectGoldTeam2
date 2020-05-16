@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float smoothStopMove = 2.0f;
 
-    bool Hidden;
+    public bool Hidden;
     public bool Canhide = true;
 
     public float distanceInOrderToSpawnMan = 100.0f;

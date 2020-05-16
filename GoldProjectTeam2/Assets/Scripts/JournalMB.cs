@@ -28,6 +28,7 @@ public class JournalMB : MonoBehaviour
 public bool canSelfie = true;
 
  //   public bool[] DessinActif;
+    public GameObject[] Selfies;
     public GameObject[] Dessin;
     public float[] DessinChrono;
     int nextdessin;
@@ -127,6 +128,11 @@ public bool canSelfie = true;
                     ChargePhoto--;
                     Dessin[i] = go;
                     DessinChrono[i] = 0;
+
+                    float newdist = GameManager.instance.mister.GetComponent<Mister>().distanceToPlayer * 0.8f;
+                   newdist = GameManager.instance.Player.transform.position.x - newdist; 
+                    GameManager.instance.mister.transform.position = new Vector2(newdist, GameManager.instance.mister.transform.position.y) ; 
+                    
                     return;
                 }
             }
@@ -171,12 +177,25 @@ public bool canSelfie = true;
 
     public void Selfie()
     {
-        if (canSelfie)
+        if (canSelfie && ChargePhoto>0)
         {
+            if (GameManager.instance.mister.GetComponent<Mister>().almostInScreen)
+            {
 
-        // modifier Dessin[0];
+                Dessin[0] = Selfies[2];
+            }
+            else if (GameManager.instance.mister.GetComponent<Mister>().halfway)
+            {
+
+                Dessin[0] = Selfies[1];
+            }
+            else
+            {
+                Dessin[0] = Selfies[0];
+            }
+        
+        ChargePhoto--;
         }
-       
 
     }
 

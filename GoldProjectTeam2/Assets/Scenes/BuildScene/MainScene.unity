@@ -1291,8 +1291,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1374988434}
-  Player: {fileID: 0}
-  Hideout: {fileID: 0}
+  Player: {fileID: 1374988436}
+  Hideout: {fileID: 2834385169165682111, guid: 14f2d709118c94f4f898e83f0c8bdf15, type: 3}
   DecalHid1: 0
   DecalHid2: 0
   Journal: {fileID: 308200025}
@@ -1300,8 +1300,11 @@ MonoBehaviour:
   RythmeClock: 25
   heure: 12
   minute: 0
-  mister: {fileID: 0}
+  mister: {fileID: 8457590945120473954, guid: 07fadb42adcb6b5419f846aa4ec54369, type: 3}
   misterPosition: {x: 0, y: 0}
+  timeSwitchToDemiLune: 19
+  timeSwitchToLune: 21
+  graindCouleur: {fileID: 0}
 --- !u!4 &1253488176
 Transform:
   m_ObjectHideFlags: 0
@@ -1932,6 +1935,12 @@ Camera:
 --- !u!4 &1374988435 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3508645415307656423, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1374988433}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1374988436 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3508645415307656427, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
     type: 3}
   m_PrefabInstance: {fileID: 1374988433}
   m_PrefabAsset: {fileID: 0}

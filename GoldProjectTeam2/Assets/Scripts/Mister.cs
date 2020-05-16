@@ -7,16 +7,17 @@ public class Mister : MonoBehaviour
     public GameObject player;
     public GameObject rythmQTE;
     public GameObject balanceQTE;
-    public int speed = 15;
+    public int speedBase = 15;
+    public float speed;
     private float spawnDistanceToPlayer;
     private float halfwayDistance;
     public float almostInScreenDistance = 20.0f;
     public float distanceForRythmeQTE = 15.0f;
     public float distanceForBalanceQTE = 5.0f;
 
-    private float distanceToPlayer;
-    private bool halfway = false;
-    private bool almostInScreen = false;
+    public float distanceToPlayer;
+    public bool halfway = false;
+    public bool almostInScreen = false;
 
     private float randomDistance;
     private bool isRandomDistanceVibrationActivated = false;
@@ -25,6 +26,7 @@ public class Mister : MonoBehaviour
 
     void Awake()
     {
+        speed = speedBase;
         rb = GetComponent<Rigidbody2D>();
         spawnDistanceToPlayer = player.transform.position.x;
     }
@@ -69,14 +71,14 @@ public class Mister : MonoBehaviour
             }
         }
 
-        if (distanceToPlayer <= distanceForRythmeQTE && distanceToPlayer >= distanceForBalanceQTE)
+        if (distanceToPlayer <= distanceForRythmeQTE && distanceToPlayer >= distanceForBalanceQTE && GameManager.instance.Player.GetComponent<PlayerMovement>().Hidden)
         {
             rythmQTE.SetActive(true);
             balanceQTE.SetActive(false);
             return;
         }
 
-        if (distanceToPlayer <= distanceForBalanceQTE && distanceToPlayer >= -distanceForBalanceQTE)
+        if (distanceToPlayer <= distanceForBalanceQTE && distanceToPlayer >= -distanceForBalanceQTE && GameManager.instance.Player.GetComponent<PlayerMovement>().Hidden)
         {
             rythmQTE.SetActive(false);
             balanceQTE.SetActive(true);
@@ -95,7 +97,7 @@ public class Mister : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.gameObject.tag == "Player")
+        if(col.gameObject.tag == "Player" && !GameManager.instance.Player.GetComponent<PlayerMovement>().Hidden)
         {
             rythmQTE.SetActive(false);
             balanceQTE.SetActive(false);

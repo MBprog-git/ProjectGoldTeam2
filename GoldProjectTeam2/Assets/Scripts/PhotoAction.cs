@@ -5,6 +5,7 @@ using UnityEngine;
 public class PhotoAction : MonoBehaviour
 {
     public int IdAction;
+    bool tpOnce;
 
     /*iDAction
      0=Rien
@@ -49,7 +50,9 @@ public class PhotoAction : MonoBehaviour
                 if (chrono > 45)
                 {
                     GameManager.instance.Journal.GetComponent<JournalMB>().canSelfie = false;
-                    //Tempete +vitesse shadowmen 
+                    //Tempete
+                        GameManager.instance.mister.GetComponent<Mister>().speed = GameManager.instance.mister.GetComponent<Mister>().speed * 0.70f;
+      
                 }
 
                 else if (chrono > 15)
@@ -63,7 +66,13 @@ public class PhotoAction : MonoBehaviour
                 
                 if (chrono > 50)
                 {
-                    //Passage voiture+Shadowman
+                    //Passage voiture
+                    if (!tpOnce)
+                    {
+                    GameManager.instance.mister.transform.position = new Vector2(GameManager.instance.mister.GetComponent<Mister>().almostInScreenDistance, GameManager.instance.mister.transform.position.y) ;
+                        tpOnce = true;
+                    }
+
                 }
 
                 else if (chrono > 35)
@@ -101,12 +110,13 @@ public class PhotoAction : MonoBehaviour
                     //anim
                                                 break;
             case 2:
-                //can selfie+shadowmen+effet
+                //effet
                 GameManager.instance.Journal.GetComponent<JournalMB>().canSelfie = true;
+                GameManager.instance.mister.GetComponent<Mister>().speed = GameManager.instance.mister.GetComponent<Mister>().speedBase;
                 break;
             case 3:
                 //effet visuel
-                
+                tpOnce = false;
                 break;
             case 4:
                 GameManager.instance.Player.GetComponent<PlayerMovement>().Canhide = true;
