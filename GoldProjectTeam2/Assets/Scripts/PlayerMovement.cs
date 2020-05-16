@@ -69,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void HideMe()
+    public void HideMe(GameObject Cachette)
     {
         if (Canhide || Hidden) {
 
@@ -77,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
             if (Hidden)
             {
                 //anim caché +QTE;
-
+                transform.position = Cachette.transform.position;
             }
          
         } 

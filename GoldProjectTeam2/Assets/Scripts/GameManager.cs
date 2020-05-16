@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour
                 }   
                 if (hit2D.collider.tag == "Hideout")
                 {
-                    Player.GetComponent<PlayerMovement>().HideMe();
+                    Player.GetComponent<PlayerMovement>().HideMe(hit2D.collider.gameObject);
                     break;
                 }
             }

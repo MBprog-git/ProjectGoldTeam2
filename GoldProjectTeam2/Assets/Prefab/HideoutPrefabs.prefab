@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2834385169165682110}
   m_Layer: 0
   m_Name: HideoutPrefabs
-  m_TagString: Untagged
+  m_TagString: Hideout
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
