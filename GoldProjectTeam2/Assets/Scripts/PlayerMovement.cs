@@ -86,7 +86,8 @@ public class PlayerMovement : MonoBehaviour
     public void SpawnMan()
     {
         GameObject badGuy = Instantiate(shadowMan);
-        badGuy.transform.position = new Vector2(0, 0);
+       GameManager.instance.mister =badGuy;
+        badGuy.transform.position = new Vector3(0, 0, transform.position.z);
         shadowManIsRelease = true;
     }
 }

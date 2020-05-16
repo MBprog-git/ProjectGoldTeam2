@@ -22,13 +22,15 @@ public class Mister : MonoBehaviour
     private float randomDistance;
     private bool isRandomDistanceVibrationActivated = false;
 
-    Rigidbody2D rb;
+    Rigidbody rb;
 
     void Awake()
     {
         speed = speedBase;
-        rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody>();
         spawnDistanceToPlayer = player.transform.position.x;
+
+        player = GameManager.instance.Player;
     }
 
     void Start()
@@ -47,7 +49,8 @@ public class Mister : MonoBehaviour
 
     void FunctionDistance()
     {
-        distanceToPlayer = (player.transform.position.x + transform.position.x) * -1;
+        distanceToPlayer = (player.transform.position.x - transform.position.x) ;
+
         if (distanceToPlayer <= halfwayDistance && halfway == false)
         {
             halfway = true;
@@ -95,7 +98,7 @@ public class Mister : MonoBehaviour
 
     }
 
-    void OnTriggerEnter2D(Collider2D col)
+    void OnTriggerEnter(Collider col)
     {
         if(col.gameObject.tag == "Player" && !GameManager.instance.Player.GetComponent<PlayerMovement>().Hidden)
         {

@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     public int minute;
 
     public GameObject mister;
-    public Vector2 misterPosition;
+    //public Vector2 misterPosition;
 
     private PlayMultipleSound playSound;
 
@@ -135,10 +135,10 @@ public class GameManager : MonoBehaviour
         Instantiate(Hideout, pos2, transform.rotation);
     }
 
-    public void SpawnMan()
+   /* public void SpawnMan()
     {
         Instantiate(mister, misterPosition, transform.rotation);
-    }
+    }*/
 
     /* public void TestFonct()
      {
