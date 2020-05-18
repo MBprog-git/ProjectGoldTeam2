@@ -77,6 +77,16 @@ public bool canSelfie = true;
 
     public void PageV2(bool next)
     {
+        if (pageactif == Dessin.Length - 1 && next)
+        {
+            return;
+        }
+        if (pageactif == 0 && !next)
+        {
+            return;
+
+        }
+
         if (Dessin[pageactif] != null)
         {
             Dessin[pageactif].SetActive(false);

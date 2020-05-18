@@ -1976,6 +1976,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: BoutonSupprimer
       objectReference: {fileID: 0}
+    - target: {fileID: 1268242416, guid: 53ae6985a8e15ad4d9a0b129b62b82b7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930880810, guid: 53ae6985a8e15ad4d9a0b129b62b82b7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 208310780302320614, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
         type: 3}
       propertyPath: m_IsActive

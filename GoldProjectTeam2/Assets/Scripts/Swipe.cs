@@ -53,29 +53,29 @@ public class Swipe : MonoBehaviour
         {
            if (dragVectorDirection.x > 0)
             {
-                //gauche
-                GameManager.instance.Journal.GetComponent<JournalMB>().PageV2(true);
-                Debug.Log("Swipe gauche");
-            }
-            else
-            {
                 GameManager.instance.Journal.GetComponent<JournalMB>().PageV2(false);
                 //droite
                 Debug.Log("Swipe Droite");
+            }
+            else
+            {
+                //gauche
+                GameManager.instance.Journal.GetComponent<JournalMB>().PageV2(true);
+                Debug.Log("Swipe gauche");
             }
         }
         else
         {
             if (dragVectorDirection.y > 0)
             {
-                //down?
-                Debug.Log("Swipe down");
-                GameManager.instance.Journal.GetComponent<JournalMB>().RemoveItems();
+                //up?
+                Debug.Log("Swipe up");
             }
             else
             {
-                //up?
-                Debug.Log("Swipe up");
+                //down?
+                Debug.Log("Swipe down");
+                GameManager.instance.Journal.GetComponent<JournalMB>().RemoveItems();
             }
                
         }
