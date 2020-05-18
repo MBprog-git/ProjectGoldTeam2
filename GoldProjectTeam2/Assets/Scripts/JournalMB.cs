@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class JournalMB : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class JournalMB : MonoBehaviour
 
     int ChargePhoto = 10;
 public bool canSelfie = true;
+    public Text TxtChargePhoto;
 
  //   public bool[] DessinActif;
     public GameObject[] Selfies;
@@ -129,6 +131,7 @@ public bool canSelfie = true;
                 if (Dessin[i] == null)
                 {
                     ChargePhoto--;
+                    TxtChargePhoto.text = "Photo restante:" + ChargePhoto;
                     Dessin[i] = go;
                     DessinChrono[i] = 0;
 
@@ -172,8 +175,11 @@ public bool canSelfie = true;
             }
 
         }
+        if(Dessin[pageactif] != null)
+        {
 
         Dessin[pageactif].SetActive(true);
+        }
 
 
     }

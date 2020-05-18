@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2834385169165682083}
   - component: {fileID: 2834385169165682080}
   - component: {fileID: 2834385169165682081}
-  - component: {fileID: 2834385169165682110}
   m_Layer: 0
   m_Name: HideoutPrefabs
   m_TagString: Hideout
@@ -109,15 +108,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.16, y: 0.16}
   m_EdgeRadius: 0
---- !u!114 &2834385169165682110
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2834385169165682111}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ef5bfd93fdc2c44ba099776a3b5f352, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
