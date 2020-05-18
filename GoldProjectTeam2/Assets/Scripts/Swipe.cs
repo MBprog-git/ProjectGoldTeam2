@@ -9,10 +9,9 @@ public class Swipe : MonoBehaviour
 
     private Vector2 fingerPosition;
 
-    public float minimalSwipeDistance = 150;
+    public float minimalSwipeDistance;
 
-    public GameObject mask;
-    private bool isOnNoteBook = true;
+
 
     void Update()
     {
@@ -26,14 +25,18 @@ public class Swipe : MonoBehaviour
                         break;
                     case TouchPhase.Ended:
                         endPosition = touch.position;
-                        AnalyzeSwipeDistance(startPosition, endPosition);
-                    if (GameManager.instance.Journal.GetComponent<JournalMB>().activated)
-                    {
 
-                    AnalyzeSwipeDirection(startPosition, endPosition);
+                    if (Vector2.Distance(startPosition, endPosition) > minimalSwipeDistance && GameManager.instance.Journal.GetComponent<JournalMB>().activated)
+                    {
+                        AnalyzeSwipeDirection(startPosition, endPosition);
+                    }
+                    else
+                    {
+                        Debug.Log("swipe trop court");
                     }
 
-                        break;
+
+                    break;
                 }
             
         }
@@ -44,18 +47,21 @@ public class Swipe : MonoBehaviour
         Vector2 dragVectorDirection = (end - start).normalized;
         float positiveX = Mathf.Abs(dragVectorDirection.x);
         float positiveY = Mathf.Abs(dragVectorDirection.y);
-    
+
+
         if (positiveX > positiveY)
         {
            if (dragVectorDirection.x > 0)
             {
                 //gauche
                 GameManager.instance.Journal.GetComponent<JournalMB>().PageV2(true);
+                Debug.Log("Swipe gauche");
             }
             else
             {
                 GameManager.instance.Journal.GetComponent<JournalMB>().PageV2(false);
                 //droite
+                Debug.Log("Swipe Droite");
             }
         }
         else
@@ -63,23 +69,17 @@ public class Swipe : MonoBehaviour
             if (dragVectorDirection.y > 0)
             {
                 //down?
+                Debug.Log("Swipe down");
                 GameManager.instance.Journal.GetComponent<JournalMB>().RemoveItems();
             }
             else
             {
                 //up?
+                Debug.Log("Swipe up");
             }
                
         }
 
     }
-    private void AnalyzeSwipeDistance(Vector2 start, Vector2 end)
-    {
-        // Distance
-        if (Vector2.Distance(start, end) > minimalSwipeDistance)
-        {
-            Handheld.Vibrate();
-        }
 
-    }
 }

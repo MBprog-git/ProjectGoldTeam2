@@ -85,12 +85,12 @@ public bool canSelfie = true;
         if (next)
         {
         pageactif++;
-        buttonPreviousPage.SetActive(true);
+        //buttonPreviousPage.SetActive(true);
         }
         else
         {
             pageactif--;
-            buttonNextPage.SetActive(true);
+         //   buttonNextPage.SetActive(true);
         }
 
         if(Dessin[pageactif] != null)
@@ -98,7 +98,7 @@ public bool canSelfie = true;
 
         Dessin[pageactif].SetActive(true);
         }
-        if (pageactif == Dessin.Length -1)
+     /*   if (pageactif == Dessin.Length -1)
         {
             buttonNextPage.SetActive(false);
         }
@@ -107,7 +107,7 @@ public bool canSelfie = true;
         buttonPreviousPage.SetActive(false);
 
         }
-       /* Cangomme = false;
+        Cangomme = false;
         DeleteMask();*/
     }
 
