@@ -27,12 +27,52 @@ public class Swipe : MonoBehaviour
                     case TouchPhase.Ended:
                         endPosition = touch.position;
                         AnalyzeSwipeDistance(startPosition, endPosition);
+                    if (GameManager.instance.Journal.GetComponent<JournalMB>().activated)
+                    {
+
+                    AnalyzeSwipeDirection(startPosition, endPosition);
+                    }
+
                         break;
                 }
             
         }
     }
 
+    private void AnalyzeSwipeDirection(Vector2 start, Vector2 end)
+    {
+        Vector2 dragVectorDirection = (end - start).normalized;
+        float positiveX = Mathf.Abs(dragVectorDirection.x);
+        float positiveY = Mathf.Abs(dragVectorDirection.y);
+    
+        if (positiveX > positiveY)
+        {
+           if (dragVectorDirection.x > 0)
+            {
+                //gauche
+                GameManager.instance.Journal.GetComponent<JournalMB>().PageV2(true);
+            }
+            else
+            {
+                GameManager.instance.Journal.GetComponent<JournalMB>().PageV2(false);
+                //droite
+            }
+        }
+        else
+        {
+            if (dragVectorDirection.y > 0)
+            {
+                //down?
+                GameManager.instance.Journal.GetComponent<JournalMB>().RemoveItems();
+            }
+            else
+            {
+                //up?
+            }
+               
+        }
+
+    }
     private void AnalyzeSwipeDistance(Vector2 start, Vector2 end)
     {
         // Distance

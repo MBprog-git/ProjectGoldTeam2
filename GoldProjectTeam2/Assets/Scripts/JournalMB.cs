@@ -36,6 +36,7 @@ public bool canSelfie = true;
     //int nextdessin;
 
     public SpriteRenderer previ;
+    public float timerprevi;
    
     void Start()
     {
@@ -47,9 +48,12 @@ public bool canSelfie = true;
         DrawingEvolution();
 
 
-        if (previ.color.a > 0)
+        if (previ.color.a > 0 && timerprevi<0)
         {
             previ.color = new Color(previ.color.r, previ.color.g, previ.color.b, previ.color.a - Time.deltaTime);
+        }else if(timerprevi > 0)
+        {
+            timerprevi -= Time.deltaTime;
         }
     }
 
@@ -137,7 +141,7 @@ public bool canSelfie = true;
                     TxtChargePhoto.text = "Photo restante:" + ChargePhoto;
                     Dessin[i] = go;
                     DessinChrono[i] = 0;
-                    Previsualisation(go);
+                 //   Previsualisation(go);
                   float newdist = GameManager.instance.mister.GetComponent<Mister>().distanceToPlayer * 0.8f;
                    newdist = GameManager.instance.Player.transform.position.x - newdist; 
                     GameManager.instance.mister.transform.position = new Vector2(newdist, GameManager.instance.mister.transform.position.y) ; 
@@ -216,6 +220,7 @@ public bool canSelfie = true;
         SpriteRenderer sp = Photo.GetComponent<SpriteRenderer>();
         previ.sprite = sp.sprite;
         previ.color = new Color(previ.color.r, previ.color.g, previ.color.b, 1);
+        timerprevi = 3;
     }
     
 

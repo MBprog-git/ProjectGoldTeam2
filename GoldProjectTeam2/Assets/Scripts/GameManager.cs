@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     public int timeSwitchToLune = 21;
 
     public Image graindCouleur;
-
+    float timerVibro;
     //public      SpriteRenderer s;
 
 
@@ -40,8 +40,8 @@ public class GameManager : MonoBehaviour
         if (instance == null)
             instance = this;
 
-      //  TestFonct();
-
+        //  TestFonct();
+        timerVibro = 120;
         timerClock = RythmeClock;
 
     }
@@ -55,6 +55,7 @@ public class GameManager : MonoBehaviour
    
     void Update()
     {
+        VibraAleatoire();
         timerClock -= Time.deltaTime;
         if (timerClock < 0)
         {
@@ -137,7 +138,24 @@ public class GameManager : MonoBehaviour
         Instantiate(Hideout, pos1, transform.rotation);
         Instantiate(Hideout, pos2, transform.rotation);
     }
+    public void VibraAleatoire()
+    {
 
+
+        if (timerVibro < 0)
+        {
+        Handheld.Vibrate();
+            int rand = Random.Range(45, 100);
+            timerVibro = rand;
+        }
+        else
+        {
+            timerVibro -= Time.deltaTime;
+
+        }
+
+
+    }
    /* public void SpawnMan()
     {
         Instantiate(mister, misterPosition, transform.rotation);
