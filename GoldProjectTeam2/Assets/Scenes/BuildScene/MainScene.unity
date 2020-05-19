@@ -1489,6 +1489,9 @@ MonoBehaviour:
   timeSwitchToDemiLune: 17
   timeSwitchToLune: 20
   graindCouleur: {fileID: 1374988437}
+  ButtonSelfie: {fileID: 0}
+  ButtonPhoto: {fileID: 0}
+  Photostock: {fileID: 0}
 --- !u!4 &1253488176
 Transform:
   m_ObjectHideFlags: 0

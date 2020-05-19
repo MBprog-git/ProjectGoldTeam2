@@ -23,7 +23,10 @@ public class PhotoZone : MonoBehaviour
     {
         if (other.tag =="Player")
         {
-            PhotoBouton.SetActive(true);
+        //    PhotoBouton.SetActive(true);
+
+            GameManager.instance.PhotoSwitch(false);
+            GameManager.instance.Photostock = Myphoto;
         }
     }
 
@@ -31,7 +34,10 @@ public class PhotoZone : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            PhotoBouton.SetActive(false);
+          //  PhotoBouton.SetActive(false);
+
+
+            GameManager.instance.PhotoSwitch(true);
         }
     }
 }

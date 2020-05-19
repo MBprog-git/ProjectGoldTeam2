@@ -32,6 +32,11 @@ public class GameManager : MonoBehaviour
     float timerVibro;
     //public      SpriteRenderer s;
 
+    
+   // bool Selfie = true;
+    public GameObject ButtonSelfie;
+    public GameObject ButtonPhoto;
+    public GameObject Photostock;
 
     public static GameManager instance;
 
@@ -156,6 +161,22 @@ public class GameManager : MonoBehaviour
 
 
     }
+
+    public void PhotoSwitch(bool Selfie)
+    {
+        if (Selfie)
+        {
+            ButtonSelfie.SetActive(false);
+            ButtonPhoto.SetActive(true);
+        }
+        else
+        {
+            ButtonSelfie.SetActive(true);
+            ButtonPhoto.SetActive(false);
+        }
+        Selfie = !Selfie;
+    }
+
    /* public void SpawnMan()
     {
         Instantiate(mister, misterPosition, transform.rotation);

@@ -57,8 +57,10 @@ public class BoutonMB : MonoBehaviour
                 break;
             
             case 10:
-                GameManager.instance.Journal.GetComponent<JournalMB>().AddItems(transform.parent.gameObject.GetComponent<PhotoZone>().Myphoto);
-                transform.parent.gameObject.SetActive(false);
+               /* GameManager.instance.Journal.GetComponent<JournalMB>().AddItems(transform.parent.gameObject.GetComponent<PhotoZone>().Myphoto);
+                transform.parent.gameObject.SetActive(false);*/
+                GameManager.instance.Journal.GetComponent<JournalMB>().AddItems(GameManager.instance.Photostock);
+
                 break;
         }
     }
