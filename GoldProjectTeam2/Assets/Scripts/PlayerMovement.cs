@@ -62,6 +62,17 @@ public class PlayerMovement : MonoBehaviour
                     rb.velocity = new Vector3(-speed, rb.velocity.y, rb.velocity.z);
                 }
             }
+            if(manageButton.goLeft || manageButton.goRight)
+            {
+                GameManager.instance.IsMoving = true;
+            }
+            else
+            {
+                GameManager.instance.IsMoving = false;
+
+            }
+
+
             if (transform.position.x >= distanceInOrderToSpawnMan && !shadowManIsRelease)
             {
                 SpawnMan();
@@ -80,10 +91,13 @@ public class PlayerMovement : MonoBehaviour
                 transform.position = Cachette.transform.position;
                 Cachette.transform.position = new Vector3(Cachette.transform.position.x, Cachette.transform.position.y, 0);
                 rb.velocity = Vector3.zero;
+                GameManager.instance.HideUi.SetActive(true);
             }
             else
             {
+                Debug.Log("unhide");
                 Cachette.transform.position = new Vector3(Cachette.transform.position.x, Cachette.transform.position.y, 2);
+                GameManager.instance.HideUi.SetActive(false);
             }
          
         } 

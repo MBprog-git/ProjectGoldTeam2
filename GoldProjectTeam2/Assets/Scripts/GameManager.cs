@@ -37,12 +37,26 @@ public class GameManager : MonoBehaviour
     public GameObject ButtonSelfie;
     public GameObject ButtonPhoto;
     public GameObject Photostock;
+    public GameObject ButtonJournal;
 
+    SpriteRenderer spButtonSelfie;
+    SpriteRenderer spButtonPhoto;
+    Image spButtonJournal;
+
+
+    public GameObject HideUi;
+
+    public bool IsMoving;
+    float Albedo = 1;
 
     public static GameManager instance;
 
     void Awake()
     {
+         spButtonSelfie = ButtonSelfie.GetComponent<SpriteRenderer>();
+         spButtonPhoto = ButtonPhoto.GetComponent<SpriteRenderer>();
+         spButtonJournal = ButtonJournal.GetComponent<Image>();
+
         if (instance == null)
             instance = this;
 
@@ -61,8 +75,8 @@ public class GameManager : MonoBehaviour
    
     void Update()
     {
-        VibraAleatoire();
-        timerClock -= Time.deltaTime;
+        VibraAleatoire(); FadeUi();
+         timerClock -= Time.deltaTime;
         if (timerClock < 0)
         {
             UpdateTime();
@@ -98,6 +112,24 @@ public class GameManager : MonoBehaviour
             graindCouleur.color = new Color(255, 0, 0, 0.4f);
         }
     }
+
+    public void FadeUi()
+    {
+        if (IsMoving && Albedo<1) {
+            Albedo += Time.deltaTime;
+
+
+        }
+        else if(!IsMoving && Albedo > 0)
+        {
+            Albedo -= Time.deltaTime;
+
+        }
+             spButtonSelfie.color = new Color(spButtonSelfie.color.r, spButtonSelfie.color.g, spButtonSelfie.color.b, Albedo) ;
+             spButtonPhoto.color = new Color(spButtonPhoto.color.r, spButtonPhoto.color.g, spButtonPhoto.color.b, Albedo);
+             spButtonJournal. color = new Color(spButtonJournal.color.r, spButtonJournal.color.g, spButtonJournal.color.b, Albedo);
+    }
+
     public void doExitGame()
     {
         Application.Quit();
