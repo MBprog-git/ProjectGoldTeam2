@@ -21,9 +21,10 @@ public class JournalMB : MonoBehaviour
 
     // private GameObject turnPage;
   //  private GameObject actualPage;
-    public GameObject buttonNextPage;
-    public GameObject buttonPreviousPage;
+   // public GameObject buttonNextPage;
+    //public GameObject buttonPreviousPage;
     public int pageactif;
+    public Text txtPageactif;
 
     int ChargePhoto = 10;
 public bool canSelfie = true;
@@ -108,6 +109,9 @@ public bool canSelfie = true;
 
         Dessin[pageactif].SetActive(true);
         }
+
+        txtPageactif.text = pageactif + 1 + "/3";
+
      /*   if (pageactif == Dessin.Length -1)
         {
             buttonNextPage.SetActive(false);
@@ -124,7 +128,7 @@ public bool canSelfie = true;
 
     public void DrawingEvolution()
     {
-        for(int i=1; i<Dessin.Length; i++)
+        for(int i=0; i<Dessin.Length; i++)
         {
             if (Dessin[i]!=null)
             {
@@ -143,12 +147,12 @@ public bool canSelfie = true;
     {
         if (ChargePhoto > 0)
         {
-            for (int i = 1; i < Dessin.Length; i++)
+            for (int i = 0; i < Dessin.Length; i++)
             {
                 if (Dessin[i] == null)
                 {
                     ChargePhoto--;
-                    TxtChargePhoto.text = "Photo restante:" + ChargePhoto;
+                    TxtChargePhoto.text = ChargePhoto+"/10";
                     Dessin[i] = go;
                     DessinChrono[i] = 0;
                  //   Previsualisation(go);
@@ -168,10 +172,7 @@ public bool canSelfie = true;
 
     public void RemoveItems()
     {
-        if(pageactif == 0)
-        {
-            return; //Photo Humaine
-        }
+     
         Dessin[pageactif].GetComponent<PhotoAction>().DiscardPhoto();
         Dessin[pageactif].SetActive(false);
 
@@ -208,18 +209,20 @@ public bool canSelfie = true;
             if (GameManager.instance.mister.GetComponent<Mister>().almostInScreen)
             {
 
-                Dessin[0] = Selfies[2];
+              
+            Previsualisation(Selfies[2]);
             }
             else if (GameManager.instance.mister.GetComponent<Mister>().halfway)
             {
 
-                Dessin[0] = Selfies[1];
+      
+            Previsualisation(Selfies[1]);
             }
             else
             {
-                Dessin[0] = Selfies[0];
+                
+            Previsualisation(Selfies[0]);
             }
-            Previsualisation(Dessin[0]);
         ChargePhoto--;
         }
 

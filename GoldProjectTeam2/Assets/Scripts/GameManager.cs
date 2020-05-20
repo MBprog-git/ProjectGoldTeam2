@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
     public GameObject ButtonPhoto;
     public GameObject Photostock;
 
+
     public static GameManager instance;
 
     void Awake()
@@ -174,7 +175,7 @@ public class GameManager : MonoBehaviour
             ButtonSelfie.SetActive(true);
             ButtonPhoto.SetActive(false);
         }
-        Selfie = !Selfie;
+
     }
 
    /* public void SpawnMan()

@@ -894,6 +894,12 @@ PrefabInstance:
       objectReference: {fileID: 867196935}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f44c2c5b739fd642b4f9f2b82e302a7, type: 3}
+--- !u!1 &647294351 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8693605105437487799, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1374988433}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &663530873
 GameObject:
   m_ObjectHideFlags: 0
@@ -1489,8 +1495,8 @@ MonoBehaviour:
   timeSwitchToDemiLune: 17
   timeSwitchToLune: 20
   graindCouleur: {fileID: 1374988437}
-  ButtonSelfie: {fileID: 0}
-  ButtonPhoto: {fileID: 0}
+  ButtonSelfie: {fileID: 647294351}
+  ButtonPhoto: {fileID: 1474353397}
   Photostock: {fileID: 0}
 --- !u!4 &1253488176
 Transform:
@@ -2488,6 +2494,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1474353397 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5760029478598307608, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1374988433}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1771320834
 GameObject:
   m_ObjectHideFlags: 0
