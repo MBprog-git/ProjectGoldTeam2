@@ -9,8 +9,10 @@ public class GPGSAuthentification : MonoBehaviour
 {
     public static PlayGamesPlatform platform;
 
+    public GameObject error;
+
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         if (platform == null)
         {
@@ -29,13 +31,8 @@ public class GPGSAuthentification : MonoBehaviour
             else
             {
                 Debug.Log("fail to log");
+                error.SetActive(true);
             }
         });
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
