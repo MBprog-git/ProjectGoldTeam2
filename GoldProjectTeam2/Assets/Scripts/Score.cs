@@ -9,6 +9,8 @@ public class Score : MonoBehaviour
     private float seconds;
     private bool isTimerRunning = false;
 
+    private float test;
+
     private string timer;
     // Start is called before the first frame update
     void Start()
@@ -25,6 +27,7 @@ public class Score : MonoBehaviour
             minutes = Mathf.Floor(time / 60);
             seconds = time % 60;
 
+            test = time * 1000;
             timer = string.Format("{0:00} : {1:00}", minutes, seconds);
             Debug.Log(time);
             Debug.Log(timer);
@@ -39,7 +42,7 @@ public class Score : MonoBehaviour
     public void StopTimer()
     {
         isTimerRunning = false;
-        PlayerPrefs.SetFloat("TimeToUpdate", PlayerPrefs.GetFloat("TimeToUpdate",0) + time);
+        PlayerPrefs.SetFloat("TimeToUpdate", PlayerPrefs.GetFloat("TimeToUpdate", 0) + test);
         time = 0;
     }
 }

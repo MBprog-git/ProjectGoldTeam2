@@ -4,22 +4,31 @@ using UnityEngine;
 
 public class GPGSLeaderboard : MonoBehaviour
 {
+    public GameObject eerror;
     public void OpenLeaderboard()
     {
         Social.ShowLeaderboardUI();
+        //Social.Active.ShowLeaderboardUI();
     }
 
     public void UpdateLeaderboard()
     {
-        if (PlayerPrefs.GetFloat("ScoreToUpdate", 0) == 0)
+        if (PlayerPrefs.GetFloat("TimeToUpdate", 0) == 0)
         {
             return;
         }
-        Social.ReportScore(PlayerPrefs.GetInt("ScoreToUpdate", 1), GPGSIds.leaderboard_best_time, (bool success) =>
+        Social.ReportScore(PlayerPrefs.GetInt("TimeToUpdate", 0), GPGSIds.leaderboard_best_time, (bool success) =>
        {
            if (success)
            {
-               PlayerPrefs.SetFloat("ScoreToUpdate", 0);
+               PlayerPrefs.SetFloat("TimeToUpdate", 0);
+          
+           }
+           else
+           {
+               Debug.Log("leaderboard fail");
+               eerror.SetActive(true);
+
            }
        });
     }
