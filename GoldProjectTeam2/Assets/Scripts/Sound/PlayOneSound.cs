@@ -23,7 +23,7 @@ public class PlayOneSound : MonoBehaviour
         {
             audioSource.clip = soundToPlay.audio;
             audioSource.loop = soundToPlay.loop;
-            audioSource.volume = soundToPlay.volume;
+            audioSource.volume = soundManager.volumeMusique;
             if (soundToPlay.playOnAwake)
             {
                 PlaySound();
@@ -34,6 +34,19 @@ public class PlayOneSound : MonoBehaviour
             Debug.LogError("AUCUN AUDIO POUR CE TYPE D'AUDIO REFERENCER DANS SOUNDMANAGER");
         }
 
+    }
+
+    private void Update()
+    {
+        audioSource.volume = soundManager.volumeMusique;
+        if (!soundManager.ActiveMusic)
+        {
+            audioSource.Stop();
+            return;
+        }else if (soundManager.ActiveMusic && !audioSource.isPlaying)
+        {
+            PlaySound();
+        }
     }
 
     public Sound GetAudio(TYPE_AUDIO typeAudio, Sound[] allSounds)
@@ -50,6 +63,11 @@ public class PlayOneSound : MonoBehaviour
 
     public void PlaySound()
     {
+        if (!soundManager.ActiveMusic)
+        {
+            audioSource.Stop();
+            return;
+        }
         audioSource.Play();
     }
 

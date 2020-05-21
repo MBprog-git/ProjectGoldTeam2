@@ -22,6 +22,20 @@ public class PlayMultipleSound : MonoBehaviour
         CheckForPlaySoundOnAwake();
     }
 
+    private void Update()
+    {
+        audioSource.volume = soundManager.volumeMusique;
+        if (!soundManager.ActiveMusic)
+        {
+            audioSource.Stop();
+            return;
+        }
+        else if (soundManager.ActiveMusic && !audioSource.isPlaying)
+        {
+            audioSource.Play();
+        }
+    }
+
     public Sound[] GetAllAudio(TYPE_AUDIO[] typeAudio, Sound[] allSounds)
     {
         Sound[] newListSound = new Sound[typeAudio.Length];
@@ -44,6 +58,11 @@ public class PlayMultipleSound : MonoBehaviour
 
     public void PlaySound(TYPE_AUDIO typeAudio)
     {
+        if (!soundManager.ActiveMusic)
+        {
+            audioSource.Stop();
+            return;
+        }
         for (int i = 0; i < soundsToPlay.Length; i++)
         {
             if (soundsToPlay[i].audioFor == typeAudio)
@@ -67,6 +86,10 @@ public class PlayMultipleSound : MonoBehaviour
                 audioSource.Stop();
                 audioSource.clip = soundsToPlay[i].audio;
                 audioSource.loop = soundsToPlay[i].loop;
+                if (!soundManager.ActiveMusic)
+                {
+                    return;
+                }
                 audioSource.Play();
                 typeAudioPlaying = soundsToPlay[i].audioFor;
                 return;
