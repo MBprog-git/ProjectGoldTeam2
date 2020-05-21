@@ -9,8 +9,6 @@ public class GPGSAuthentification : MonoBehaviour
 {
     public static PlayGamesPlatform platform;
 
-    public GameObject error;
-
     // Start is called before the first frame update
     void Awake()
     {
@@ -31,7 +29,6 @@ public class GPGSAuthentification : MonoBehaviour
             else
             {
                 Debug.Log("fail to log");
-                error.SetActive(true);
             }
         });
     }
