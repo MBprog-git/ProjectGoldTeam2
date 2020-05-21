@@ -5,6 +5,7 @@ using UnityEngine;
 public class GPGSLeaderboard : MonoBehaviour
 {
     public GameObject eerror;
+    public GameObject error;
     public void OpenLeaderboard()
     {
         Social.ShowLeaderboardUI();
@@ -13,7 +14,7 @@ public class GPGSLeaderboard : MonoBehaviour
 
     public void UpdateLeaderboard()
     {
-        if (PlayerPrefs.GetFloat("TimeToUpdate", 0) == 0)
+        if (PlayerPrefs.GetInt("TimeToUpdate", 0) == 0)
         {
             return;
         }
@@ -21,7 +22,8 @@ public class GPGSLeaderboard : MonoBehaviour
        {
            if (success)
            {
-               PlayerPrefs.SetFloat("TimeToUpdate", 0);
+               PlayerPrefs.SetInt("TimeToUpdate", 0);
+               error.SetActive(true);
           
            }
            else
