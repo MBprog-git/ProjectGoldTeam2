@@ -38,10 +38,13 @@ public class GameManager : MonoBehaviour
     public GameObject ButtonPhoto;
     public GameObject Photostock;
     public GameObject ButtonJournal;
+    public GameObject TxtPhotoCharge;
+    
 
     SpriteRenderer spButtonSelfie;
     SpriteRenderer spButtonPhoto;
     Image spButtonJournal;
+    Text spTextCharge;
 
 
     public GameObject HideUi;
@@ -56,7 +59,7 @@ public class GameManager : MonoBehaviour
          spButtonSelfie = ButtonSelfie.GetComponent<SpriteRenderer>();
          spButtonPhoto = ButtonPhoto.GetComponent<SpriteRenderer>();
          spButtonJournal = ButtonJournal.GetComponent<Image>();
-
+        spTextCharge = TxtPhotoCharge.GetComponent<Text>();
         if (instance == null)
             instance = this;
 
@@ -115,12 +118,12 @@ public class GameManager : MonoBehaviour
 
     public void FadeUi()
     {
-        if (IsMoving && Albedo<1) {
+        if (!IsMoving && Albedo<1) {
             Albedo += Time.deltaTime;
 
 
         }
-        else if(!IsMoving && Albedo > 0)
+        else if(IsMoving && Albedo > 0)
         {
             Albedo -= Time.deltaTime;
 
@@ -128,6 +131,7 @@ public class GameManager : MonoBehaviour
              spButtonSelfie.color = new Color(spButtonSelfie.color.r, spButtonSelfie.color.g, spButtonSelfie.color.b, Albedo) ;
              spButtonPhoto.color = new Color(spButtonPhoto.color.r, spButtonPhoto.color.g, spButtonPhoto.color.b, Albedo);
              spButtonJournal. color = new Color(spButtonJournal.color.r, spButtonJournal.color.g, spButtonJournal.color.b, Albedo);
+        spTextCharge. color = new Color(spTextCharge.color.r, spTextCharge.color.g, spTextCharge.color.b, Albedo);
     }
 
     public void doExitGame()

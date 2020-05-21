@@ -1511,6 +1511,7 @@ MonoBehaviour:
   ButtonPhoto: {fileID: 1474353397}
   Photostock: {fileID: 0}
   ButtonJournal: {fileID: 48539570}
+  TxtPhotoCharge: {fileID: 1925272404}
   HideUi: {fileID: 877074822}
   IsMoving: 0
 --- !u!4 &1253488176
@@ -2016,6 +2017,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 308200026, guid: 53ae6985a8e15ad4d9a0b129b62b82b7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2999.9995
+      objectReference: {fileID: 0}
     - target: {fileID: 844451835, guid: 53ae6985a8e15ad4d9a0b129b62b82b7, type: 3}
       propertyPath: m_Name
       value: BoutonSupprimer
@@ -2784,6 +2789,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1925272404 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2453992480431938335, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1374988433}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1965824678
 GameObject:
   m_ObjectHideFlags: 0
