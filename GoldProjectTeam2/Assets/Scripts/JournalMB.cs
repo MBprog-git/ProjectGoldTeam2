@@ -152,7 +152,7 @@ public bool canSelfie = true;
                 if (Dessin[i] == null)
                 {
                     ChargePhoto--;
-                    TxtChargePhoto.text = ChargePhoto+"/10";
+                    TxtChargePhoto.text = "x "+ ChargePhoto;
                     Dessin[i] = go;
                     DessinChrono[i] = 0;
                  //   Previsualisation(go);
@@ -224,6 +224,7 @@ public bool canSelfie = true;
             Previsualisation(Selfies[0]);
             }
         ChargePhoto--;
+            TxtChargePhoto.text = "x " + ChargePhoto;
         }
 
     }
