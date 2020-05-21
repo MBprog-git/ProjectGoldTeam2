@@ -1207,6 +1207,10 @@ MonoBehaviour:
     audio: {fileID: 8300000, guid: 3cfcd39263013114e86ef53700bcc781, type: 3}
     loop: 1
     playOnAwake: 0
+  - audioFor: 3
+    audio: {fileID: 8300000, guid: 598fbc75f7d737b4fba1763e30317a5e, type: 3}
+    loop: 1
+    playOnAwake: 1
   ActiveMusic: 1
   volumeMusique: 1
   sliderVolume: {fileID: 1315822963}
@@ -1540,7 +1544,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   declencherAudio: 0
-  typeAudio: 0
+  typeAudio: 3
 --- !u!82 &806701184
 AudioSource:
   m_ObjectHideFlags: 0

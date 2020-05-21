@@ -6,8 +6,9 @@ public class SoundManager : MonoBehaviour
 {
     public Sound[] allSounds;
 
-
+    [HideInInspector]
     public bool ActiveMusic = true;
+    [HideInInspector]
     public float volumeMusique = 1.0f;
 
     [SerializeField]

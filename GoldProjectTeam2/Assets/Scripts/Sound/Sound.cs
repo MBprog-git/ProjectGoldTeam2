@@ -4,7 +4,8 @@ public enum TYPE_AUDIO
 {
     MusiqueAmbianceSoleil,
     MusiqueAmbianceDemiLune,
-    MusiqueAmbianceLune
+    MusiqueAmbianceLune,
+    MusiqueMainMenu
 }
 
 [System.Serializable]
