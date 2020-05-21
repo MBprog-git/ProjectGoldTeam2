@@ -7,29 +7,40 @@ public class MainMenuManager : MonoBehaviour
 {
     [SerializeField] private string nameScenePlay = "MainScene";
 
-    [SerializeField] private GameObject panelControl;
+    [SerializeField] private GameObject panelOptions;
+    [SerializeField] private GameObject panelAchievement;
     [SerializeField] private GameObject panelMenu;
+
+    AsyncOperation op;
+
+    private void Start()
+    {
+        op = SceneManager.LoadSceneAsync(nameScenePlay);
+        op.allowSceneActivation = false;
+    }
 
     public void PlayButton()
     {
-        SceneManager.LoadScene(nameScenePlay);
+        op.allowSceneActivation = true;
     }
 
-    public void ControlButton()
+    public void OptionButton()
     {
-        panelControl.SetActive(true);
+        panelOptions.SetActive(true);
+        panelMenu.SetActive(false);
+    }
+
+    public void AchievementButton()
+    {
+        panelAchievement.SetActive(true);
         panelMenu.SetActive(false);
     }
 
     public void ReturnButton()
     {
-        panelControl.SetActive(false);
+        panelAchievement.SetActive(false);
+        panelOptions.SetActive(false);
         panelMenu.SetActive(true);
-    }
-
-    public void ExitButton()
-    {
-        Application.Quit();
     }
 
 }
