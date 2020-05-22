@@ -78,8 +78,9 @@ public class GameManager : MonoBehaviour
    
     void Update()
     {
-        VibraAleatoire(); FadeUi();
-         timerClock -= Time.deltaTime;
+        VibraAleatoire();
+        FadeUi();
+        timerClock -= Time.deltaTime;
         if (timerClock < 0)
         {
             UpdateTime();
@@ -102,6 +103,11 @@ public class GameManager : MonoBehaviour
                     break;
                 }
             }
+        }
+
+        if (playSound.GetEnumOfAudioPlaying() == TYPE_AUDIO.None)
+        {
+            playSound.PlaySound(TYPE_AUDIO.MusiqueAmbianceSoleil);
         }
 
         if (heure == timeSwitchToDemiLune && playSound.GetEnumOfAudioPlaying() != TYPE_AUDIO.MusiqueAmbianceDemiLune)

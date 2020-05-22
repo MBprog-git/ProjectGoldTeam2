@@ -7,6 +7,9 @@ public class PlayOneSound : MonoBehaviour
     public bool declencherAudio = false;
 
     [SerializeField]
+    private bool isMusique = true;
+
+    [SerializeField]
     private TYPE_AUDIO typeAudio;
 
     private SoundManager soundManager;
@@ -18,12 +21,21 @@ public class PlayOneSound : MonoBehaviour
     {
         soundManager = FindObjectOfType<SoundManager>();
         audioSource = GetComponent<AudioSource>();
-        soundToPlay = GetAudio(typeAudio, soundManager.allSounds);
+
+        if (isMusique)
+        {
+            soundToPlay = GetAudio(typeAudio, soundManager.soundsMusique);
+        }
+        else
+        {
+            soundToPlay = GetAudio(typeAudio, soundManager.soundsSfx);
+        }
+
         if (soundToPlay != null)
         {
             audioSource.clip = soundToPlay.audio;
             audioSource.loop = soundToPlay.loop;
-            audioSource.volume = soundManager.volumeMusique;
+            audioSource.volume = soundToPlay.volume;
             if (soundToPlay.playOnAwake)
             {
                 PlaySound();
@@ -38,14 +50,13 @@ public class PlayOneSound : MonoBehaviour
 
     private void Update()
     {
-        audioSource.volume = soundManager.volumeMusique;
-        if (!soundManager.ActiveMusic)
+        if ( (isMusique && !soundManager.activeMusic) || (!isMusique && !soundManager.activeSfx) )
         {
-            audioSource.Stop();
-            return;
-        }else if (soundManager.ActiveMusic && !audioSource.isPlaying)
+            audioSource.mute = true;
+        }
+        else
         {
-            PlaySound();
+            audioSource.mute = false;
         }
     }
 
@@ -63,11 +74,6 @@ public class PlayOneSound : MonoBehaviour
 
     public void PlaySound()
     {
-        if (!soundManager.ActiveMusic)
-        {
-            audioSource.Stop();
-            return;
-        }
         audioSource.Play();
     }
 

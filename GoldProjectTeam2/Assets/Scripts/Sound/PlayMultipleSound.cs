@@ -8,31 +8,39 @@ public class PlayMultipleSound : MonoBehaviour
     [SerializeField]
     private TYPE_AUDIO[] typeAudio;
 
+    [SerializeField]
+    private bool isMusique = true;
+
     private SoundManager soundManager;
     private Sound[] soundsToPlay;
     private AudioSource audioSource;
-    private TYPE_AUDIO typeAudioPlaying;
+    private TYPE_AUDIO typeAudioPlaying = TYPE_AUDIO.None;
 
     // Start is called before the first frame update
     void Start()
     {
         soundManager = FindObjectOfType<SoundManager>();
         audioSource = GetComponent<AudioSource>();
-        soundsToPlay = GetAllAudio(typeAudio, soundManager.allSounds);
+        if (isMusique)
+        {
+            soundsToPlay = GetAllAudio(typeAudio, soundManager.soundsMusique);
+        }
+        else
+        {
+            soundsToPlay = GetAllAudio(typeAudio, soundManager.soundsSfx);
+        }
         CheckForPlaySoundOnAwake();
     }
 
     private void Update()
     {
-        audioSource.volume = soundManager.volumeMusique;
-        if (!soundManager.ActiveMusic)
+        if ((isMusique && !soundManager.activeMusic) || (!isMusique && !soundManager.activeSfx))
         {
-            audioSource.Stop();
-            return;
+            audioSource.mute = true;
         }
-        else if (soundManager.ActiveMusic && !audioSource.isPlaying)
+        else
         {
-            audioSource.Play();
+            audioSource.mute = false;
         }
     }
 
@@ -58,11 +66,6 @@ public class PlayMultipleSound : MonoBehaviour
 
     public void PlaySound(TYPE_AUDIO typeAudio)
     {
-        if (!soundManager.ActiveMusic)
-        {
-            audioSource.Stop();
-            return;
-        }
         for (int i = 0; i < soundsToPlay.Length; i++)
         {
             if (soundsToPlay[i].audioFor == typeAudio)
@@ -70,6 +73,7 @@ public class PlayMultipleSound : MonoBehaviour
                 audioSource.Stop();
                 audioSource.clip = soundsToPlay[i].audio;
                 audioSource.loop = soundsToPlay[i].loop;
+                audioSource.volume = soundsToPlay[i].volume;
                 audioSource.Play();
                 typeAudioPlaying = soundsToPlay[i].audioFor;
                 return;
@@ -86,10 +90,7 @@ public class PlayMultipleSound : MonoBehaviour
                 audioSource.Stop();
                 audioSource.clip = soundsToPlay[i].audio;
                 audioSource.loop = soundsToPlay[i].loop;
-                if (!soundManager.ActiveMusic)
-                {
-                    return;
-                }
+                audioSource.volume = soundsToPlay[i].volume;
                 audioSource.Play();
                 typeAudioPlaying = soundsToPlay[i].audioFor;
                 return;

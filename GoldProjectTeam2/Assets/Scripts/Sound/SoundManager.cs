@@ -1,18 +1,25 @@
 ﻿using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 
 
 public class SoundManager : MonoBehaviour
 {
-    public Sound[] allSounds;
+    public Sound[] soundsMusique;
+    public Sound[] soundsSfx;
 
     [HideInInspector]
-    public bool ActiveMusic = true;
+    public bool activeMusic = true;
     [HideInInspector]
-    public float volumeMusique = 1.0f;
+    public bool activeSfx = true;
 
     [SerializeField]
-    private Slider sliderVolume;
+    private AudioMixer mainMixerAudio;
+
+    [SerializeField]
+    private Slider sliderVolumeMusique;
+    [SerializeField]
+    private Slider sliderVolumeSfx;
 
     private void Start()
     {
@@ -28,11 +35,21 @@ public class SoundManager : MonoBehaviour
 
     public void SwitchActiveMusique()
     {
-       ActiveMusic = !ActiveMusic;
+       activeMusic = !activeMusic;
     }
 
     public void SetVolumeMusique()
     {
-        volumeMusique = sliderVolume.value;
+        mainMixerAudio.SetFloat("VolumeMusique", sliderVolumeMusique.value);
+    }
+
+    public void SwitchActiveSfx()
+    {
+        activeSfx = !activeSfx;
+    }
+
+    public void SetVolumeSfx()
+    {
+        mainMixerAudio.SetFloat("VolumeSfx", sliderVolumeSfx.value);
     }
 }
