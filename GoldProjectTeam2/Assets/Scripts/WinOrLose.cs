@@ -18,13 +18,15 @@ public class WinOrLose : MonoBehaviour
     {
         if (win)
         {
+            GameManager.instance.Player.GetComponent<Score>().StopTimer();
+            GameManager.instance.Player.GetComponent<GPGSLeaderboard>().UpdateLeaderboard();
             win = false;
             SceneManager.LoadScene(nameWinScene);
         }
         else if (lose)
         {
-            lose = false;
             SceneManager.LoadScene(nameLoseScene);
+            lose = false;
         }
     }
 

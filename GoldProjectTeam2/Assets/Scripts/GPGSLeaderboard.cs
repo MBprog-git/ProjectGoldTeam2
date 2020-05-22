@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class GPGSLeaderboard : MonoBehaviour
 {
-    public GameObject eerror;
-    public GameObject error;
     public void OpenLeaderboard()
     {
         Social.ShowLeaderboardUI();
@@ -22,15 +20,11 @@ public class GPGSLeaderboard : MonoBehaviour
        {
            if (success)
            {
-               PlayerPrefs.SetInt("TimeToUpdate", 0);
-               error.SetActive(true);
-          
+               PlayerPrefs.SetInt("TimeToUpdate", 0);       
            }
            else
            {
                Debug.Log("leaderboard fail");
-               eerror.SetActive(true);
-
            }
        });
     }

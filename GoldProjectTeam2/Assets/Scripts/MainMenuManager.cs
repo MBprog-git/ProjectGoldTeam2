@@ -43,4 +43,9 @@ public class MainMenuManager : MonoBehaviour
         panelMenu.SetActive(true);
     }
 
+    public void OpenLeaderboard()
+    {
+        Social.ShowLeaderboardUI();
+    }
+
 }
