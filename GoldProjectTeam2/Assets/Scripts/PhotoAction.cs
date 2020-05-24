@@ -7,6 +7,8 @@ public class PhotoAction : MonoBehaviour
     public int IdAction;
     bool tpOnce;
 
+    
+
     /*iDAction
      0=Rien
          1=Fleur

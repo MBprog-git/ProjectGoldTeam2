@@ -134,7 +134,7 @@ public bool canSelfie = true;
             {
                 DessinChrono[i] += Time.deltaTime;
                 
-                
+                Dessin[i].GetComponent<SpriteRenderer>().color = new Color(255, 255- DessinChrono[i]*2, 255- DessinChrono[i]*2);
                 
                     Dessin[i].GetComponent<PhotoAction>().EFFET(DessinChrono[i]);  
 
