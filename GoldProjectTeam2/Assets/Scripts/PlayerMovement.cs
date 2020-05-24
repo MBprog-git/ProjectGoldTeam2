@@ -18,13 +18,16 @@ public class PlayerMovement : MonoBehaviour
 
     public float distanceInOrderToSpawnMan = 100.0f;
     public GameObject shadowMan;
+    public GameObject PlayerSp;
     private bool shadowManIsRelease = false;
 
     private Rigidbody rb;
+    Animator animator;
     [HideInInspector] public ManagerButtonPlayer manageButton;
 
     private void Start()
     {
+        animator = PlayerSp.GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         manageButton = GetComponent<ManagerButtonPlayer>();
         speed = speedBase;
@@ -65,10 +68,12 @@ public class PlayerMovement : MonoBehaviour
             if(manageButton.goLeft || manageButton.goRight)
             {
                 GameManager.instance.IsMoving = true;
+                animator.SetBool("Is_Walking", true);
             }
             else
             {
                 GameManager.instance.IsMoving = false;
+                animator.SetBool("Is_Walking", false);
 
             }
 
