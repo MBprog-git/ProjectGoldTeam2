@@ -49,27 +49,32 @@ public class PlayerMovement : MonoBehaviour
         {
             if (manageButton.goRight && !manageButton.goLeft)
             {
-                if (rb.velocity.x < speed)
-                {
-                    rb.AddForce(new Vector3(speed * Time.timeScale, 0, 0), ForceMode.Force);
-                }
-                else
-                {
-                    rb.velocity = new Vector3(speed, rb.velocity.y, rb.velocity.z);
-                }
+                /* if (rb.velocity.x < speed)
+                 {
+                     rb.AddForce(new Vector3(speed * Time.timeScale, 0, 0), ForceMode.Force);
+                 }
+                 else
+                 {
+                     rb.velocity = new Vector3(speed, rb.velocity.y, rb.velocity.z);
+                 }*/
+                transform.Translate(1 * Time.deltaTime * speed, 0, 0);
                 sp.flipX = false;
             }
             else if (manageButton.goLeft && !manageButton.goRight)
             {
-                if (rb.velocity.x > -speed)
-                {
-                    rb.AddForce(new Vector3(-speed * Time.timeScale, 0, 0), ForceMode.Force);
-                }
-                else
-                {
-                    rb.velocity = new Vector3(-speed, rb.velocity.y, rb.velocity.z);
-                }
-               sp.flipX = true;
+                /* if (rb.velocity.x > -speed)
+                 {
+                     rb.AddForce(new Vector3(-speed * Time.timeScale, 0, 0), ForceMode.Force);
+                 }
+                 else
+                 {
+                     rb.velocity = new Vector3(-speed, rb.velocity.y, rb.velocity.z);
+                 }*/
+
+
+                transform.Translate(-1*Time.deltaTime*speed, 0, 0);
+
+                sp.flipX = true;
             }
         }
             if(manageButton.goLeft || manageButton.goRight)
