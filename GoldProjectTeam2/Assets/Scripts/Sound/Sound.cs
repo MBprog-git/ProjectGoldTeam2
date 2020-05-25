@@ -7,7 +7,16 @@ public enum TYPE_AUDIO
     MusiqueAmbianceDemiLune,
     MusiqueAmbianceLune,
     MusiqueMainMenu,
-    SfxTest
+    SfxChucotement,
+    SfxDechirement1,
+    SfxDechirement2,
+    SfxPeleMeleOuverture1,
+    SfxPeleMeleOuverture2,
+    SfxPeleMeleOuverture3,
+    SfxPolaroid1,
+    SfxPolaroid2,
+    SfxPolaroid3
+
 }
 
 [System.Serializable]
