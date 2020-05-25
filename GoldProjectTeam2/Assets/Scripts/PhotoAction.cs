@@ -34,6 +34,8 @@ public class PhotoAction : MonoBehaviour
          CarAction2 = GameManager.instance.CarAction2;
          CorbacAction1  = GameManager.instance.CorbacAction1;
          CorbacAction2 = GameManager.instance.CorbacAction2;
+       
+        this.gameObject.SetActive(false);
     }
 
     
@@ -47,12 +49,15 @@ public class PhotoAction : MonoBehaviour
         float Speedo = GameManager.instance.Player.GetComponent<PlayerMovement>().speedBase;
         switch (IdAction)
         {
+           
             case 1:
                 
                 if (chrono > FleurAction2)
                 {
                     //changement anim
- Speedo = Speedo * 0.85f;
+                    Speedo = Speedo * 0.85f;
+                   // Debug.Log(chrono + "/" + FleurAction2);
+                  
                 }
 
                 else if (chrono > FleurAction1)

@@ -26,7 +26,7 @@ public class FadeIn : MonoBehaviour
             sp.color = new Color(sp.color.r, sp.color.g, sp.color.b,Albedo);
 
 
-            Debug.Log(Albedo);
+           // Debug.Log(Albedo);
 
         }
     }
