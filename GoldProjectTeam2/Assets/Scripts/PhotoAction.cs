@@ -6,7 +6,7 @@ public class PhotoAction : MonoBehaviour
 {
     public int IdAction;
     bool tpOnce;
-
+    bool flashOnce;
      float FleurAction1;
      float FleurAction2;   
      float EauAction1;
@@ -99,7 +99,12 @@ public class PhotoAction : MonoBehaviour
 
                 else if (chrono > CarAction1)
                 {
-                    //Effet lumière
+                    if (!flashOnce)
+                    {
+
+                    GameManager.instance.Journal.GetComponent<JournalMB>().FlashCar.color = new Color(1, 1, 1, 1);
+                        flashOnce = true;
+                    }
                 }
 
                 break;    
@@ -139,6 +144,7 @@ public class PhotoAction : MonoBehaviour
             case 3:
                 //effet visuel
                 tpOnce = false;
+                flashOnce = false;
                 break;
             case 4:
                 GameManager.instance.Player.GetComponent<PlayerMovement>().Canhide = true;

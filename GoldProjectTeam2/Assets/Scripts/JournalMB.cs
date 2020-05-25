@@ -39,6 +39,7 @@ public bool canSelfie = true;
     public SpriteRenderer previ;
     public float timerprevi;
     public SpriteRenderer Flash;
+    public SpriteRenderer FlashCar;
 
     void Start()
     {
@@ -61,6 +62,11 @@ public bool canSelfie = true;
         if (Flash.color.a > 0)
         {
             Flash.color = new Color(Flash.color.r, Flash.color.g, Flash.color.b, Flash.color.a - Time.deltaTime);
+        }     
+        
+        if (FlashCar.color.a > 0)
+        {
+            FlashCar.color = new Color(FlashCar.color.r, FlashCar.color.g, FlashCar.color.b, FlashCar.color.a - Time.deltaTime);
         }
         
     }
