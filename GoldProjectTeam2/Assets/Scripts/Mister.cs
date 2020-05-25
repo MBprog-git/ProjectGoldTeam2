@@ -14,7 +14,7 @@ public class Mister : MonoBehaviour
     public int speedBase = 15;
     public float speed;
     private float spawnDistanceToPlayer;
-    private float halfwayDistance;
+    public float halfwayDistance= 50.0f;
     public float almostInScreenDistance = 20.0f;
     public float distanceForRythmeQTE = 15.0f;
     public float distanceForBalanceQTE = 5.0f;
@@ -44,7 +44,7 @@ public class Mister : MonoBehaviour
         rb.velocity = new Vector2(speed, 0);
         Handheld.Vibrate();
         randomDistance = Random.Range(10, 100) - 5;
-        halfwayDistance = spawnDistanceToPlayer / 2 * -1; 
+        //halfwayDistance = spawnDistanceToPlayer / 2 * -1; 
     }
 
     void Update()
