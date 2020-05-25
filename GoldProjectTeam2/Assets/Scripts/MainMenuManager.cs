@@ -10,12 +10,15 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private GameObject panelOptions;
     [SerializeField] private GameObject panelMenu;
 
+    public Animator animationMainMenu;
+
     AsyncOperation op;
 
     private void Start()
     {
         op = SceneManager.LoadSceneAsync(nameScenePlay);
         op.allowSceneActivation = false;
+        animationMainMenu.SetBool("PlayAnimation", true);
     }
 
     public void PlayButton()
