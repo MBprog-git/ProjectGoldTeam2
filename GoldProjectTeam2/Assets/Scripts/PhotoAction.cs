@@ -79,7 +79,7 @@ public class PhotoAction : MonoBehaviour
 
                 else if (chrono > EauAction1)
                 {
-                    //Effet goutte
+                    GameManager.instance.ParticuleEau.SetActive(true);
                 }
 
                 break;     
@@ -140,6 +140,7 @@ public class PhotoAction : MonoBehaviour
                 //effet
                 GameManager.instance.Journal.GetComponent<JournalMB>().canSelfie = true;
                 GameManager.instance.mister.GetComponent<Mister>().speed = GameManager.instance.mister.GetComponent<Mister>().speedBase;
+                GameManager.instance.ParticuleEau.SetActive(false);
                 break;
             case 3:
                 //effet visuel

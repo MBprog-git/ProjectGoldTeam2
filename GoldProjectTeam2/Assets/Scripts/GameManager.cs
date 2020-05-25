@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
     [Space]
     public Camera cam;
     public GameObject Player;
+    public GameObject ParticuleEau;
     public GameObject QTEBalance;
     public GameObject QTERythme;
     public GameObject Hideout;
