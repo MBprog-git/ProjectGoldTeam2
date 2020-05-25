@@ -8,7 +8,6 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private string nameScenePlay = "MainScene";
 
     [SerializeField] private GameObject panelOptions;
-    [SerializeField] private GameObject panelAchievement;
     [SerializeField] private GameObject panelMenu;
 
     AsyncOperation op;
@@ -32,13 +31,11 @@ public class MainMenuManager : MonoBehaviour
 
     public void AchievementButton()
     {
-        panelAchievement.SetActive(true);
         panelMenu.SetActive(false);
     }
 
     public void ReturnButton()
     {
-        panelAchievement.SetActive(false);
         panelOptions.SetActive(false);
         panelMenu.SetActive(true);
     }
