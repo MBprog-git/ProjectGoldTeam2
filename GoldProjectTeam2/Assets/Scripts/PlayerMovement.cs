@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
             manageButton.goLeft = false;
             manageButton.goRight = false;
         }
-        if (!Hidden)
+        if (!Hidden )
         {
             if (manageButton.goRight && !manageButton.goLeft)
             {
@@ -76,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 GameManager.instance.IsMoving = true;
                 animator.SetBool("Is_Walking", true);
-            if (Hidden)
+            if (Hidden && !GameManager.instance.mister.GetComponent<Mister>().isBalanceQTEActif && !GameManager.instance.mister.GetComponent<Mister>().isRythmQTEActif)
             {
                 HideMe(LastCach);
             }
@@ -111,12 +111,17 @@ public class PlayerMovement : MonoBehaviour
                 LastCach = Cachette;
                 PlayerSp.SetActive(false);
             }
+            else if ( GameManager.instance.mister.GetComponent<Mister>().isBalanceQTEActif || GameManager.instance.mister.GetComponent<Mister>().isRythmQTEActif)
+            {
+                Hidden = true;
+            }
             else
             {
-              
+
                // Cachette.transform.position = new Vector3(Cachette.transform.position.x, Cachette.transform.position.y, 2);
                 GameManager.instance.HideUi.SetActive(false);
                 PlayerSp.SetActive(true);
+
             }
          
         } 
