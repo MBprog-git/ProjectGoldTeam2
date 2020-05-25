@@ -3686,6 +3686,16 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 1804
       objectReference: {fileID: 0}
+    - target: {fileID: 213882688641250861, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 314003572161043622, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 546608511821493362, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
         type: 3}
       propertyPath: m_IsActive
@@ -3857,15 +3867,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3577632085599636856, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 4018461907753560946, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -410
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4018461907753560946, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -23
+      value: 53
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098497677059604665, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5290575874345514434, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5487970786895540373, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
         type: 3}
@@ -3881,6 +3906,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5574142268255648748, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6418601910687633868, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
         type: 3}
