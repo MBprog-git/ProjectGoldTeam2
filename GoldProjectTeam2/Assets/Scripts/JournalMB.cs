@@ -38,7 +38,8 @@ public bool canSelfie = true;
 
     public SpriteRenderer previ;
     public float timerprevi;
-   
+    public SpriteRenderer Flash;
+
     void Start()
     {
         Eljournal = GameManager.instance.Journal;
@@ -56,6 +57,12 @@ public bool canSelfie = true;
         {
             timerprevi -= Time.deltaTime;
         }
+
+        if (Flash.color.a > 0)
+        {
+            Flash.color = new Color(Flash.color.r, Flash.color.g, Flash.color.b, Flash.color.a - Time.deltaTime);
+        }
+        
     }
 
     public void CallIn()
@@ -158,8 +165,8 @@ public bool canSelfie = true;
                  //   Previsualisation(go);
                   float newdist = GameManager.instance.mister.GetComponent<Mister>().distanceToPlayer * 0.8f;
                    newdist = GameManager.instance.Player.transform.position.x - newdist; 
-                    GameManager.instance.mister.transform.position = new Vector2(newdist, GameManager.instance.mister.transform.position.y) ; 
-                    
+                    GameManager.instance.mister.transform.position = new Vector2(newdist, GameManager.instance.mister.transform.position.y) ;
+                   Flash.color = new Color(previ.color.r, previ.color.g, previ.color.b, 1);
                     return;
                 }
             }

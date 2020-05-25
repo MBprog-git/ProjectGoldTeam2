@@ -30,6 +30,7 @@ public class PhotoAction : MonoBehaviour
 
     public void EFFET(float chrono)
     {
+        float Speedo = GameManager.instance.Player.GetComponent<PlayerMovement>().speedBase;
         switch (IdAction)
         {
             case 1:
@@ -37,12 +38,12 @@ public class PhotoAction : MonoBehaviour
                 if (chrono > 30)
                 {
                     //changement anim
-                    GameManager.instance.Player.GetComponent<PlayerMovement>().speed = GameManager.instance.Player.GetComponent<PlayerMovement>().speed * 0.85f;
+ Speedo = Speedo * 0.85f;
                 }
 
                 else if (chrono > 7)
                 {
-                    GameManager.instance.Player.GetComponent<PlayerMovement>().speed = GameManager.instance.Player.GetComponent<PlayerMovement>().speed * 0.93f;
+                    Speedo = Speedo * 0.93f;
                 }
 
                 break;      
@@ -53,7 +54,7 @@ public class PhotoAction : MonoBehaviour
                 {
                     GameManager.instance.Journal.GetComponent<JournalMB>().canSelfie = false;
                     //Tempete
-                        GameManager.instance.mister.GetComponent<Mister>().speed = GameManager.instance.mister.GetComponent<Mister>().speed * 0.70f;
+                        GameManager.instance.mister.GetComponent<Mister>().speed = GameManager.instance.mister.GetComponent<Mister>().speedBase * 0.70f;
       
                 }
 
@@ -89,7 +90,7 @@ public class PhotoAction : MonoBehaviour
                 if (chrono > 35)
                 {
                     GameManager.instance.Player.GetComponent<PlayerMovement>().Canhide = false;
-                    GameManager.instance.Player.GetComponent<PlayerMovement>().speed = GameManager.instance.Player.GetComponent<PlayerMovement>().speed * 1.10f;
+                    Speedo = Speedo * 1.10f;
                 }
 
                 else if (chrono > 10)
@@ -99,8 +100,8 @@ public class PhotoAction : MonoBehaviour
 
                 break;
 
-
         }
+        GameManager.instance.Player.GetComponent<PlayerMovement>().speed = Speedo;
     }
 
     public void DiscardPhoto() {

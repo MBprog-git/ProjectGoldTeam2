@@ -23,11 +23,15 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody rb;
     Animator animator;
+    SpriteRenderer sp;
     [HideInInspector] public ManagerButtonPlayer manageButton;
+
+    GameObject LastCach;
 
     private void Start()
     {
         animator = PlayerSp.GetComponent<Animator>();
+        sp = PlayerSp.GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody>();
         manageButton = GetComponent<ManagerButtonPlayer>();
         speed = speedBase;
@@ -53,6 +57,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     rb.velocity = new Vector3(speed, rb.velocity.y, rb.velocity.z);
                 }
+                sp.flipX = false;
             }
             else if (manageButton.goLeft && !manageButton.goRight)
             {
@@ -64,11 +69,17 @@ public class PlayerMovement : MonoBehaviour
                 {
                     rb.velocity = new Vector3(-speed, rb.velocity.y, rb.velocity.z);
                 }
+               sp.flipX = true;
             }
+        }
             if(manageButton.goLeft || manageButton.goRight)
             {
                 GameManager.instance.IsMoving = true;
                 animator.SetBool("Is_Walking", true);
+            if (Hidden)
+            {
+                HideMe(LastCach);
+            }
             }
             else
             {
@@ -82,27 +93,30 @@ public class PlayerMovement : MonoBehaviour
             {
                 SpawnMan();
             }
-        }
+        
     }
 
     public void HideMe(GameObject Cachette)
     {
-        if ((Canhide || Hidden) && Vector3.Distance(transform.position, Cachette.transform.position)<2) {
+        if ((Canhide  && Vector3.Distance(transform.position, Cachette.transform.position)<2) || Hidden) {
 
             Hidden = !Hidden;
             if (Hidden)
             {
                 //anim caché +QTE;
                 transform.position = Cachette.transform.position;
-                Cachette.transform.position = new Vector3(Cachette.transform.position.x, Cachette.transform.position.y, 0);
+                //  Cachette.transform.position = new Vector3(Cachette.transform.position.x, Cachette.transform.position.y, 0);
                 rb.velocity = Vector3.zero;
                 GameManager.instance.HideUi.SetActive(true);
+                LastCach = Cachette;
+                PlayerSp.SetActive(false);
             }
             else
             {
-                Debug.Log("unhide");
-                Cachette.transform.position = new Vector3(Cachette.transform.position.x, Cachette.transform.position.y, 2);
+              
+               // Cachette.transform.position = new Vector3(Cachette.transform.position.x, Cachette.transform.position.y, 2);
                 GameManager.instance.HideUi.SetActive(false);
+                PlayerSp.SetActive(true);
             }
          
         } 
