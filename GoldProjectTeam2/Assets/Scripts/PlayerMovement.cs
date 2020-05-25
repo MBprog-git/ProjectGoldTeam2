@@ -98,13 +98,14 @@ public class PlayerMovement : MonoBehaviour
 
     public void HideMe(GameObject Cachette)
     {
-        if ((Canhide  && Vector3.Distance(transform.position, Cachette.transform.position)<2) || Hidden) {
+    //  Debug.Log(Vector3.Distance(transform.position, Cachette.transform.position));
+        if ((Canhide  && Vector3.Distance(transform.position, Cachette.transform.position)<5) || Hidden) {
 
             Hidden = !Hidden;
             if (Hidden)
             {
                 //anim caché +QTE;
-                transform.position = Cachette.transform.position;
+                transform.position = new Vector3(Cachette.transform.position.x, transform.position.y, transform.position.z);
                 //  Cachette.transform.position = new Vector3(Cachette.transform.position.x, Cachette.transform.position.y, 0);
                 rb.velocity = Vector3.zero;
                 GameManager.instance.HideUi.SetActive(true);
