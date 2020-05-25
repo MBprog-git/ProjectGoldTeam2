@@ -7,7 +7,14 @@ public class PhotoAction : MonoBehaviour
     public int IdAction;
     bool tpOnce;
 
-    
+     float FleurAction1;
+     float FleurAction2;   
+     float EauAction1;
+     float EauAction2;
+     float CarAction1;
+     float CarAction2;
+     float CorbacAction1;
+     float CorbacAction2;
 
     /*iDAction
      0=Rien
@@ -19,7 +26,14 @@ public class PhotoAction : MonoBehaviour
          */
     void Start()
     {
-        
+         FleurAction1 = GameManager.instance.FleurAction1;
+         FleurAction2 = GameManager.instance.FleurAction2;
+         EauAction1 = GameManager.instance.EauAction1;
+         EauAction2 = GameManager.instance.EauAction2;
+         CarAction1 = GameManager.instance.CarAction1;
+         CarAction2 = GameManager.instance.CarAction2;
+         CorbacAction1  = GameManager.instance.CorbacAction1;
+         CorbacAction2 = GameManager.instance.CorbacAction2;
     }
 
     
@@ -35,13 +49,13 @@ public class PhotoAction : MonoBehaviour
         {
             case 1:
                 
-                if (chrono > 30)
+                if (chrono > FleurAction2)
                 {
                     //changement anim
  Speedo = Speedo * 0.85f;
                 }
 
-                else if (chrono > 7)
+                else if (chrono > FleurAction1)
                 {
                     Speedo = Speedo * 0.93f;
                 }
@@ -50,7 +64,7 @@ public class PhotoAction : MonoBehaviour
             
             case 2:
                 
-                if (chrono > 45)
+                if (chrono > EauAction2)
                 {
                     GameManager.instance.Journal.GetComponent<JournalMB>().canSelfie = false;
                     //Tempete
@@ -58,7 +72,7 @@ public class PhotoAction : MonoBehaviour
       
                 }
 
-                else if (chrono > 15)
+                else if (chrono > EauAction1)
                 {
                     //Effet goutte
                 }
@@ -67,7 +81,7 @@ public class PhotoAction : MonoBehaviour
             
             case 3:
                 
-                if (chrono > 50)
+                if (chrono > CarAction2)
                 {
                     //Passage voiture
                     if (!tpOnce)
@@ -78,7 +92,7 @@ public class PhotoAction : MonoBehaviour
 
                 }
 
-                else if (chrono > 35)
+                else if (chrono > CarAction1)
                 {
                     //Effet lumière
                 }
@@ -87,13 +101,13 @@ public class PhotoAction : MonoBehaviour
             
             case 4:
                 
-                if (chrono > 35)
+                if (chrono > CorbacAction2)
                 {
                     GameManager.instance.Player.GetComponent<PlayerMovement>().Canhide = false;
                     Speedo = Speedo * 1.10f;
                 }
 
-                else if (chrono > 10)
+                else if (chrono > CorbacAction1)
                 {
                     //Croa + Visuel corbac
                 }
