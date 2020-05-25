@@ -7,6 +7,10 @@ public class Mister : MonoBehaviour
     private GameObject player;
     private GameObject rythmQTE;
     private GameObject balanceQTE;
+
+    public bool isRythmQTEActif = false;
+    public bool isBalanceQTEActif = false;
+
     public int speedBase = 15;
     public float speed;
     private float spawnDistanceToPlayer;
@@ -79,6 +83,8 @@ public class Mister : MonoBehaviour
         {
             rythmQTE.SetActive(true);
             balanceQTE.SetActive(false);
+            isRythmQTEActif = true;
+            isBalanceQTEActif = false;
             return;
         }
 
@@ -86,6 +92,8 @@ public class Mister : MonoBehaviour
         {
             rythmQTE.SetActive(false);
             balanceQTE.SetActive(true);
+            isRythmQTEActif = false;
+            isBalanceQTEActif = true;
             return;
         }
 
@@ -93,6 +101,8 @@ public class Mister : MonoBehaviour
         {
             rythmQTE.SetActive(false);
             balanceQTE.SetActive(false);
+            isRythmQTEActif = false;
+            isBalanceQTEActif = false;
             Debug.Log("esquiver");
             return;
         }
@@ -105,6 +115,8 @@ public class Mister : MonoBehaviour
         {
             rythmQTE.SetActive(false);
             balanceQTE.SetActive(false);
+            isRythmQTEActif = false;
+            isBalanceQTEActif = false;
             Debug.Log("Death");
         }
     }
