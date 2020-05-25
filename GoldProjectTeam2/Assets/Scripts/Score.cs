@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
@@ -10,8 +11,7 @@ public class Score : MonoBehaviour
     private float seconds;
     private bool isTimerRunning = false;
     private int millisecond;
-
-    private string timer;
+    public Text score;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +27,7 @@ public class Score : MonoBehaviour
             minutes = Mathf.Floor(time / 60);
             seconds = time % 60;
             millisecond = Convert.ToInt32(time * 1000);
-            //timer = string.Format("{0:00} : {1:00}", minutes, seconds);
+            score.text = string.Format("{0:00} : {1:00}", minutes, seconds);
             //Debug.Log(millisecond);
             //Debug.Log(test);
         }

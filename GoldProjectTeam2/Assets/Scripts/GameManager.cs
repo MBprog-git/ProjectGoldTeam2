@@ -4,53 +4,69 @@ using UnityEngine.UI;
 [RequireComponent(typeof(PlayMultipleSound))]
 public class GameManager : MonoBehaviour
 {
+
+     [Header("Timer Effet Photo")]
+    [Space]
+
+    public float FleurAction1 = 7;
+    public float FleurAction2 = 30;
+    public float EauAction1 =15;
+    public float EauAction2=45;
+    public float CarAction1=35;
+    public float CarAction2=50;
+    public float CorbacAction1=10;
+    public float CorbacAction2=35;
+
+    [Header("Cachette")]
+    [Space]
+    public float DecalHid1;
+    public float DecalHid2;
+
+    [Header("Temps")]
+    [Space]
+    public float RythmeClock;
+    public int heure= 12;
+    public int minute;
+    public int timeSwitchToDemiLune = 19;
+    public int timeSwitchToLune = 21;
+
+    
+    
+
+    [Header("GameObject à brancher")]
+    [Space]
     public Camera cam;
     public GameObject Player;
     public GameObject QTEBalance;
     public GameObject QTERythme;
     public GameObject Hideout;
-
-    public float DecalHid1;
-    public float DecalHid2;
-
     public GameObject Journal;
     public Text Clocky;
-    public float RythmeClock;
-    float timerClock;
-    public int heure= 12;
-    public int minute;
-
     public GameObject mister;
-    //public Vector2 misterPosition;
-
-    private PlayMultipleSound playSound;
-
-    public int timeSwitchToDemiLune = 19;
-    public int timeSwitchToLune = 21;
-
-    public Image graindCouleur;
-    float timerVibro;
-    //public      SpriteRenderer s;
-
-    
-   // bool Selfie = true;
     public GameObject ButtonSelfie;
     public GameObject ButtonPhoto;
-    public GameObject Photostock;
     public GameObject ButtonJournal;
     public GameObject TxtPhotoCharge;
-    
-
-    SpriteRenderer spButtonSelfie;
-    SpriteRenderer spButtonPhoto;
-    Image spButtonJournal;
-    Text spTextCharge;
-
-
     public GameObject HideUi;
+    public Image graindCouleur;
 
+    [HideInInspector]
+    public GameObject Photostock;
+    [HideInInspector]
     public bool IsMoving;
     float Albedo = 1;
+    Image spButtonJournal;
+    Text spTextCharge;
+    SpriteRenderer spButtonSelfie;
+    SpriteRenderer spButtonPhoto;
+    private PlayMultipleSound playSound;
+    float timerVibro;
+    float timerClock;
+
+
+    //public Vector2 misterPosition;
+    //public      SpriteRenderer s;
+   // bool Selfie = true;
 
     public static GameManager instance;
 
