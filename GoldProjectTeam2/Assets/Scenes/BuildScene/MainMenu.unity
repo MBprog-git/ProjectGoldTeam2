@@ -1511,23 +1511,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundsMusique:
-  - audioFor: 0
-    audio: {fileID: 8300000, guid: 299b0e5436e70dc49b09599a0f2b6876, type: 3}
-    volume: 1
-    loop: 1
-    playOnAwake: 0
   - audioFor: 1
-    audio: {fileID: 8300000, guid: 5c7e8dcd1be265e4ba97f4709e2114e1, type: 3}
+    audio: {fileID: 8300000, guid: f64d0ae7761e41747812cfdeec0bbffe, type: 3}
     volume: 1
     loop: 1
     playOnAwake: 0
   - audioFor: 2
-    audio: {fileID: 8300000, guid: 3cfcd39263013114e86ef53700bcc781, type: 3}
+    audio: {fileID: 8300000, guid: 5c7e8dcd1be265e4ba97f4709e2114e1, type: 3}
     volume: 1
     loop: 1
     playOnAwake: 0
   - audioFor: 3
-    audio: {fileID: 8300000, guid: 598fbc75f7d737b4fba1763e30317a5e, type: 3}
+    audio: {fileID: 0}
+    volume: 1
+    loop: 1
+    playOnAwake: 0
+  - audioFor: 4
+    audio: {fileID: 8300000, guid: 4b3188953a5abc84ead267c99c4155f8, type: 3}
     volume: 1
     loop: 1
     playOnAwake: 1
@@ -1950,7 +1950,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   declencherAudio: 0
   isMusique: 1
-  typeAudio: 3
+  typeAudio: 4
 --- !u!82 &806701184
 AudioSource:
   m_ObjectHideFlags: 0
