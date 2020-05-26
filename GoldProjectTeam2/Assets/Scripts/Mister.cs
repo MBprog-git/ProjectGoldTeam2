@@ -134,7 +134,8 @@ public class Mister : MonoBehaviour
             balanceQTE.SetActive(false);
             isRythmQTEActif = false;
             isBalanceQTEActif = false;
-            Debug.Log("Death");
+            
+            GameManager.instance.MyLoadScene("LoseScene");
         }
 
         if (col.gameObject.tag == "TP")

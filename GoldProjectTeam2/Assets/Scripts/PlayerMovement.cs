@@ -150,4 +150,22 @@ public class PlayerMovement : MonoBehaviour
         badGuy.transform.position = new Vector3(0, 0, transform.position.z);
         shadowManIsRelease = true;
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Finish")
+        {
+            if (GameManager.instance.Journal.GetComponent<JournalMB>().Dessin[2]== null) {
+
+                Debug.Log("BAD END");
+
+                //GameManager.instance.MyLoadScene("");
+            }
+            else
+            {
+
+                GameManager.instance.MyLoadScene("VictoryScene");
+            }
+        }
+    }
 }
