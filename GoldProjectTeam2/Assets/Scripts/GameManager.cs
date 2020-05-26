@@ -38,6 +38,8 @@ public class GameManager : MonoBehaviour
     public SpriteRenderer Fondu;
     public Camera cam;
     public GameObject Player;
+    public GameObject Bagnole;
+    public GameObject CantSelfie;
     public GameObject ParticuleEau;
     public GameObject QTEBalance;
     public GameObject QTERythme;
@@ -63,6 +65,7 @@ public class GameManager : MonoBehaviour
     Text spTextCharge;
     SpriteRenderer spButtonSelfie;
     SpriteRenderer spButtonPhoto;
+    SpriteRenderer spCantself;
     private PlayMultipleSound playSound;
     float timerVibro;
     float timerClock;
@@ -77,6 +80,7 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         Fondu.color = new Color(Fondu.color.r, Fondu.color.g, Fondu.color.b, 1);
+        spCantself = CantSelfie.GetComponent<SpriteRenderer>();
          spButtonSelfie = ButtonSelfie.GetComponent<SpriteRenderer>();
          spButtonPhoto = ButtonPhoto.GetComponent<SpriteRenderer>();
          spButtonJournal = ButtonJournal.GetComponent<Image>();
@@ -108,6 +112,10 @@ public class GameManager : MonoBehaviour
             UpdateTime();
         }
 
+       /* if (Input.GetKeyDown(KeyCode.M))
+        {
+          
+        }*/
         if (Input.GetMouseButtonUp(0))
         {
             Vector3 Mouspos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -165,6 +173,8 @@ public class GameManager : MonoBehaviour
              spButtonPhoto.color = new Color(spButtonPhoto.color.r, spButtonPhoto.color.g, spButtonPhoto.color.b, Albedo);
              spButtonJournal. color = new Color(spButtonJournal.color.r, spButtonJournal.color.g, spButtonJournal.color.b, Albedo);
         spTextCharge. color = new Color(spTextCharge.color.r, spTextCharge.color.g, spTextCharge.color.b, Albedo);
+        spCantself. color = new Color(spCantself.color.r, spCantself.color.g, spCantself.color.b, Albedo);
+        
     }
 
     public void doExitGame()
@@ -238,11 +248,17 @@ public class GameManager : MonoBehaviour
         {
             ButtonSelfie.SetActive(false);
             ButtonPhoto.SetActive(true);
+
+            if (!Journal.GetComponent<JournalMB>().canSelfie)
+            {
+                CantSelfie.SetActive(true);
+            }
         }
         else
         {
             ButtonSelfie.SetActive(true);
             ButtonPhoto.SetActive(false);
+                CantSelfie.SetActive(false);
         }
 
     }

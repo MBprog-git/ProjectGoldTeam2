@@ -2184,6 +2184,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &740655823 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8649139674304483302, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1374988433}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &746913728
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3358,6 +3364,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1006358156 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 618206287454769134, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1374988433}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1008499050 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 208310780302320614, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
@@ -4550,6 +4562,8 @@ MonoBehaviour:
   Fondu: {fileID: 929072519}
   cam: {fileID: 1374988434}
   Player: {fileID: 1374988436}
+  Bagnole: {fileID: 1006358156}
+  CantSelfie: {fileID: 740655823}
   ParticuleEau: {fileID: 1870929990}
   QTEBalance: {fileID: 24834499}
   QTERythme: {fileID: 1391907408}
@@ -5424,6 +5438,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -4.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8649139674304483302, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53ae6985a8e15ad4d9a0b129b62b82b7, type: 3}

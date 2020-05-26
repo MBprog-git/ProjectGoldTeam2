@@ -91,6 +91,7 @@ public class PhotoAction : MonoBehaviour
                     //Passage voiture
                     if (!tpOnce)
                     {
+                        GameManager.instance.Bagnole.GetComponent<Animation>().Play();
                     GameManager.instance.mister.transform.position = new Vector2(GameManager.instance.mister.GetComponent<Mister>().almostInScreenDistance, GameManager.instance.mister.transform.position.y) ;
                         tpOnce = true;
                     }
