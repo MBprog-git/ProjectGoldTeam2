@@ -4059,6 +4059,7 @@ MonoBehaviour:
   HideUi: {fileID: 877074822}
   graindCouleur: {fileID: 1374988437}
   Photostock: {fileID: 0}
+  CorbacSound: 0
   IsMoving: 0
 --- !u!4 &1253488176
 Transform:
@@ -5836,6 +5837,16 @@ MonoBehaviour:
     playOnAwake: 0
   - audioFor: 20
     audio: {fileID: 8300000, guid: a0ca1695882f69744ada282aeb335e80, type: 3}
+    volume: 1
+    loop: 0
+    playOnAwake: 0
+  - audioFor: 21
+    audio: {fileID: 8300000, guid: cbebe4ebf855bbc46bf4ad6b5fa033c3, type: 3}
+    volume: 1
+    loop: 0
+    playOnAwake: 0
+  - audioFor: 22
+    audio: {fileID: 8300000, guid: afe8a437b07a79849b3950f1222f82b5, type: 3}
     volume: 1
     loop: 0
     playOnAwake: 0

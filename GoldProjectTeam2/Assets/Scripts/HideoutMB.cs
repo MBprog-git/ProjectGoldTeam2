@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class HideoutMB : MonoBehaviour
 {
-    public GameObject FeedBack;
+    public GameObject CantFeedback;
+   public float timerBase;
+    float timer;
+    PlayMultipleSound Audio;
+    AudioSource source;
     // Start is called before the first frame update
     void Start()
     {
-
+        timer = timerBase;
+        Audio = GetComponent<PlayMultipleSound>();
+    
     }
 
     // Update is called once per frame
@@ -19,19 +25,44 @@ public class HideoutMB : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
+        if(other.tag == "Player" && !GameManager.instance.Player.GetComponent<PlayerMovement>().Canhide)
         {
-            FeedBack.SetActive(true);
+            CantFeedback.SetActive(true);
+
+        }
+        else
+        {
+            CantFeedback.SetActive(false);
 
         }
     }
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        if(other.tag == "Player")
+        if (other.tag == "Player" && GameManager.instance.CorbacSound)
         {
-            FeedBack.SetActive(false);
+            if (timer < 0 )
+            {
+                int a = Random.Range(0, 2);
+                if (a == 0)
+                {
+                Audio.PlaySound(TYPE_AUDIO.SfxCorbeau1);
+
+                }
+                if (a == 1)
+                {
+                Audio.PlaySound(TYPE_AUDIO.SfxCorbeau2);
+
+                }
+
+                    timer = timerBase;
+            }
+            else
+            {
+                timer -= Time.deltaTime;
+            }
+        
+        }
 
         }
-    }
 
 }

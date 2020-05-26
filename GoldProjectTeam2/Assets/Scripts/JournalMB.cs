@@ -9,6 +9,7 @@ public class JournalMB : MonoBehaviour
     public Transform ActivePoint;
     public Transform InactivePoint;
     public bool activated;
+    public float CorruptSpeed = 0.01f;
 
    /* Vector3 OldPos;
     public GameObject GOMME;
@@ -177,7 +178,7 @@ public bool canSelfie = true;
             if (Dessin[i]!=null)
             {
                 DessinChrono[i] += Time.deltaTime;
-                float Crimson = 1 - (DessinChrono[i] * 0.01f);
+                float Crimson = 1 - (DessinChrono[i] * CorruptSpeed);
                 Dessin[i].GetComponent<SpriteRenderer>().color = new Color(1, Crimson, Crimson);
                 
                     Dessin[i].GetComponent<PhotoAction>().EFFET(DessinChrono[i]);

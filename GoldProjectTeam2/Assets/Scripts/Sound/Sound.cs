@@ -22,7 +22,9 @@ public enum TYPE_AUDIO
     SfxPhotoShadowProche,
     SfxFermePele1,
     SfxFermePele2,
-    SfxFermePele3
+    SfxFermePele3,
+    SfxCorbeau1,
+    SfxCorbeau2
        
 
 }
