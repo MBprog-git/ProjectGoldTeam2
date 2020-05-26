@@ -50,6 +50,17 @@ public class Mister : MonoBehaviour
     void Update()
     {
         FunctionDistance();
+
+        if (!GameManager.instance.IsMoving)
+        {
+            speed = speed * 0.80f;
+
+        }
+        else
+        {
+            speed = speedBase;
+        }
+        
     }
 
     void FunctionDistance()
