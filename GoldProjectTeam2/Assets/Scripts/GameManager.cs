@@ -30,11 +30,12 @@ public class GameManager : MonoBehaviour
     public int timeSwitchToDemiLune = 19;
     public int timeSwitchToLune = 21;
 
-    
-    
+
+
 
     [Header("GameObject à brancher")]
     [Space]
+    public SpriteRenderer Fondu;
     public Camera cam;
     public GameObject Player;
     public GameObject ParticuleEau;
@@ -75,6 +76,7 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+        Fondu.color = new Color(Fondu.color.r, Fondu.color.g, Fondu.color.b, 1);
          spButtonSelfie = ButtonSelfie.GetComponent<SpriteRenderer>();
          spButtonPhoto = ButtonPhoto.GetComponent<SpriteRenderer>();
          spButtonJournal = ButtonJournal.GetComponent<Image>();
@@ -91,6 +93,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         playSound = GetComponent<PlayMultipleSound>();
+      
         Clocky.text = heure + " : " + minute + "0";
     }
 
@@ -143,6 +146,11 @@ public class GameManager : MonoBehaviour
 
     public void FadeUi()
     {
+        if (Fondu.color.a > 0)
+        {
+            Fondu.color = new Color(Fondu.color.r, Fondu.color.g, Fondu.color.b, Fondu.color.a - Time.deltaTime) ;
+        }
+
         if (!IsMoving && Albedo<1) {
             Albedo += Time.deltaTime;
 
