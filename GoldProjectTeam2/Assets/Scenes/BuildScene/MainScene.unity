@@ -4010,7 +4010,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 2b60b720961d0d94d8b147e730c608c1, type: 2}
+      objectReference: {fileID: 2100000, guid: 8758b183f66afd045beae8bdd2f12155, type: 2}
     - target: {fileID: 3508645415307656423, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4918,6 +4918,11 @@ MonoBehaviour:
     playOnAwake: 0
   - audioFor: 13
     audio: {fileID: 8300000, guid: d213d554615cfe44a8350b2dbb3c4662, type: 3}
+    volume: 1
+    loop: 0
+    playOnAwake: 0
+  - audioFor: 15
+    audio: {fileID: 8300000, guid: bf1acb73914288e4db53cd46d60a630b, type: 3}
     volume: 1
     loop: 0
     playOnAwake: 0

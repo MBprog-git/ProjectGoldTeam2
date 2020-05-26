@@ -251,27 +251,16 @@ public bool canSelfie = true;
     {
         if (canSelfie && ChargePhoto>0)
         {
-            int a = Random.Range(0, 3);
-            if (a == 0)
-            {
-                Audio.PlaySound(TYPE_AUDIO.SfxPolaroid1);
-            }
-            else if (a == 1)
-            {
-                Audio.PlaySound(TYPE_AUDIO.SfxPolaroid2);
-
-            }
-            else if (a == 2)
-            {
-                Audio.PlaySound(TYPE_AUDIO.SfxPolaroid3);
-
-            }
+            bool shadow = false;
 
             if (GameManager.instance.mister.GetComponent<Mister>().almostInScreen)
             {
 
               
             Previsualisation(Selfies[2]);
+
+                Audio.PlaySound(TYPE_AUDIO.SfxPhotoShadow);
+                shadow = true;
             }
             else if (GameManager.instance.mister.GetComponent<Mister>().halfway)
             {
@@ -286,6 +275,24 @@ public bool canSelfie = true;
             }
         ChargePhoto--;
             TxtChargePhoto.text = "x " + ChargePhoto;
+            if (!shadow)
+            {
+                int a = Random.Range(0, 3);
+                if (a == 0)
+                {
+                    Audio.PlaySound(TYPE_AUDIO.SfxPolaroid1);
+                }
+                else if (a == 1)
+                {
+                    Audio.PlaySound(TYPE_AUDIO.SfxPolaroid2);
+
+                }
+                else if (a == 2)
+                {
+                    Audio.PlaySound(TYPE_AUDIO.SfxPolaroid3);
+
+                }
+            }
         }
 
     }

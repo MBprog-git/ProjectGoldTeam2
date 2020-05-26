@@ -201,7 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3c60eb5b964d7e40bc314eee710a534, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typeAudio: 08000000090000000a0000000b0000000c0000000d00000007000000
+  typeAudio: 08000000090000000a0000000b0000000c0000000d000000070000000f000000
   isMusique: 0
 --- !u!1 &450757866
 GameObject:
@@ -3134,7 +3134,6 @@ MonoBehaviour:
     type: 3}
   PlayerSp: {fileID: 4297053181194739645}
   manageButton: {fileID: 0}
-  source: {fileID: 0}
 --- !u!114 &3508645415307656418
 MonoBehaviour:
   m_ObjectHideFlags: 0
