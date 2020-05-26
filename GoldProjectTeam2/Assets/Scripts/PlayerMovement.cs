@@ -28,8 +28,13 @@ public class PlayerMovement : MonoBehaviour
 
     GameObject LastCach;
 
+    PlayOneSound Audio;
+     AudioSource source;
+
     private void Start()
     {
+        source = GetComponent<AudioSource>();
+        Audio = GetComponent<PlayOneSound>();
         animator = PlayerSp.GetComponent<Animator>();
         sp = PlayerSp.GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody>();
@@ -81,6 +86,11 @@ public class PlayerMovement : MonoBehaviour
             {
                 GameManager.instance.IsMoving = true;
                 animator.SetBool("Is_Walking", true);
+            if (!source.isPlaying)
+            {
+            Audio.PlaySound();
+
+            }
             if (Hidden && !GameManager.instance.mister.GetComponent<Mister>().isBalanceQTEActif && !GameManager.instance.mister.GetComponent<Mister>().isRythmQTEActif)
             {
                 HideMe(LastCach);
@@ -90,7 +100,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 GameManager.instance.IsMoving = false;
                 animator.SetBool("Is_Walking", false);
-
+            Audio.StopSound();
             }
 
 

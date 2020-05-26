@@ -75,6 +75,10 @@ public class PlayOneSound : MonoBehaviour
     public void PlaySound()
     {
         audioSource.Play();
+    }   
+    public void StopSound()
+    {
+        audioSource.Stop();
     }
 
 }

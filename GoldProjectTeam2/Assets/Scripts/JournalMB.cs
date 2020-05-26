@@ -41,9 +41,12 @@ public bool canSelfie = true;
     public SpriteRenderer Flash;
     public SpriteRenderer FlashCar;
 
+    PlayMultipleSound Audio;
+
     void Start()
     {
         Eljournal = GameManager.instance.Journal;
+        Audio = GetComponent<PlayMultipleSound>();
     }
 
     void Update()
@@ -73,6 +76,19 @@ public bool canSelfie = true;
 
     public void CallIn()
     {
+        int a = Random.Range(0, 3);
+        if (a == 0)
+        {
+        Audio.PlaySound(TYPE_AUDIO.SfxPeleMeleOuverture1);
+        }else if (a == 1)
+        {
+        Audio.PlaySound(TYPE_AUDIO.SfxPeleMeleOuverture2);
+
+        }else if (a == 2)
+        {
+        Audio.PlaySound(TYPE_AUDIO.SfxPeleMeleOuverture3);
+
+        }
         Eljournal.transform.position = ActivePoint.transform.position;
         activated = true;
         if (Dessin[pageactif] != null)
@@ -161,6 +177,21 @@ public bool canSelfie = true;
     {
         if (ChargePhoto > 0)
         {
+            int a = Random.Range(0, 3);
+            if (a == 0)
+            {
+                Audio.PlaySound(TYPE_AUDIO.SfxPolaroid1);
+            }
+            else if (a == 1)
+            {
+                Audio.PlaySound(TYPE_AUDIO.SfxPolaroid2);
+
+            }
+            else if (a == 2)
+            {
+                Audio.PlaySound(TYPE_AUDIO.SfxPolaroid3);
+
+            }
             for (int i = 0; i < Dessin.Length; i++)
             {
                 if (Dessin[i] == null)
@@ -189,7 +220,7 @@ public bool canSelfie = true;
      
         Dessin[pageactif].GetComponent<PhotoAction>().DiscardPhoto();
         Dessin[pageactif].SetActive(false);
-
+        Audio.PlaySound(TYPE_AUDIO.SfxDechirement2);
         for (int i = pageactif; i < Dessin.Length; i++)
         {
 
@@ -220,6 +251,22 @@ public bool canSelfie = true;
     {
         if (canSelfie && ChargePhoto>0)
         {
+            int a = Random.Range(0, 3);
+            if (a == 0)
+            {
+                Audio.PlaySound(TYPE_AUDIO.SfxPolaroid1);
+            }
+            else if (a == 1)
+            {
+                Audio.PlaySound(TYPE_AUDIO.SfxPolaroid2);
+
+            }
+            else if (a == 2)
+            {
+                Audio.PlaySound(TYPE_AUDIO.SfxPolaroid3);
+
+            }
+
             if (GameManager.instance.mister.GetComponent<Mister>().almostInScreen)
             {
 
