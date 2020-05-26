@@ -248,17 +248,17 @@ public class GameManager : MonoBehaviour
         {
             ButtonSelfie.SetActive(false);
             ButtonPhoto.SetActive(true);
+                CantSelfie.SetActive(false);
 
-            if (!Journal.GetComponent<JournalMB>().canSelfie)
-            {
-                CantSelfie.SetActive(true);
-            }
         }
         else
         {
             ButtonSelfie.SetActive(true);
             ButtonPhoto.SetActive(false);
-                CantSelfie.SetActive(false);
+            if (!Journal.GetComponent<JournalMB>().canSelfie)
+            {
+                CantSelfie.SetActive(true);
+            }
         }
 
     }
