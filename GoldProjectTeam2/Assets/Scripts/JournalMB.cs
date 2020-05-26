@@ -98,6 +98,21 @@ public bool canSelfie = true;
     }
     public void CallOut()
     {
+        int a = Random.Range(0, 3);
+        if (a == 0)
+        {
+            Audio.PlaySound(TYPE_AUDIO.SfxFermePele1);
+        }
+        else if (a == 1)
+        {
+            Audio.PlaySound(TYPE_AUDIO.SfxFermePele2);
+
+        }
+        else if (a == 2)
+        {
+            Audio.PlaySound(TYPE_AUDIO.SfxFermePele3);
+
+        }
         Eljournal.transform.position = InactivePoint.transform.position;
         activated = false;
        /* Cangomme = false;
@@ -251,7 +266,7 @@ public bool canSelfie = true;
     {
         if (canSelfie && ChargePhoto>0)
         {
-            bool shadow = false;
+
 
             if (GameManager.instance.mister.GetComponent<Mister>().almostInScreen)
             {
@@ -259,40 +274,26 @@ public bool canSelfie = true;
               
             Previsualisation(Selfies[2]);
 
-                Audio.PlaySound(TYPE_AUDIO.SfxPhotoShadow);
-                shadow = true;
+                Audio.PlaySound(TYPE_AUDIO.SfxPhotoShadowProche);
+              
             }
             else if (GameManager.instance.mister.GetComponent<Mister>().halfway)
             {
+                Audio.PlaySound(TYPE_AUDIO.SfxPhotoShadowMi);
 
       
             Previsualisation(Selfies[1]);
             }
             else
             {
+                Audio.PlaySound(TYPE_AUDIO.SfxPhotoShadowLoin);
                 
             Previsualisation(Selfies[0]);
             }
         ChargePhoto--;
             TxtChargePhoto.text = "x " + ChargePhoto;
-            if (!shadow)
-            {
-                int a = Random.Range(0, 3);
-                if (a == 0)
-                {
-                    Audio.PlaySound(TYPE_AUDIO.SfxPolaroid1);
-                }
-                else if (a == 1)
-                {
-                    Audio.PlaySound(TYPE_AUDIO.SfxPolaroid2);
 
-                }
-                else if (a == 2)
-                {
-                    Audio.PlaySound(TYPE_AUDIO.SfxPolaroid3);
-
-                }
-            }
+            
         }
 
     }

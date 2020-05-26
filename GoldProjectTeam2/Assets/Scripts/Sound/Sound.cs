@@ -17,7 +17,12 @@ public enum TYPE_AUDIO
     SfxPolaroid2,
     SfxPolaroid3,
     BruitPas,
-    SfxPhotoShadow
+    SfxPhotoShadowLoin,
+    SfxPhotoShadowMi,
+    SfxPhotoShadowProche,
+    SfxFermePele1,
+    SfxFermePele2,
+    SfxFermePele3
        
 
 }
