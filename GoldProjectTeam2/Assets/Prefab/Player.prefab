@@ -72,6 +72,7 @@ MonoBehaviour:
   ActivePoint: {fileID: 1734037377}
   InactivePoint: {fileID: 450757867}
   activated: 0
+  CorruptSpeed: 0.01
   pageactif: 0
   txtPageactif: {fileID: 7227900969247318644}
   canSelfie: 1
