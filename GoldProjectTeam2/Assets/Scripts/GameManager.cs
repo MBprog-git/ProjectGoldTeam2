@@ -54,6 +54,8 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public GameObject Photostock;
     [HideInInspector]
+    public bool CorbacSound;
+    [HideInInspector]
     public bool IsMoving;
     float Albedo = 1;
     Image spButtonJournal;
@@ -197,11 +199,11 @@ public class GameManager : MonoBehaviour
 
     public void SpawnHid()
     {
-        Vector2 pos1 = new Vector2(Player.transform.position.x + DecalHid1, Player.transform.position.y);
+     /*   Vector2 pos1 = new Vector2(Player.transform.position.x + DecalHid1, Player.transform.position.y);
         Vector2 pos2 = new Vector2(Player.transform.position.x + DecalHid2, Player.transform.position.y);
 
         Instantiate(Hideout, pos1, transform.rotation);
-        Instantiate(Hideout, pos2, transform.rotation);
+        Instantiate(Hideout, pos2, transform.rotation);*/
     }
     public void VibraAleatoire()
     {

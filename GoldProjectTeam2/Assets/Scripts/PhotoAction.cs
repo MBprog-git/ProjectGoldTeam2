@@ -119,7 +119,7 @@ public class PhotoAction : MonoBehaviour
 
                 else if (chrono > CorbacAction1)
                 {
-                    //Croa + Visuel corbac
+                    GameManager.instance.CorbacSound = true;
                 }
 
                 break;
@@ -148,7 +148,8 @@ public class PhotoAction : MonoBehaviour
                 flashOnce = false;
                 break;
             case 4:
-                GameManager.instance.Player.GetComponent<PlayerMovement>().Canhide = true;
+                GameManager.instance.Player.GetComponent<PlayerMovement>().Canhide = true; 
+                GameManager.instance.CorbacSound = false;
                 //effet visuel
 
 
