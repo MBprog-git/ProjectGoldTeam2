@@ -4876,13 +4876,13 @@ MonoBehaviour:
     loop: 1
     playOnAwake: 1
   soundsSfx:
-  - audioFor: 14
-    audio: {fileID: 8300000, guid: 4dd495d519634d94bb197c051e2dc923, type: 3}
+  - audioFor: 18
+    audio: {fileID: 8300000, guid: 40b4b8b03ac8d184aa738ebdd6dc26ff, type: 3}
     volume: 1
-    loop: 1
+    loop: 0
     playOnAwake: 0
   - audioFor: 14
-    audio: {fileID: 8300000, guid: 4dd495d519634d94bb197c051e2dc923, type: 3}
+    audio: {fileID: 8300000, guid: cc7ee57286203c148b105e138cbbd45a, type: 3}
     volume: 1
     loop: 1
     playOnAwake: 0
@@ -4922,7 +4922,27 @@ MonoBehaviour:
     loop: 0
     playOnAwake: 0
   - audioFor: 15
-    audio: {fileID: 8300000, guid: bf1acb73914288e4db53cd46d60a630b, type: 3}
+    audio: {fileID: 8300000, guid: b459b3c5938f48c469e8bc7744a0da80, type: 3}
+    volume: 1
+    loop: 0
+    playOnAwake: 0
+  - audioFor: 16
+    audio: {fileID: 8300000, guid: 65aec34a455513640b00ecc81cbb01eb, type: 3}
+    volume: 1
+    loop: 0
+    playOnAwake: 0
+  - audioFor: 17
+    audio: {fileID: 8300000, guid: 7784b40e3e3104448bf63f3858e90ad6, type: 3}
+    volume: 1
+    loop: 0
+    playOnAwake: 0
+  - audioFor: 19
+    audio: {fileID: 8300000, guid: 7b2c35b3a6afdb2409a3e162d35b3c5f, type: 3}
+    volume: 1
+    loop: 0
+    playOnAwake: 0
+  - audioFor: 20
+    audio: {fileID: 8300000, guid: a0ca1695882f69744ada282aeb335e80, type: 3}
     volume: 1
     loop: 0
     playOnAwake: 0
