@@ -3353,7 +3353,7 @@ MonoBehaviour:
   timeSwitchToLune: 20
   cam: {fileID: 1374988434}
   Player: {fileID: 1374988436}
-  ParticuleEau: {fileID: 0}
+  ParticuleEau: {fileID: 1870929990}
   QTEBalance: {fileID: 24834499}
   QTERythme: {fileID: 1391907408}
   Hideout: {fileID: 2834385169165682111, guid: 14f2d709118c94f4f898e83f0c8bdf15, type: 3}
@@ -3874,6 +3874,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingOrder
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 278009465432214699, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 278009465432530641, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
         type: 3}
@@ -5747,6 +5752,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1870929990 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 278009465432214699, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1374988433}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1874559887
 GameObject:
   m_ObjectHideFlags: 0
