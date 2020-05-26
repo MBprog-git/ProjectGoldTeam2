@@ -18,18 +18,21 @@ public class Mister : MonoBehaviour
     public float almostInScreenDistance = 20.0f;
     public float distanceForRythmeQTE = 15.0f;
     public float distanceForBalanceQTE = 5.0f;
-
     public float distanceToPlayer;
+    public float distanceToTeleportCompareToPlayerPosition = 100.0f;
     public bool halfway = false;
     public bool almostInScreen = false;
 
     private float randomDistance;
     private bool isRandomDistanceVibrationActivated = false;
 
+    public float distanceTeleportationTrigger = 25.0f;
+    private bool isAheadOfPlayer = false;
     Rigidbody rb;
 
     void Awake()
     {
+        speedBase = GameManager.instance.Player.GetComponent<PlayerMovement>().speedBase + 2;
         speed = speedBase;
         rb = GetComponent<Rigidbody>();
 
@@ -49,6 +52,7 @@ public class Mister : MonoBehaviour
 
     void Update()
     {
+
         FunctionDistance();
 
         if (!GameManager.instance.IsMoving)
@@ -108,15 +112,17 @@ public class Mister : MonoBehaviour
             return;
         }
 
+        //esquiver
         if (distanceToPlayer <= -distanceForBalanceQTE)
         {
             rythmQTE.SetActive(false);
             balanceQTE.SetActive(false);
             isRythmQTEActif = false;
             isBalanceQTEActif = false;
-            Debug.Log("esquiver");
+            isAheadOfPlayer = true;
             return;
         }
+
 
     }
 
@@ -129,6 +135,11 @@ public class Mister : MonoBehaviour
             isRythmQTEActif = false;
             isBalanceQTEActif = false;
             Debug.Log("Death");
+        }
+
+        if (col.gameObject.tag == "TP")
+        {
+            transform.position = new Vector2(player.transform.position.x - distanceToTeleportCompareToPlayerPosition,0);
         }
     }
 }
