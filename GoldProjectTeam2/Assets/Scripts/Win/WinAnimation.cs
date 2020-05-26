@@ -11,6 +11,8 @@ public class WinAnimation : MonoBehaviour
     public GameObject secondImage;
     public GameObject thirdImage;
 
+    public GameObject goToPosition;
+
     private Image first;
     private Image second;
     private Image third;
@@ -24,15 +26,10 @@ public class WinAnimation : MonoBehaviour
         second = secondImage.GetComponent<Image>();
         third = thirdImage.GetComponent<Image>();
 
-        secondImageMove.x = secondImage.transform.position.x;
-        secondImageMove.y = secondImage.transform.position.y;
+        secondImageMove.x = secondImage.transform.localPosition.x;
+        secondImageMove.y = secondImage.transform.localPosition.y;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void StartWinAnimation()
     {
@@ -58,6 +55,7 @@ public class WinAnimation : MonoBehaviour
             first.color = tempColor;
             yield return null;
         }
+        yield return new WaitForSeconds(2);
         for (float i = 1; i >= 0; i -= faddingTime)
         {
             tempColor.a = i;
@@ -73,21 +71,17 @@ public class WinAnimation : MonoBehaviour
             second.color = tempColor;
             yield return null;
         }
-
-        for (int i =  0; secondImage.transform.position.x <= -1; i++)
+        for (float i = 1; secondImageMove.x <= goToPosition.transform.localPosition.x;)
         {
             secondImageMove.x += i;
-            secondImage.transform.position = secondImageMove;
+            secondImage.transform.localPosition = secondImageMove;
+            Debug.Log(secondImage.transform.localPosition);
+            Debug.Log(goToPosition.transform.localPosition.x);
+            Debug.Log(secondImageMove.x);
             yield return null;
         }
-
         secondImage.SetActive(false);
-        //for (float i = 1; i >= 0; i -= faddingTime)
-        //{
-        //    tempColor.a = i;
-        //    second.color = tempColor;
-        //    yield return null;
-        //}
+
 
         thirdImage.SetActive(true);
         yield return new WaitForSeconds(2);

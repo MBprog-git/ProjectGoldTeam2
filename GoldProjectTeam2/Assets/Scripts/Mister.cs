@@ -11,7 +11,7 @@ public class Mister : MonoBehaviour
     public bool isRythmQTEActif = false;
     public bool isBalanceQTEActif = false;
 
-    public float speedBase = 15.0f;
+    public float speedBase = 15.0f  ;
     public float speed;
     private float spawnDistanceToPlayer;
     public float halfwayDistance= 50.0f;
