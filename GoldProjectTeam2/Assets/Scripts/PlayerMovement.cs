@@ -166,12 +166,13 @@ public class PlayerMovement : MonoBehaviour
             {
 
                 Debug.Log("BAD END");
-
-                //GameManager.instance.MyLoadScene("");
+                GameManager.instance.Player.GetComponent<Score>().StopTimerLose();
+                GameManager.instance.MyLoadScene("LoseScene2");
             }
             else
             {
-
+                GameManager.instance.Player.GetComponent<Score>().StopTimer();
+                GameManager.instance.Player.GetComponent<GPGSLeaderboard>().UpdateLeaderboard();
                 GameManager.instance.MyLoadScene("VictoryScene");
             }
         }
