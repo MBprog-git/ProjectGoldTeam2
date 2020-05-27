@@ -196,10 +196,10 @@ public class GameManager : MonoBehaviour
 
         Clocky.text = heure + " : " + minute + "0";
 
-        if (SceneLight.intensity > 0.4f)
+        if (SceneLight.intensity > 0.5f)
         {
 
-            SceneLight.intensity -= 0.05f;
+            SceneLight.intensity -= 0.02f;
         }
 
         timerClock = RythmeClock;
