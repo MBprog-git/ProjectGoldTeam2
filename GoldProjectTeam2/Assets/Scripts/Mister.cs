@@ -30,6 +30,7 @@ public class Mister : MonoBehaviour
     private bool isAheadOfPlayer = false;
     public float PlusPlayer;
     public float MultiplierSlow;
+    public float MultiplierSlowHide;
     Rigidbody rb;
 
     void Awake()
@@ -136,6 +137,12 @@ public class Mister : MonoBehaviour
             isBalanceQTEActif = false;
             
             GameManager.instance.MyLoadScene("LoseScene");
+        }
+
+        if(col.gameObject.tag == "Hideout")
+        {
+            speed = speed * MultiplierSlowHide;
+
         }
 
         if (col.gameObject.tag == "TP")
