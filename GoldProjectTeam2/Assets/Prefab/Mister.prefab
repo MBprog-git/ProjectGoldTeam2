@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8457590945120473954}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.005494, y: 0, z: 0}
+  m_LocalPosition: {x: 43.64131, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -110,6 +110,8 @@ MonoBehaviour:
   halfway: 0
   almostInScreen: 0
   distanceTeleportationTrigger: 25
+  PlusPlayer: 1
+  MultiplierSlow: 0.5
 --- !u!65 &1507495911059599828
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -29,6 +29,7 @@ public class Mister : MonoBehaviour
     public float distanceTeleportationTrigger = 25.0f;
     private bool isAheadOfPlayer = false;
     public float PlusPlayer;
+    public float MultiplierSlow;
     Rigidbody rb;
 
     void Awake()
@@ -58,7 +59,7 @@ public class Mister : MonoBehaviour
 
         if (!GameManager.instance.IsMoving)
         {
-            speed = speed * 0.80f;
+            speed = speed * MultiplierSlow;
 
         }
         else
