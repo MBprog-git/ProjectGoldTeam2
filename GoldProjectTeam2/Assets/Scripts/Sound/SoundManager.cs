@@ -21,18 +21,6 @@ public class SoundManager : MonoBehaviour
     [SerializeField]
     private Slider sliderVolumeSfx;
 
-    private void Start()
-    {
-        if (FindObjectsOfType<SoundManager>().Length > 1)
-        {
-            Destroy(this.gameObject);
-        }
-        else
-        {
-            DontDestroyOnLoad(this.gameObject);
-        }
-    }
-
     public void SwitchActiveMusique()
     {
        activeMusic = !activeMusic;
