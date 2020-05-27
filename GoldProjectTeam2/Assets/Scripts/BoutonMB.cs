@@ -5,7 +5,7 @@ using UnityEngine;
 public class BoutonMB : MonoBehaviour
 {
     public int ActionID;
-    // Start is called before the first frame update
+   
     void Start()
     {
         
