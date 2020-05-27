@@ -9,6 +9,7 @@ public class MainMenuManager : MonoBehaviour
 
     [SerializeField] private GameObject panelOptions;
     [SerializeField] private GameObject panelMenu;
+    [SerializeField] private GameObject panelHowToPlay;
 
     public Animator animationMainMenu;
 
@@ -24,6 +25,12 @@ public class MainMenuManager : MonoBehaviour
     public void PlayButton()
     {
         op.allowSceneActivation = true;
+    }
+
+    public void StartButton()
+    {
+        panelMenu.SetActive(false);
+        panelHowToPlay.SetActive(true);
     }
 
     public void OptionButton()
