@@ -16508,6 +16508,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 75
       objectReference: {fileID: 0}
+    - target: {fileID: 1530726960169291889, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
+        type: 3}
+      propertyPath: neededTimeToPressForLongNote
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1530726960169291890, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
         type: 3}
       propertyPath: m_Size.x
@@ -17026,7 +17031,7 @@ PrefabInstance:
     - target: {fileID: 4308690718351026172, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
         type: 3}
       propertyPath: zoneSpeed
-      value: 3.5
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 4415379068541393009, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
         type: 3}
@@ -18267,12 +18272,12 @@ MonoBehaviour:
     loop: 1
     playOnAwake: 1
   - audioFor: 2
-    audio: {fileID: 8300000, guid: 3cfcd39263013114e86ef53700bcc781, type: 3}
+    audio: {fileID: 8300000, guid: 5c7e8dcd1be265e4ba97f4709e2114e1, type: 3}
     volume: 1
     loop: 1
     playOnAwake: 0
   - audioFor: 3
-    audio: {fileID: 8300000, guid: 598fbc75f7d737b4fba1763e30317a5e, type: 3}
+    audio: {fileID: 8300000, guid: 46254c91e3064704e9b7e050d2befb3e, type: 3}
     volume: 1
     loop: 1
     playOnAwake: 0
