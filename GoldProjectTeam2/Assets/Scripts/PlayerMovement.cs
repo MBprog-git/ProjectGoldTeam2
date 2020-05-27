@@ -29,7 +29,9 @@ public class PlayerMovement : MonoBehaviour
     GameObject LastCach;
 
     PlayOneSound Audio;
-     AudioSource source;
+    AudioSource source;
+
+    public Camera camera;
 
     private void Start()
     {
@@ -40,6 +42,8 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         manageButton = GetComponent<ManagerButtonPlayer>();
         speed = speedBase;
+
+        camera.orthographic = true;
     }
 
     public void Update()
@@ -50,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
             manageButton.goLeft = false;
             manageButton.goRight = false;
         }
-        if (!Hidden )
+        if (!Hidden)
         {
             if (manageButton.goRight && !manageButton.goLeft)
             {
@@ -77,46 +81,48 @@ public class PlayerMovement : MonoBehaviour
                  }*/
 
 
-                transform.Translate(-1*Time.deltaTime*speed, 0, 0);
+                transform.Translate(-1 * Time.deltaTime * speed, 0, 0);
 
                 sp.flipX = true;
             }
         }
-            if(manageButton.goLeft || manageButton.goRight)
-            {
-                GameManager.instance.IsMoving = true;
-                animator.SetBool("Is_Walking", true);
+        if (manageButton.goLeft || manageButton.goRight)
+        {
+            GameManager.instance.IsMoving = true;
+            animator.SetBool("Is_Walking", true);
             if (!source.isPlaying)
             {
-            Audio.PlaySound();
+                Audio.PlaySound();
 
             }
             if (Hidden && !GameManager.instance.mister.GetComponent<Mister>().isBalanceQTEActif && !GameManager.instance.mister.GetComponent<Mister>().isRythmQTEActif)
             {
                 HideMe(LastCach);
             }
-            }
-            else
-            {
-                GameManager.instance.IsMoving = false;
-                animator.SetBool("Is_Walking", false);
+        }
+        else
+        {
+            GameManager.instance.IsMoving = false;
+            animator.SetBool("Is_Walking", false);
             Audio.StopSound();
-            }
+        }
 
 
-            if (transform.position.x >= distanceInOrderToSpawnMan && !shadowManIsRelease)
-            {
-                SpawnMan();
-            }
-        
+        if (transform.position.x >= distanceInOrderToSpawnMan && !shadowManIsRelease)
+        {
+            SpawnMan();
+        }
+
     }
 
     public void HideMe(GameObject Cachette)
     {
-    //  Debug.Log(Vector3.Distance(transform.position, Cachette.transform.position));
-        if ((Canhide  && Vector3.Distance(transform.position, Cachette.transform.position)<5) || Hidden) {
+        //  Debug.Log(Vector3.Distance(transform.position, Cachette.transform.position));
+        if ((Canhide && Vector3.Distance(transform.position, Cachette.transform.position) < 5) || Hidden)
+        {
 
             Hidden = !Hidden;
+            camera.orthographicSize = 5.0f;
             if (Hidden)
             {
                 //anim caché +QTE;
@@ -126,36 +132,38 @@ public class PlayerMovement : MonoBehaviour
                 GameManager.instance.HideUi.SetActive(true);
                 LastCach = Cachette;
                 PlayerSp.SetActive(false);
+                camera.orthographicSize = 4.0f;
             }
-            else if ( GameManager.instance.mister.GetComponent<Mister>().isBalanceQTEActif || GameManager.instance.mister.GetComponent<Mister>().isRythmQTEActif)
+            else if (GameManager.instance.mister.GetComponent<Mister>().isBalanceQTEActif || GameManager.instance.mister.GetComponent<Mister>().isRythmQTEActif)
             {
                 Hidden = true;
             }
             else
             {
 
-               // Cachette.transform.position = new Vector3(Cachette.transform.position.x, Cachette.transform.position.y, 2);
+                // Cachette.transform.position = new Vector3(Cachette.transform.position.x, Cachette.transform.position.y, 2);
                 GameManager.instance.HideUi.SetActive(false);
                 PlayerSp.SetActive(true);
 
             }
-         
-        } 
+
+        }
     }
 
     public void SpawnMan()
     {
         GameObject badGuy = Instantiate(shadowMan);
-       GameManager.instance.mister =badGuy;
+        GameManager.instance.mister = badGuy;
         badGuy.transform.position = new Vector3(0, 0, transform.position.z);
         shadowManIsRelease = true;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Finish")
+        if (other.tag == "Finish")
         {
-            if (GameManager.instance.Journal.GetComponent<JournalMB>().Dessin[2]== null) {
+            if (GameManager.instance.Journal.GetComponent<JournalMB>().Dessin[2] == null)
+            {
 
                 Debug.Log("BAD END");
 

@@ -38,7 +38,7 @@ public class SpawnNote : MonoBehaviour
     void CompareValue()
     {
         WhichNote();
-        if(addedValue >= randomValue)
+        if(addedValue >= randomValue && addedValue >= 1)
         {
             spawnPosition = listSpawnPoint[Random.Range(0, 2)].transform.position;
             GameObject spawnedNote = Instantiate(noteToSpawn, spawnPosition, Quaternion.identity);

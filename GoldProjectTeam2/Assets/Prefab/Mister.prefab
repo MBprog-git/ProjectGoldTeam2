@@ -104,10 +104,12 @@ MonoBehaviour:
   halfwayDistance: 40
   almostInScreenDistance: 16
   distanceForRythmeQTE: 15
-  distanceForBalanceQTE: 5
+  distanceForBalanceQTE: 0
   distanceToPlayer: 0
+  distanceToTeleportCompareToPlayerPosition: 100
   halfway: 0
   almostInScreen: 0
+  distanceTeleportationTrigger: 25
 --- !u!65 &1507495911059599828
 BoxCollider:
   m_ObjectHideFlags: 0

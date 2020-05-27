@@ -61,7 +61,7 @@ public class Zone : MonoBehaviour
         if(col.gameObject.tag =="Balance")
         {
             isInZone = false;
-            Debug.Log("exit");
+            GameManager.instance.MyLoadScene("LoseScene");
         }
     }
 }

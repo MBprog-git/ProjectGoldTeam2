@@ -98,7 +98,7 @@ public class Activator : MonoBehaviour
                 pressedTime = 0.0f;
                 return;
             }
-            Debug.Log("fail long note");
+            GameManager.instance.MyLoadScene("LoseScene");
         }
     }
 }

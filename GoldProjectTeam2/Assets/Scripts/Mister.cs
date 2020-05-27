@@ -47,7 +47,7 @@ public class Mister : MonoBehaviour
         rb.velocity = new Vector2(speed, 0);
         Handheld.Vibrate();
         randomDistance = Random.Range(10, 100) - 5;
-        //halfwayDistance = spawnDistanceToPlayer / 2 * -1; 
+        halfwayDistance = player.GetComponent<PlayerMovement>().distanceInOrderToSpawnMan / 2;
     }
 
     void Update()
@@ -103,7 +103,7 @@ public class Mister : MonoBehaviour
             return;
         }
 
-        if (distanceToPlayer <= distanceForBalanceQTE && distanceToPlayer >= -distanceForBalanceQTE && GameManager.instance.Player.GetComponent<PlayerMovement>().Hidden)
+        if (distanceToPlayer <= distanceForBalanceQTE && distanceToPlayer >= -distanceForRythmeQTE && GameManager.instance.Player.GetComponent<PlayerMovement>().Hidden)
         {
             rythmQTE.SetActive(false);
             balanceQTE.SetActive(true);
@@ -113,7 +113,7 @@ public class Mister : MonoBehaviour
         }
 
         //esquiver
-        if (distanceToPlayer <= -distanceForBalanceQTE)
+        if (distanceToPlayer <= -distanceForBalanceQTE - distanceForRythmeQTE)
         {
             rythmQTE.SetActive(false);
             balanceQTE.SetActive(false);
@@ -122,8 +122,6 @@ public class Mister : MonoBehaviour
             isAheadOfPlayer = true;
             return;
         }
-
-
     }
 
     void OnTriggerEnter(Collider col)
