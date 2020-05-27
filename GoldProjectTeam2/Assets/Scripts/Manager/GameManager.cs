@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(PlayMultipleSound))]
@@ -35,6 +37,9 @@ public class GameManager : MonoBehaviour
 
     [Header("GameObject à brancher")]
     [Space]
+    public Light2D SceneLight;
+    
+
     public GameObject particules1;
     public GameObject particules2;
     public GameObject particules3;
@@ -55,7 +60,7 @@ public class GameManager : MonoBehaviour
     public GameObject ButtonJournal;
     public GameObject TxtPhotoCharge;
     public GameObject HideUi;
-    public Image graindCouleur;
+   // public Image graindCouleur;
 
     [HideInInspector]
     public GameObject Photostock;
@@ -102,6 +107,7 @@ public class GameManager : MonoBehaviour
         playSound = GetComponent<PlayMultipleSound>();
       
         Clocky.text = heure + " : " + minute + "0";
+        playSound.PlaySound(TYPE_AUDIO.MusiqueAmbianceSoleil);
     }
 
    
@@ -138,21 +144,9 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if (playSound.GetEnumOfAudioPlaying() == TYPE_AUDIO.None)
-        {
-            playSound.PlaySound(TYPE_AUDIO.MusiqueAmbianceSoleil);
-        }
+    
 
-        if (heure == timeSwitchToDemiLune && playSound.GetEnumOfAudioPlaying() != TYPE_AUDIO.MusiqueAmbianceDemiLune)
-        {
-            playSound.PlaySound(TYPE_AUDIO.MusiqueAmbianceDemiLune);
-            graindCouleur.color = new Color( 0,0,0,0.4f);
-        }
-        else if(heure == timeSwitchToLune && playSound.GetEnumOfAudioPlaying() != TYPE_AUDIO.MusiqueAmbianceLune)
-        {
-            playSound.PlaySound(TYPE_AUDIO.MusiqueAmbianceLune);
-            graindCouleur.color = new Color(255, 0, 0, 0.4f);
-        }
+
     }
 
     public void FadeUi()
@@ -200,8 +194,13 @@ public class GameManager : MonoBehaviour
              
         }
 
-        Clocky.text = heure + " : " + minute + "0"; 
+        Clocky.text = heure + " : " + minute + "0";
 
+        if (SceneLight.intensity > 0.4f)
+        {
+
+            SceneLight.intensity -= 0.05f;
+        }
 
         timerClock = RythmeClock;
 
@@ -219,14 +218,24 @@ public class GameManager : MonoBehaviour
                 particules1.SetActive(false);
                 particules2.SetActive(true);
 
+                if( playSound.GetEnumOfAudioPlaying() != TYPE_AUDIO.MusiqueAmbianceDemiLune)
+                {
+                    playSound.PlaySound(TYPE_AUDIO.MusiqueAmbianceDemiLune);
+                  
+                }
+
             break;   
             
             case 19:
                 particules2.SetActive(false);
                 particules2.SetActive(true);
+                 if (playSound.GetEnumOfAudioPlaying() != TYPE_AUDIO.MusiqueAmbianceLune)
+                {
+                    playSound.PlaySound(TYPE_AUDIO.MusiqueAmbianceLune);
+                  
+                }
 
-
-            break; 
+                break; 
             
         }
     }
