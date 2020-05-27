@@ -1436,72 +1436,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundsMusique:
-  - audioFor: 1
-    audio: {fileID: 8300000, guid: f64d0ae7761e41747812cfdeec0bbffe, type: 3}
-    volume: 1
-    loop: 1
-    playOnAwake: 0
-  - audioFor: 2
-    audio: {fileID: 8300000, guid: 5c7e8dcd1be265e4ba97f4709e2114e1, type: 3}
-    volume: 1
-    loop: 1
-    playOnAwake: 0
-  - audioFor: 3
-    audio: {fileID: 0}
-    volume: 1
-    loop: 1
-    playOnAwake: 0
   - audioFor: 4
     audio: {fileID: 8300000, guid: 4b3188953a5abc84ead267c99c4155f8, type: 3}
     volume: 1
     loop: 1
-    playOnAwake: 1
-  soundsSfx:
-  - audioFor: 5
-    audio: {fileID: 8300000, guid: ee23c4ebb27c6d049818a04db99aaaa8, type: 3}
-    volume: 1
-    loop: 1
     playOnAwake: 0
-  - audioFor: 6
-    audio: {fileID: 8300000, guid: 8fd1421a0bc967945a9c99358fd5ba45, type: 3}
-    volume: 1
-    loop: 1
-    playOnAwake: 0
-  - audioFor: 7
-    audio: {fileID: 8300000, guid: 4b20e3748df66b442bbb8bd9c1d23d5b, type: 3}
-    volume: 1
-    loop: 1
-    playOnAwake: 0
-  - audioFor: 8
-    audio: {fileID: 8300000, guid: 1d92ebb38f44292418c4aa1c9e3afe80, type: 3}
-    volume: 1
-    loop: 1
-    playOnAwake: 0
-  - audioFor: 9
-    audio: {fileID: 8300000, guid: 827e51d7810715f46bfb58de69b805c5, type: 3}
-    volume: 1
-    loop: 1
-    playOnAwake: 0
-  - audioFor: 10
-    audio: {fileID: 8300000, guid: 71623f8a6fab06a4c83e975e28850113, type: 3}
-    volume: 1
-    loop: 1
-    playOnAwake: 0
-  - audioFor: 11
-    audio: {fileID: 8300000, guid: ea92651ae592ffd4dbd62502b50c853f, type: 3}
-    volume: 1
-    loop: 1
-    playOnAwake: 0
-  - audioFor: 12
-    audio: {fileID: 8300000, guid: fc9bce33bb9ddb04484a58fc4a049d30, type: 3}
-    volume: 1
-    loop: 1
-    playOnAwake: 0
-  - audioFor: 13
-    audio: {fileID: 8300000, guid: d213d554615cfe44a8350b2dbb3c4662, type: 3}
-    volume: 1
-    loop: 1
-    playOnAwake: 0
+  soundsSfx: []
   activeMusic: 1
   activeSfx: 1
   mainMixerAudio: {fileID: 24100000, guid: 449f015ef7c17b7449dced3b300f5e5c, type: 2}
