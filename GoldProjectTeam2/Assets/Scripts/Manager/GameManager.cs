@@ -199,7 +199,7 @@ public class GameManager : MonoBehaviour
         if (SceneLight.intensity > 0.5f)
         {
 
-            SceneLight.intensity -= 0.02f;
+            SceneLight.intensity -= 0.01f;
         }
 
         timerClock = RythmeClock;
