@@ -56,11 +56,10 @@ public class Mister : MonoBehaviour
     void Update()
     {
 
-        FunctionDistance();
 
-        if (!GameManager.instance.IsMoving)
+        if (!GameManager.instance.IsMoving && !GameManager.instance.Player.GetComponent<PlayerMovement>().Hidden)
         {
-            speed = speed * MultiplierSlow;
+            speed = speedBase * MultiplierSlow;
 
         }
         else if (!GameManager.instance.Player.GetComponent<PlayerMovement>().Hidden)
@@ -68,6 +67,7 @@ public class Mister : MonoBehaviour
             speed = speedBase;
         }
         
+        FunctionDistance();
     }
 
     void FunctionDistance()
@@ -141,7 +141,7 @@ public class Mister : MonoBehaviour
 
         if(col.gameObject.tag == "Hideout" && GameManager.instance.Player.GetComponent<PlayerMovement>().Hidden)
         {
-            speed = speed * MultiplierSlowHide;
+            speed = speedBase * MultiplierSlowHide;
 
         }
 
