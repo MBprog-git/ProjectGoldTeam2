@@ -110,6 +110,8 @@ MonoBehaviour:
   halfway: 0
   almostInScreen: 0
   distanceTeleportationTrigger: 25
+  PlusPlayer: 1
+  MultiplierSlow: 0.5
 --- !u!65 &1507495911059599828
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -121,8 +123,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 6.2, y: 8, z: 8.53}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2.0618095, y: 2.2385535, z: 8.53}
+  m_Center: {x: -0.057157516, y: 0.09145093, z: 0}
 --- !u!54 &8211829266054409040
 Rigidbody:
   m_ObjectHideFlags: 0
