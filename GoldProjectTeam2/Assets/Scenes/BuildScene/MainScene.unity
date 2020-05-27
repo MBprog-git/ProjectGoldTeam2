@@ -2814,7 +2814,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &624093082
 Transform:
   m_ObjectHideFlags: 0
@@ -8974,7 +8974,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &940034470
 Transform:
   m_ObjectHideFlags: 0
@@ -15604,8 +15604,11 @@ MonoBehaviour:
   RythmeClock: 20
   heure: 17
   minute: 0
-  timeSwitchToDemiLune: 17
+  timeSwitchToDemiLune: 18
   timeSwitchToLune: 20
+  particules1: {fileID: 1619033101}
+  particules2: {fileID: 940034469}
+  particules3: {fileID: 624093081}
   Fondu: {fileID: 929072519}
   cam: {fileID: 1374988434}
   Player: {fileID: 1374988436}
@@ -15653,7 +15656,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3c60eb5b964d7e40bc314eee710a534, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typeAudio: 000000000100000002000000
+  typeAudio: 030000000100000002000000
   isMusique: 1
 --- !u!82 &1253488178
 AudioSource:
@@ -17929,16 +17932,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundsMusique:
-  - audioFor: 0
-    audio: {fileID: 0}
-    volume: 1
-    loop: 1
-    playOnAwake: 0
   - audioFor: 1
     audio: {fileID: 8300000, guid: 5c7e8dcd1be265e4ba97f4709e2114e1, type: 3}
     volume: 1
     loop: 1
-    playOnAwake: 0
+    playOnAwake: 1
   - audioFor: 2
     audio: {fileID: 8300000, guid: 3cfcd39263013114e86ef53700bcc781, type: 3}
     volume: 1
@@ -17948,7 +17946,7 @@ MonoBehaviour:
     audio: {fileID: 8300000, guid: 598fbc75f7d737b4fba1763e30317a5e, type: 3}
     volume: 1
     loop: 1
-    playOnAwake: 1
+    playOnAwake: 0
   soundsSfx:
   - audioFor: 18
     audio: {fileID: 8300000, guid: 40b4b8b03ac8d184aa738ebdd6dc26ff, type: 3}

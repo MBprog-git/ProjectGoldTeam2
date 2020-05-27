@@ -35,6 +35,9 @@ public class GameManager : MonoBehaviour
 
     [Header("GameObject à brancher")]
     [Space]
+    public GameObject particules1;
+    public GameObject particules2;
+    public GameObject particules3;
     public SpriteRenderer Fondu;
     public Camera cam;
     public GameObject Player;
@@ -209,9 +212,22 @@ public class GameManager : MonoBehaviour
     {
         switch(heure)
         {
-            //case 17:
-            //    SpawnMan();
-            //    break;
+
+
+            
+            case 18:
+                particules1.SetActive(false);
+                particules2.SetActive(true);
+
+            break;   
+            
+            case 19:
+                particules2.SetActive(false);
+                particules2.SetActive(true);
+
+
+            break; 
+            
         }
     }
 

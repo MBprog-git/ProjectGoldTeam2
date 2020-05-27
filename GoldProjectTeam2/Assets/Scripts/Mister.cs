@@ -63,7 +63,7 @@ public class Mister : MonoBehaviour
             speed = speed * MultiplierSlow;
 
         }
-        else
+        else if (!GameManager.instance.Player.GetComponent<PlayerMovement>().Hidden)
         {
             speed = speedBase;
         }
@@ -139,7 +139,7 @@ public class Mister : MonoBehaviour
             GameManager.instance.MyLoadScene("LoseScene");
         }
 
-        if(col.gameObject.tag == "Hideout")
+        if(col.gameObject.tag == "Hideout" && GameManager.instance.Player.GetComponent<PlayerMovement>().Hidden)
         {
             speed = speed * MultiplierSlowHide;
 
