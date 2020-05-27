@@ -25,8 +25,9 @@ public enum TYPE_AUDIO
     SfxFermePele3,
     SfxCorbeau1,
     SfxCorbeau2,
-    SfxCloche
-       
+    SfxCloche,
+    Running,
+    SlamDoor
 
 }
 

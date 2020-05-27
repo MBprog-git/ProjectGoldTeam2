@@ -14755,7 +14755,7 @@ PrefabInstance:
     - target: {fileID: 1530726958736582027, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
         type: 3}
       propertyPath: spawnRate
-      value: 0.002
+      value: 0.003
       objectReference: {fileID: 0}
     - target: {fileID: 1530726959035328021, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
         type: 3}
@@ -14826,6 +14826,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.a
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3508645413604884002, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
+        type: 3}
+      propertyPath: orthographic size
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3508645413604884003, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
         type: 3}
@@ -14943,6 +14948,16 @@ PrefabInstance:
       propertyPath: speedBase
       value: 2.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3508645415307656416, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
+        type: 3}
+      propertyPath: distanceInOrderToSpawnMan
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3508645415307656416, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
+        type: 3}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 1374988434}
     - target: {fileID: 3508645415307656420, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
         type: 3}
       propertyPath: m_Height
@@ -15192,6 +15207,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -4.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7849762447675750803, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 8649139674304483302, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
         type: 3}

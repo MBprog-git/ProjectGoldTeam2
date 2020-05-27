@@ -9,6 +9,7 @@ TagManager:
   - LongNote
   - Balance
   - Hideout
+  - TP
   layers:
   - Default
   - TransparentFX

@@ -19,6 +19,8 @@ public class WinAnimation : MonoBehaviour
 
     private Vector2 secondImageMove;
 
+    PlayMultipleSound Audio;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +30,8 @@ public class WinAnimation : MonoBehaviour
 
         secondImageMove.x = secondImage.transform.localPosition.x;
         secondImageMove.y = secondImage.transform.localPosition.y;
+
+        Audio = GetComponent<PlayMultipleSound>();
     }
 
 
@@ -65,6 +69,7 @@ public class WinAnimation : MonoBehaviour
 
 
         tempColor = second.color;
+        Audio.PlaySound(TYPE_AUDIO.Running);
         for (float i = 0; i <= 1; i += faddingTime)
         {
             tempColor.a = i;
@@ -84,6 +89,7 @@ public class WinAnimation : MonoBehaviour
 
 
         thirdImage.SetActive(true);
+        Audio.PlaySound(TYPE_AUDIO.SlamDoor);
         yield return new WaitForSeconds(2);
         for (float i = 1; i >= 0.1; i -= 0.005f)
         {
