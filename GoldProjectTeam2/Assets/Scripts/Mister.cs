@@ -47,7 +47,7 @@ public class Mister : MonoBehaviour
 
     void Start()
     {
-        rb.velocity = new Vector2(speed, 0);
+       // rb.velocity = new Vector2(speed, 0);
         Handheld.Vibrate();
         randomDistance = Random.Range(10, 100) - 5;
         halfwayDistance = player.GetComponent<PlayerMovement>().distanceInOrderToSpawnMan / 2;
@@ -66,7 +66,7 @@ public class Mister : MonoBehaviour
         {
             speed = speedBase;
         }
-        
+        transform.Translate(1 * Time.deltaTime * speed, 0, 0);
         FunctionDistance();
     }
 
