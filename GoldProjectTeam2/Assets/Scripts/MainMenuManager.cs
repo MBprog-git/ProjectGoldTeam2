@@ -32,7 +32,7 @@ public class MainMenuManager : MonoBehaviour
         panelMenu.SetActive(false);
     }
 
-    public void AchievementButton()
+    public void LeaderBoardButton()
     {
         panelMenu.SetActive(false);
     }
