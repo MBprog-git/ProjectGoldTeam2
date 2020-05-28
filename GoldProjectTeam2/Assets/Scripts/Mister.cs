@@ -108,10 +108,11 @@ public class Mister : MonoBehaviour
 
         if (distanceToPlayer <= distanceForBalanceQTE && distanceToPlayer >= -distanceForRythmeQTE && GameManager.instance.Player.GetComponent<PlayerMovement>().Hidden)
         {
-            rythmQTE.SetActive(false);
             balanceQTE.SetActive(true);
-            isRythmQTEActif = false;
             isBalanceQTEActif = true;
+            rythmQTE.SetActive(false);
+            GameManager.instance.QTERythme.GetComponent<SpawnNote>().ClearList();
+            isRythmQTEActif = false;
             return;
         }
 
@@ -119,6 +120,7 @@ public class Mister : MonoBehaviour
         if (distanceToPlayer <= -distanceForBalanceQTE - distanceForRythmeQTE)
         {
             rythmQTE.SetActive(false);
+            GameManager.instance.QTERythme.GetComponent<SpawnNote>().ClearList();
             balanceQTE.SetActive(false);
             isRythmQTEActif = false;
             isBalanceQTEActif = false;

@@ -32,10 +32,10 @@ public class PlayerMovement : MonoBehaviour
     AudioSource source;
 
     public Camera cam;
-   private Vector2 baseCamPosition;
+    private Vector3 baseCamPosition;
     //public float camViewPositionX = -5;
     //public float camViewPositionY = 0;
-    //private Vector2 camViewPosition;
+    //private Vector3 camViewPosition;
 
     private void Start()
     {
@@ -141,13 +141,15 @@ public class PlayerMovement : MonoBehaviour
                 LastCach = Cachette;
                 PlayerSp.SetActive(false);
                 cam.orthographicSize = 4.0f;
-                cam.transform.localPosition = new Vector2(baseCamPosition.x * 0,baseCamPosition.y);
+                cam.transform.localPosition = new Vector3(baseCamPosition.x * 0,baseCamPosition.y, baseCamPosition.z);
                 //cam.rect = new Rect(camViewPositionX, camViewPositionY, cam.rect.height, cam.rect.width);
 
             }
             else if (GameManager.instance.mister.GetComponent<Mister>().isBalanceQTEActif || GameManager.instance.mister.GetComponent<Mister>().isRythmQTEActif)
             {
                 Hidden = true;
+                cam.orthographicSize = 4.0f;
+                cam.transform.localPosition = new Vector3(baseCamPosition.x * 0, baseCamPosition.y, baseCamPosition.z);
             }
             else
             {

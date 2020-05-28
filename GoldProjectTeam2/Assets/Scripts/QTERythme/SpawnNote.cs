@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class SpawnNote : MonoBehaviour
 {
     public float spawnRate = 0.1f;
-    //public float spawnCoolDown = 1.5f;
     public GameObject spawnPoint;
     public List<GameObject> listSpawnPoint = new List<GameObject>();
 
@@ -15,11 +15,13 @@ public class SpawnNote : MonoBehaviour
 
     private Vector2 spawnPosition;
 
+    public List<GameObject> listNote = new List<GameObject>();
+    private GameObject noteToDestroy;
+
     public GameObject note;
     public GameObject longNote;
 
     private GameObject noteToSpawn;
-
     void Start()
     {
         addedValue = spawnRate;
@@ -42,10 +44,10 @@ public class SpawnNote : MonoBehaviour
         {
             spawnPosition = listSpawnPoint[Random.Range(0, 2)].transform.position;
             GameObject spawnedNote = Instantiate(noteToSpawn, spawnPosition, Quaternion.identity);
+            listNote.Add(spawnedNote);
             spawnedNote.transform.SetParent(spawnPoint.transform);
             GetRandomValue();
             addedValue = spawnRate;
-            //StartCoroutine(CoolDown());
             return;
         }
         addedValue += spawnRate;
@@ -61,10 +63,15 @@ public class SpawnNote : MonoBehaviour
         }
         noteToSpawn = longNote;
     }
-    //IEnumerator CoolDown()
-    //{
-    //    Debug.Log("test");
-    //    yield return new WaitForSeconds(spawnCoolDown);
-    //}
 
+    public void ClearList()
+    {
+        
+        for (int i = 0; i < listNote.Count; i++)
+        {
+            noteToDestroy = listNote[i];
+            listNote.Remove(noteToDestroy);
+            Destroy(noteToDestroy.gameObject);
+        }
+    }
 }
