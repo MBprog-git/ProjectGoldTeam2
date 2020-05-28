@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class WinAnimation : MonoBehaviour
+public class LoseSecondAnimation : MonoBehaviour
 {
     public float faddingTime = 0.01f;
     public Image startImage;

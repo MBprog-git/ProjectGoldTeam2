@@ -32,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
     AudioSource source;
 
     public Camera cam;
+   private Vector2 baseCamPosition;
     //public float camViewPositionX = -5;
     //public float camViewPositionY = 0;
     //private Vector2 camViewPosition;
@@ -47,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
         speed = speedBase;
 
         cam.orthographic = true;
+        baseCamPosition = cam.transform.localPosition;
         //camViewPosition = new Vector2(camViewPositionX, camViewPositionY);
     }
 
@@ -127,6 +129,7 @@ public class PlayerMovement : MonoBehaviour
 
             Hidden = !Hidden;
             cam.orthographicSize = 5.0f;
+            cam.transform.localPosition = baseCamPosition;
             //cam.rect = new Rect(0, camViewPositionY, cam.rect.height, cam.rect.width);
             if (Hidden)
             {
@@ -138,6 +141,7 @@ public class PlayerMovement : MonoBehaviour
                 LastCach = Cachette;
                 PlayerSp.SetActive(false);
                 cam.orthographicSize = 4.0f;
+                cam.transform.localPosition = new Vector2(baseCamPosition.x * 0,baseCamPosition.y);
                 //cam.rect = new Rect(camViewPositionX, camViewPositionY, cam.rect.height, cam.rect.width);
 
             }
