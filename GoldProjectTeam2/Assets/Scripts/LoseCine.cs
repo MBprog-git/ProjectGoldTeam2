@@ -33,32 +33,32 @@ public class LoseCine : MonoBehaviour
 
     void CinemaLoose()
     {
-        if (Visage.color.a < 1 && chrono>1)
+        if (Visage.color.a < 1 && chrono>0.3)
         {
 
-            Visage.color = new Color(Visage.color.r, Visage.color.g, Visage.color.b, Visage.color.a + Time.deltaTime * 0.5f);
+            Visage.color = new Color(Visage.color.r, Visage.color.g, Visage.color.b, Visage.color.a + Time.deltaTime * 0.7f);
             fond.color = new Color(fond.color.r, fond.color.g, fond.color.b, fond.color.a + Time.deltaTime * 0.5f);
         }
 
         if (Visage.color.a > 1 && Text1.color.a <1)
         {
-            Text1.color = new Color(Text1.color.r, Text1.color.g, Text1.color.b, Text1.color.a + Time.deltaTime * 0.5f);
+            Text1.color = new Color(Text1.color.r, Text1.color.g, Text1.color.b, Text1.color.a + Time.deltaTime * 0.7f);
 
         }   
         
         if (Text1.color.a > 0.75f && Text2.color.a <1)
         {
-            Text2.color = new Color(Text2.color.r, Text2.color.g, Text2.color.b, Text2.color.a + Time.deltaTime * 0.5f);
+            Text2.color = new Color(Text2.color.r, Text2.color.g, Text2.color.b, Text2.color.a + Time.deltaTime * 0.7f);
 
         }  
         
         if (Text2.color.a > 0.75f && Text3.color.a <1)
         {
-            Text3.color = new Color(Text3.color.r, Text3.color.g, Text3.color.b, Text3.color.a + Time.deltaTime * 0.5f);
+            Text3.color = new Color(Text3.color.r, Text3.color.g, Text3.color.b, Text3.color.a + Time.deltaTime * 0.7f);
 
         }
 
-        if (chrono > 10)
+        if (chrono > 7)
         {
             Menu.SetActive(true);
         }
