@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
     public GameObject particules1;
     public GameObject particules2;
     public GameObject particules3;
-    public SpriteRenderer Fondu;
+    public GameObject Fondu;
     public Camera cam;
     public GameObject Player;
     public GameObject Bagnole;
@@ -60,7 +60,9 @@ public class GameManager : MonoBehaviour
     public GameObject ButtonJournal;
     public GameObject TxtPhotoCharge;
     public GameObject HideUi;
-   // public Image graindCouleur;
+    // public Image graindCouleur;
+
+    int frame;
 
     [HideInInspector]
     public GameObject Photostock;
@@ -87,7 +89,7 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        Fondu.color = new Color(Fondu.color.r, Fondu.color.g, Fondu.color.b, 1);
+     //   Fondu.color = new Color(Fondu.color.r, Fondu.color.g, Fondu.color.b, 1);
         spCantself = CantSelfie.GetComponent<SpriteRenderer>();
          spButtonSelfie = ButtonSelfie.GetComponent<SpriteRenderer>();
          spButtonPhoto = ButtonPhoto.GetComponent<SpriteRenderer>();
@@ -108,11 +110,23 @@ public class GameManager : MonoBehaviour
       
         Clocky.text = heure + " : " + minute + "0";
         playSound.PlaySound(TYPE_AUDIO.MusiqueAmbianceSoleil);
+
+
     }
 
    
     void Update()
     {
+        if(frame == 5)
+        {
+
+        Fondu.GetComponent<Animator>().SetTrigger("start");
+            frame++;
+        }else if (frame < 5)
+        {
+            frame++;
+        }
+
         VibraAleatoire();
         FadeUi();
         timerClock -= Time.deltaTime;
@@ -151,10 +165,10 @@ public class GameManager : MonoBehaviour
 
     public void FadeUi()
     {
-        if (Fondu.color.a > 0)
+      /*  if (Fondu.color.a > 0)
         {
             Fondu.color = new Color(Fondu.color.r, Fondu.color.g, Fondu.color.b, Fondu.color.a - Time.deltaTime) ;
-        }
+        }*/
 
         if (!IsMoving && Albedo<1) {
             Albedo += Time.deltaTime;
@@ -288,22 +302,25 @@ public class GameManager : MonoBehaviour
 
     }
 
-   /* public void SpawnMan()
-    {
-        Instantiate(mister, misterPosition, transform.rotation);
-    }*/
 
-    /* public void TestFonct()
-     {
-         Texture2D t = s.sprite.texture;
-          Color32[] pix = t.GetPixels32();
-          Debug.Log(pix.Length);
 
-         List<Color> pix = new List<Color>();
-         pix.AddRange(t.GetPixels());
 
-         Debug.Log("Transparent : " + pix.FindAll(x => x == Color.clear).Count);
-         Debug.Log("White : " + pix.FindAll(x => x == Color.white).Count);
-         Debug.Log("Black : " + pix.FindAll(x => x == Color.black).Count);
-     }*/
-}
+        /* public void SpawnMan()
+         {
+             Instantiate(mister, misterPosition, transform.rotation);
+         }*/
+
+        /* public void TestFonct()
+         {
+             Texture2D t = s.sprite.texture;
+              Color32[] pix = t.GetPixels32();
+              Debug.Log(pix.Length);
+
+             List<Color> pix = new List<Color>();
+             pix.AddRange(t.GetPixels());
+
+             Debug.Log("Transparent : " + pix.FindAll(x => x == Color.clear).Count);
+             Debug.Log("White : " + pix.FindAll(x => x == Color.white).Count);
+             Debug.Log("Black : " + pix.FindAll(x => x == Color.black).Count);
+         }*/
+    }

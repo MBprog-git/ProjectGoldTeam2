@@ -8933,6 +8933,7 @@ GameObject:
   m_Component:
   - component: {fileID: 929072520}
   - component: {fileID: 929072519}
+  - component: {fileID: 929072521}
   m_Layer: 0
   m_Name: Fondu
   m_TagString: Untagged
@@ -9004,6 +9005,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &929072521
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 929072518}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4ad897fb3266bfc4f922fbec34d1a95d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &936861082 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 936861082, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
@@ -15656,7 +15676,7 @@ MonoBehaviour:
   particules1: {fileID: 1619033101}
   particules2: {fileID: 940034469}
   particules3: {fileID: 624093081}
-  Fondu: {fileID: 929072519}
+  Fondu: {fileID: 929072518}
   cam: {fileID: 1374988434}
   Player: {fileID: 1374988436}
   Bagnole: {fileID: 1006358156}
