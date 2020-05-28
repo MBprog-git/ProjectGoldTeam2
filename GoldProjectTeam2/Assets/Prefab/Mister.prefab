@@ -194,7 +194,7 @@ MonoBehaviour:
   distanceTeleportationTrigger: 25
   PlusPlayer: 1
   MultiplierSlow: 0.4
-  MultiplierSlowHide: 0.05
+  MultiplierSlowHide: 0.2
 --- !u!65 &1507495911059599828
 BoxCollider:
   m_ObjectHideFlags: 0
