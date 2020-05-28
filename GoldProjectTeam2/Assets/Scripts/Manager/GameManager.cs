@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
     public GameObject CantSelfie;
     public GameObject ParticuleEau;
     public GameObject QTEBalance;
+    public GameObject qteZone;
     public GameObject QTERythme;
     public GameObject Hideout;
     public GameObject Journal;

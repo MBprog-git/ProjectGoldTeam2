@@ -27,7 +27,7 @@ public class Mister : MonoBehaviour
     private bool isRandomDistanceVibrationActivated = false;
 
     public float distanceTeleportationTrigger = 25.0f;
-    private bool isAheadOfPlayer = false;
+    public bool isAheadOfPlayer = false;
     public float PlusPlayer;
     public float MultiplierSlow;
     public float MultiplierSlowHide;
@@ -103,12 +103,14 @@ public class Mister : MonoBehaviour
             balanceQTE.SetActive(false);
             isRythmQTEActif = true;
             isBalanceQTEActif = false;
+            GameManager.instance.qteZone.GetComponent<Zone>().isRestarting = true;
             return;
         }
 
         if (distanceToPlayer <= distanceForBalanceQTE && distanceToPlayer >= -distanceForRythmeQTE && GameManager.instance.Player.GetComponent<PlayerMovement>().Hidden)
         {
             balanceQTE.SetActive(true);
+            GameManager.instance.qteZone.GetComponent<Zone>().StartMovementZone();
             isBalanceQTEActif = true;
             rythmQTE.SetActive(false);
             GameManager.instance.QTERythme.GetComponent<SpawnNote>().ClearList();
@@ -119,12 +121,13 @@ public class Mister : MonoBehaviour
         //esquiver
         if (distanceToPlayer <= -distanceForBalanceQTE - distanceForRythmeQTE)
         {
+            isAheadOfPlayer = true;
+
             rythmQTE.SetActive(false);
+            isRythmQTEActif = false;
             GameManager.instance.QTERythme.GetComponent<SpawnNote>().ClearList();
             balanceQTE.SetActive(false);
-            isRythmQTEActif = false;
             isBalanceQTEActif = false;
-            isAheadOfPlayer = true;
             return;
         }
     }
@@ -150,6 +153,7 @@ public class Mister : MonoBehaviour
         if (col.gameObject.tag == "TP")
         {
             transform.position = new Vector2(player.transform.position.x - distanceToTeleportCompareToPlayerPosition,0);
+            isAheadOfPlayer = false;
         }
     }
 }

@@ -15509,6 +15509,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1183237527 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4308690718351026163, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1374988433}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1198293743
 GameObject:
   m_ObjectHideFlags: 0
@@ -15830,6 +15836,7 @@ MonoBehaviour:
   CantSelfie: {fileID: 740655823}
   ParticuleEau: {fileID: 1870929990}
   QTEBalance: {fileID: 24834499}
+  qteZone: {fileID: 1183237527}
   QTERythme: {fileID: 1391907408}
   Hideout: {fileID: 2834385169165682111, guid: 14f2d709118c94f4f898e83f0c8bdf15, type: 3}
   Journal: {fileID: 308200025}
