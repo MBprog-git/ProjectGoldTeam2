@@ -14,6 +14,11 @@ public class ManagerButtonPlayer : MonoBehaviour
 
     [SerializeField] private string nameSceneMainMenu = "MainMenu";
 
+    public void ButtonRestart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }  
+    
     public void ButtonDownLeft()
     {
         goLeft = true;

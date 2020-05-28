@@ -33,7 +33,7 @@ public class LoseCine : MonoBehaviour
 
     void CinemaLoose()
     {
-        if (Visage.color.a < 1 && chrono>3)
+        if (Visage.color.a < 1 && chrono>1)
         {
 
             Visage.color = new Color(Visage.color.r, Visage.color.g, Visage.color.b, Visage.color.a + Time.deltaTime * 0.5f);
@@ -58,7 +58,7 @@ public class LoseCine : MonoBehaviour
 
         }
 
-        if (chrono > 15)
+        if (chrono > 10)
         {
             Menu.SetActive(true);
         }
