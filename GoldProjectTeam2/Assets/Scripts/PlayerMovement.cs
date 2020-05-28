@@ -31,7 +31,10 @@ public class PlayerMovement : MonoBehaviour
     PlayOneSound Audio;
     AudioSource source;
 
-    public Camera camera;
+    public Camera cam;
+    //public float camViewPositionX = -5;
+    //public float camViewPositionY = 0;
+    //private Vector2 camViewPosition;
 
     private void Start()
     {
@@ -43,7 +46,8 @@ public class PlayerMovement : MonoBehaviour
         manageButton = GetComponent<ManagerButtonPlayer>();
         speed = speedBase;
 
-        camera.orthographic = true;
+        cam.orthographic = true;
+        //camViewPosition = new Vector2(camViewPositionX, camViewPositionY);
     }
 
     public void Update()
@@ -122,7 +126,8 @@ public class PlayerMovement : MonoBehaviour
         {
 
             Hidden = !Hidden;
-            camera.orthographicSize = 5.0f;
+            cam.orthographicSize = 5.0f;
+            //cam.rect = new Rect(0, camViewPositionY, cam.rect.height, cam.rect.width);
             if (Hidden)
             {
                 //anim caché +QTE;
@@ -132,7 +137,9 @@ public class PlayerMovement : MonoBehaviour
                 GameManager.instance.HideUi.SetActive(true);
                 LastCach = Cachette;
                 PlayerSp.SetActive(false);
-                camera.orthographicSize = 4.0f;
+                cam.orthographicSize = 4.0f;
+                //cam.rect = new Rect(camViewPositionX, camViewPositionY, cam.rect.height, cam.rect.width);
+
             }
             else if (GameManager.instance.mister.GetComponent<Mister>().isBalanceQTEActif || GameManager.instance.mister.GetComponent<Mister>().isRythmQTEActif)
             {
