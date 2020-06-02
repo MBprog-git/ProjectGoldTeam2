@@ -163,6 +163,11 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void FailQTE()
+    {
+        cam.orthographicSize -= 1.0f;
+    }
+
     public void SpawnMan()
     {
         GameObject badGuy = Instantiate(shadowMan);
