@@ -5,12 +5,14 @@ using UnityEngine.UI;
 
 public class Activation : MonoBehaviour
 {
-    public int numberOfFailPossible;
     public GameObject smallerEmptyHeart;
     public GameObject biggerEmptyHeart;
+    public GameObject twentyPercent;
+    public GameObject thirtyPercent;
 
     Image image;
     Color oldColor;
+    PlayMultipleSound sound;
     private int numberOfFail = 0;
 
     private GameObject firstHeart;
@@ -20,11 +22,11 @@ public class Activation : MonoBehaviour
     private Vector3 limiteToPassQTE = new Vector3(1, 1, 1);
     private Vector3 limiteToFailQTE = new Vector3(0.5f, 0.5f, 1);
 
-    private bool isHeartExist = false;
+    private bool isFirstSoundAlreadyPlay = false;
+
     void Awake()
     {
-        //sr = GetComponent<SpriteRenderer>();
-        //oldColor = sr.color;
+        sound = GetComponent<PlayMultipleSound>();
         rythm = gameObject;
         image = GetComponent<Image>();
         oldColor = image.color;
@@ -70,6 +72,7 @@ public class Activation : MonoBehaviour
 
                     if (actualHeart.transform.localScale.x <= limiteToPassQTE.x && actualHeart.transform.localScale.x >= limiteToFailQTE.x)
                     {
+                        WhichSoundToPlay();
                         Destroy(actualHeart);
                     }
 
@@ -99,12 +102,9 @@ public class Activation : MonoBehaviour
             }
 
         }
-
-        if (numberOfFail == numberOfFailPossible)
-        {
-            Debug.Log("GameOver");
-        }
+        OnFail();
     }
+
     private void ChangeFirstHeart()
     {
         firstHeart = transform.GetChild(0).gameObject;
@@ -119,5 +119,37 @@ public class Activation : MonoBehaviour
         }
 
         actualHeart = null;
+    }
+
+    private void OnFail()
+    {
+        switch(numberOfFail)
+        {
+            case 1:
+                twentyPercent.SetActive(true);
+                thirtyPercent.SetActive(false);
+                break;
+            case 2:
+                twentyPercent.SetActive(false);
+                thirtyPercent.SetActive(true);
+                break;
+            case 3:
+                Debug.Log("GameOver");
+                break;
+        }
+    }
+
+    private void WhichSoundToPlay()
+    {
+        if(!isFirstSoundAlreadyPlay)
+        {
+            sound.PlaySound(TYPE_AUDIO.HeartBeatA);
+            isFirstSoundAlreadyPlay = true;
+        }
+        else
+        {
+            sound.PlaySound(TYPE_AUDIO.HeartBeatB);
+            isFirstSoundAlreadyPlay = false;
+        }
     }
 }
