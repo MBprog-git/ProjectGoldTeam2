@@ -152,4 +152,11 @@ public class Activation : MonoBehaviour
             isFirstSoundAlreadyPlay = false;
         }
     }
+
+    public void ResetOnTransitionQTE()
+    {
+        GameManager.instance.Player.GetComponent<PlayerMovement>().ResetCamera();
+        twentyPercent.SetActive(false);
+        twentyPercent.SetActive(false);
+    }
 }

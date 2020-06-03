@@ -168,6 +168,14 @@ public class PlayerMovement : MonoBehaviour
         cam.orthographicSize -= 1.0f;
     }
 
+    public void ResetCamera()
+    {
+        for (float i = 0.05f; cam.orthographicSize <= 5;)
+        {
+            cam.orthographicSize += i;
+        }
+    }
+
     public void SpawnMan()
     {
         GameObject badGuy = Instantiate(shadowMan);

@@ -100,6 +100,7 @@ public class Mister : MonoBehaviour
         if (distanceToPlayer <= distanceForRythmeQTE && distanceToPlayer >= distanceForBalanceQTE && GameManager.instance.Player.GetComponent<PlayerMovement>().Hidden)
         {
             rythmQTE.SetActive(true);
+            rythmQTE.GetComponent<Activation>().ResetOnTransitionQTE();
             balanceQTE.SetActive(false);
             isRythmQTEActif = true;
             isBalanceQTEActif = false;
