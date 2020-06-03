@@ -852,6 +852,7 @@ GameObject:
   - component: {fileID: 1201112184}
   - component: {fileID: 1201112183}
   - component: {fileID: 1201112182}
+  - component: {fileID: 1201112185}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -924,6 +925,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1201112185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1201112181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_CameraOutput: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &1318371914
 GameObject:
   m_ObjectHideFlags: 0
@@ -1113,6 +1145,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1620370732}
   - component: {fileID: 1620370733}
+  - component: {fileID: 1620370734}
   - component: {fileID: 1620370731}
   m_Layer: 0
   m_Name: GameManager
@@ -1164,18 +1197,61 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d501d210cf8b5c44fa6f8fec1aadab59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 1201112183}
-  Player: {fileID: 0}
-  Hideout: {fileID: 0}
+  FleurAction1: 7
+  FleurAction2: 30
+  EauAction1: 15
+  EauAction2: 45
+  CarAction1: 35
+  CarAction2: 50
+  CorbacAction1: 10
+  CorbacAction2: 35
   DecalHid1: 0
   DecalHid2: 0
-  Journal: {fileID: 1626561619}
-  Clocky: {fileID: 1921983491}
   RythmeClock: 25
   heure: 12
   minute: 0
+  timeSwitchToDemiLune: 19
+  timeSwitchToLune: 21
+  SceneLight: {fileID: 0}
+  cam: {fileID: 1201112183}
+  Player: {fileID: 0}
+  Journal: {fileID: 1626561619}
+  QTEBalance: {fileID: 0}
+  qteZone: {fileID: 0}
+  QTERythme: {fileID: 0}
   mister: {fileID: 0}
-  misterPosition: {x: 0, y: 0}
+  particules1: {fileID: 0}
+  particules2: {fileID: 0}
+  particules3: {fileID: 0}
+  Fondu: {fileID: 0}
+  Bagnole: {fileID: 0}
+  CantSelfie: {fileID: 0}
+  ParticuleEau: {fileID: 0}
+  Hideout: {fileID: 0}
+  Clocky: {fileID: 1921983491}
+  ButtonSelfie: {fileID: 0}
+  ButtonPhoto: {fileID: 0}
+  ButtonJournal: {fileID: 0}
+  TxtPhotoCharge: {fileID: 0}
+  HideUi: {fileID: 0}
+  Photostock: {fileID: 0}
+  CorbacSound: 0
+  IsMoving: 0
+--- !u!114 &1620370734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620370730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37acd3dba2d09c145a7ec44562557433, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GOMME: {fileID: 5967142464927241471, guid: 0f0ff6da9d6be7641b8bc837a5f46403, type: 3}
+  StockMask: {fileID: 2116089307}
+  Cangomme: 1
 --- !u!1 &1626561619
 GameObject:
   m_ObjectHideFlags: 0
@@ -1227,21 +1303,23 @@ MonoBehaviour:
   ActivePoint: {fileID: 1929664728}
   InactivePoint: {fileID: 892858104}
   activated: 0
-  GOMME: {fileID: 5967142464927241471, guid: 0f0ff6da9d6be7641b8bc837a5f46403, type: 3}
-  StockMask: {fileID: 2116089307}
-  Cangomme: 0
-  buttonNextPage: {fileID: 1963340110}
-  buttonPreviousPage: {fileID: 233019698}
-  MaxMask: 0
+  CorruptSpeed: 0.01
+  pageactif: 0
+  txtPageactif: {fileID: 0}
+  canSelfie: 1
+  TxtChargePhoto: {fileID: 0}
+  Selfies: []
   Dessin:
   - {fileID: 1737584085}
   - {fileID: 1985830891}
   - {fileID: 1952008695}
   - {fileID: 1650809355}
   - {fileID: 720093808}
-  pageactif: 0
-  DessinActif: 
   DessinChrono: []
+  previ: {fileID: 0}
+  timerprevi: 0
+  Flash: {fileID: 0}
+  FlashCar: {fileID: 0}
 --- !u!1 &1640457136
 GameObject:
   m_ObjectHideFlags: 0
@@ -1457,11 +1535,11 @@ GameObject:
   - component: {fileID: 1737584087}
   m_Layer: 0
   m_Name: page1
-  m_TagString: Untagged
+  m_TagString: Dessin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1737584086
 Transform:
   m_ObjectHideFlags: 0
@@ -1471,7 +1549,7 @@ Transform:
   m_GameObject: {fileID: 1737584085}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 2.9899998, z: 0}
-  m_LocalScale: {x: 1.6023, y: 1.6023, z: 1.6023}
+  m_LocalScale: {x: 50, y: 50, z: 1.6023}
   m_Children: []
   m_Father: {fileID: 1112492397}
   m_RootOrder: 0
@@ -1515,7 +1593,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 4756adf5f7bec38459027fa67825543e, type: 3}
+  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1524,7 +1602,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
+  m_MaskInteraction: 2
   m_SpriteSortPoint: 0
 --- !u!1 &1921983489
 GameObject:
@@ -1543,7 +1621,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1921983490
 RectTransform:
   m_ObjectHideFlags: 0

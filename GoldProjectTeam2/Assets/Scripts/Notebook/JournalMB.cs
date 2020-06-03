@@ -417,7 +417,7 @@ public bool canSelfie = true;
 
 
 
-    /* public void EffaceDetect(Vector2 mousePos, SpriteRenderer maskImage)
+     /*public void EffaceDetect(Vector2 mousePos, SpriteRenderer maskImage)
      {
         Texture2D t = maskImage.sprite.texture;
         //Vector2 sprite_size = GetComponent<SpriteRenderer>().sprite.rect.size;
@@ -438,12 +438,12 @@ public bool canSelfie = true;
                     Debug.Log(t.GetPixel(i, j));
                              if (t.GetPixel(i, j).a == 0.0f)
                              {
-                Debug.Log("Hoy");
+                
                                  t.SetPixel(i, j,  Color.clear);
                         t.Apply();
                                                 nbPixelTouch += 1;
 
-                       /* Texture2D t = maskImage.sprite.texture;
+                       Texture2D t = maskImage.sprite.texture;
                         Color32[] pix = t.GetPixels32();
                         Debug.Log(pix.Length);
                     }

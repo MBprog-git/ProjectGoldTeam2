@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Temps")]
     [Space]
+    [Tooltip("X secondes IRL = 10 minutes en jeu")]
     public float RythmeClock;
     public int heure= 12;
     public int minute;
@@ -38,24 +39,24 @@ public class GameManager : MonoBehaviour
     [Header("GameObject à brancher")]
     [Space]
     public Light2D SceneLight;
+    public Camera cam;
+    public GameObject Player;
+    public GameObject Journal;
+    public GameObject QTEBalance;
+    public GameObject qteZone;
+    public GameObject QTERythme;
+    public GameObject mister;
     
 
     public GameObject particules1;
     public GameObject particules2;
     public GameObject particules3;
     public GameObject Fondu;
-    public Camera cam;
-    public GameObject Player;
     public GameObject Bagnole;
     public GameObject CantSelfie;
     public GameObject ParticuleEau;
-    public GameObject QTEBalance;
-    public GameObject qteZone;
-    public GameObject QTERythme;
     public GameObject Hideout;
-    public GameObject Journal;
     public Text Clocky;
-    public GameObject mister;
     public GameObject ButtonSelfie;
     public GameObject ButtonPhoto;
     public GameObject ButtonJournal;
