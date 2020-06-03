@@ -21,6 +21,30 @@ public class GPGSAuthentification : MonoBehaviour
             platform = PlayGamesPlatform.Activate();
         }
 
+
+        Social.Active.localUser.Authenticate(success => {
+            if (success)
+            {
+                Debug.Log("log in success");
+            }
+            else
+            {
+                Debug.Log("fail to log");
+            }
+        });
+    }
+
+    public void StartConnection()
+    {
+        if (platform == null)
+        {
+            PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder().Build();
+            PlayGamesPlatform.InitializeInstance(config);
+            PlayGamesPlatform.DebugLogEnabled = true;
+
+            platform = PlayGamesPlatform.Activate();
+        }
+
         Social.Active.localUser.Authenticate(success => {
             if (success)
             {

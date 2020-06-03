@@ -80,6 +80,8 @@ public class PhotoAction : MonoBehaviour
                 else if (chrono > EauAction1)
                 {
                     GameManager.instance.ParticuleEau.SetActive(true);
+                    GameManager.instance.ParticuleEau.GetComponent<PlayOneSound>().PlaySound();
+
                 }
 
                 break;     
@@ -97,6 +99,7 @@ public class PhotoAction : MonoBehaviour
                     GameManager.instance.mister.transform.position = new Vector2(GameManager.instance.mister.GetComponent<Mister>().almostInScreenDistance, GameManager.instance.mister.transform.position.y) ;
                         }
                         GameManager.instance.Bagnole.GetComponent<Animation>().Play();
+                        GameManager.instance.Bagnole.GetComponent<PlayOneSound>().PlaySound();
                         tpOnce = true;
                     }
 
@@ -146,6 +149,7 @@ public class PhotoAction : MonoBehaviour
                 GameManager.instance.Journal.GetComponent<JournalMB>().canSelfie = true;
                 GameManager.instance.mister.GetComponent<Mister>().speed = GameManager.instance.mister.GetComponent<Mister>().speedBase;
                 GameManager.instance.ParticuleEau.SetActive(false);
+                GameManager.instance.ParticuleEau.GetComponent<PlayOneSound>().StopSound();
                 break;
             case 3:
                 //effet visuel

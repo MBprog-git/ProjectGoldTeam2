@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Temps")]
     [Space]
+    [Tooltip("X secondes IRL = 10 minutes en jeu")]
     public float RythmeClock;
     public int heure= 12;
     public int minute;
@@ -38,23 +39,26 @@ public class GameManager : MonoBehaviour
     [Header("GameObject à brancher")]
     [Space]
     public Light2D SceneLight;
+    public Camera cam;
+    public GameObject Player;
+    public GameObject Journal;
+    public GameObject QTEBalance;
+    public GameObject qteZone;
+    public GameObject QTERythme;
+    public GameObject mister;
     
 
+    public GameObject FlecheDroite;
+    public GameObject FlecheGauche;
     public GameObject particules1;
     public GameObject particules2;
     public GameObject particules3;
     public GameObject Fondu;
-    public Camera cam;
-    public GameObject Player;
     public GameObject Bagnole;
     public GameObject CantSelfie;
     public GameObject ParticuleEau;
-    public GameObject QTEBalance;
-    public GameObject QTERythme;
     public GameObject Hideout;
-    public GameObject Journal;
     public Text Clocky;
-    public GameObject mister;
     public GameObject ButtonSelfie;
     public GameObject ButtonPhoto;
     public GameObject ButtonJournal;
@@ -76,6 +80,8 @@ public class GameManager : MonoBehaviour
     SpriteRenderer spButtonSelfie;
     SpriteRenderer spButtonPhoto;
     SpriteRenderer spCantself;
+    Image spFlecheDroite;
+    Image spFlecheGauche;
     private PlayMultipleSound playSound;
     float timerVibro;
     float timerClock;
@@ -89,7 +95,9 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-     //   Fondu.color = new Color(Fondu.color.r, Fondu.color.g, Fondu.color.b, 1);
+        //   Fondu.color = new Color(Fondu.color.r, Fondu.color.g, Fondu.color.b, 1);
+        spFlecheDroite = FlecheDroite.GetComponent<Image>();
+        spFlecheGauche = FlecheGauche.GetComponent<Image>();
         spCantself = CantSelfie.GetComponent<SpriteRenderer>();
          spButtonSelfie = ButtonSelfie.GetComponent<SpriteRenderer>();
          spButtonPhoto = ButtonPhoto.GetComponent<SpriteRenderer>();
@@ -185,6 +193,8 @@ public class GameManager : MonoBehaviour
              spButtonJournal. color = new Color(spButtonJournal.color.r, spButtonJournal.color.g, spButtonJournal.color.b, Albedo);
         spTextCharge. color = new Color(spTextCharge.color.r, spTextCharge.color.g, spTextCharge.color.b, Albedo);
         spCantself. color = new Color(spCantself.color.r, spCantself.color.g, spCantself.color.b, Albedo);
+        spFlecheGauche. color = new Color(spFlecheGauche.color.r, spFlecheGauche.color.g, spFlecheGauche.color.b, Albedo);
+        spFlecheDroite. color = new Color(spFlecheDroite.color.r, spFlecheDroite.color.g, spFlecheDroite.color.b, Albedo);
         
     }
 

@@ -10,33 +10,32 @@ public class Zone : MonoBehaviour
     private bool isInZone = false;
     private float currentPosition;
 
+    public bool isRestarting = false;
+    public bool goToRight;
+    public bool goToLeft;
+
     Rigidbody2D rb;
 
     void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();   
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void Start()
     {
-        rb.velocity = new Vector2(zoneSpeed, 0);
+        //rb.velocity = new Vector2(zoneSpeed, 0);
     }
 
     void Update()
     {
         currentPosition = transform.localPosition.x;
-        if(currentPosition >= zoneLimite)
+        if(currentPosition >= zoneLimite && currentPosition >= zoneLimite - 10)
         {
             rb.velocity = new Vector2(-zoneSpeed, 0);
         }
-        else if(currentPosition <= -zoneLimite)
+        else if(currentPosition <= -zoneLimite && currentPosition <= -zoneLimite + 10)
         {
             rb.velocity = new Vector2(zoneSpeed, 0);
-        }
-
-        if(!isInZone)
-        {
-            //Debug.Log("Hors de la zone");
         }
     }
 
@@ -60,8 +59,20 @@ public class Zone : MonoBehaviour
     {
         if(col.gameObject.tag =="Balance")
         {
-            isInZone = false;
-            GameManager.instance.MyLoadScene("LoseScene");
+            if(!GameManager.instance.mister.GetComponent<Mister>().isAheadOfPlayer)
+            {
+                isInZone = false;
+                GameManager.instance.MyLoadScene("LoseScene");
+            }
+        }
+    }
+
+    public void StartMovementZone()
+    {
+        if(isRestarting)
+        {
+          rb.velocity = new Vector2(zoneSpeed, 0);
+            isRestarting = false;
         }
     }
 }
