@@ -30,7 +30,9 @@ public enum TYPE_AUDIO
     SlamDoor,
         Pluie,
         Heartbeat,
-        Car
+        Car,
+        HeartBeatA,
+        HeartBeatB
 
 }
 
