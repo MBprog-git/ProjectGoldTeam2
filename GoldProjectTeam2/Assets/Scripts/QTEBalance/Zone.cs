@@ -14,6 +14,8 @@ public class Zone : MonoBehaviour
     public bool goToRight;
     public bool goToLeft;
 
+    private int randomNumber;
+    
     Rigidbody2D rb;
 
     void Awake()
@@ -21,19 +23,30 @@ public class Zone : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    void Start()
-    {
-        //rb.velocity = new Vector2(zoneSpeed, 0);
-    }
+    //private void Start()
+    //{
+    //    rb.velocity = new Vector2(-zoneSpeed, 0);
+    //}
 
     void Update()
     {
+        StartCoroutine(GetRandomNumber());
+        //Debug.Log(randomNumber);
         currentPosition = transform.localPosition.x;
         if(currentPosition >= zoneLimite && currentPosition >= zoneLimite - 10)
         {
             rb.velocity = new Vector2(-zoneSpeed, 0);
         }
         else if(currentPosition <= -zoneLimite && currentPosition <= -zoneLimite + 10)
+        {
+            rb.velocity = new Vector2(zoneSpeed, 0);
+        }
+
+        if(randomNumber < 0)
+        {
+            rb.velocity = new Vector2(-zoneSpeed, 0);
+        }
+        else if(randomNumber > -1)
         {
             rb.velocity = new Vector2(zoneSpeed, 0);
         }
@@ -46,14 +59,6 @@ public class Zone : MonoBehaviour
             isInZone = true;
         }
     }
-
-    //void OnTriggerStay2D(Collider2D col)
-    //{
-    //    if (col.gameObject.tag == "Balance")
-    //    {
-    //        isInZone = true;
-    //    }
-    //}
 
     void OnTriggerExit2D(Collider2D col)
     {
@@ -74,5 +79,12 @@ public class Zone : MonoBehaviour
           rb.velocity = new Vector2(zoneSpeed, 0);
             isRestarting = false;
         }
+    }
+
+    IEnumerator GetRandomNumber()
+    {
+        randomNumber = Random.Range(-1, 1);
+        yield return new WaitForSeconds(3);
+        Debug.Log("coroutine");
     }
 }

@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -16811,6 +16811,11 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1046428889997744589, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1530726958736582027, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
         type: 3}
       propertyPath: spawnRate
@@ -17554,7 +17559,7 @@ PrefabInstance:
     - target: {fileID: 4308690717958617169, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4308690718087787961, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
         type: 3}
@@ -17686,10 +17691,30 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -4.2
       objectReference: {fileID: 0}
+    - target: {fileID: 6590514809987969983, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6612329924549895668, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7849762447675750803, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
         type: 3}
       propertyPath: m_RootOrder
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8255882671952243795, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
+        type: 3}
+      propertyPath: typeAudio.Array.data[0]
+      value: 29
+      objectReference: {fileID: 0}
+    - target: {fileID: 8255882671952243795, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
+        type: 3}
+      propertyPath: typeAudio.Array.data[1]
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8649139674304483302, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
         type: 3}
@@ -18924,7 +18949,7 @@ MonoBehaviour:
   - audioFor: 26
     audio: {fileID: 8300000, guid: 7ed5cb8db814ec24990341f46821a712, type: 3}
     volume: 0.1
-    loop: 1
+    loop: 0
     playOnAwake: 1
   - audioFor: 27
     audio: {fileID: 8300000, guid: 5c9cf0688f8ba73429ec49ac7bb8fcc6, type: 3}
@@ -18934,6 +18959,16 @@ MonoBehaviour:
   - audioFor: 28
     audio: {fileID: 8300000, guid: 5c9cf0688f8ba73429ec49ac7bb8fcc6, type: 3}
     volume: 0.1
+    loop: 0
+    playOnAwake: 0
+  - audioFor: 29
+    audio: {fileID: 8300000, guid: 28d7258e4f1accb42a6ab8798ca40d22, type: 3}
+    volume: 0.5
+    loop: 0
+    playOnAwake: 0
+  - audioFor: 30
+    audio: {fileID: 8300000, guid: 65b5bd0a7e4dcef459c8584af86d7054, type: 3}
+    volume: 0.5
     loop: 0
     playOnAwake: 0
   activeMusic: 1
