@@ -104,6 +104,8 @@ public class Mister : MonoBehaviour
             isRythmQTEActif = true;
             isBalanceQTEActif = false;
             GameManager.instance.qteZone.GetComponent<Zone>().isRestarting = true;
+            
+            GetComponent<PlayOneSound>().PlaySound();
             return;
         }
 
@@ -115,6 +117,8 @@ public class Mister : MonoBehaviour
             rythmQTE.SetActive(false);
             GameManager.instance.QTERythme.GetComponent<SpawnNote>().ClearList();
             isRythmQTEActif = false;
+            
+            GetComponent<PlayOneSound>().PlaySound();
             return;
         }
 
@@ -128,6 +132,7 @@ public class Mister : MonoBehaviour
             GameManager.instance.QTERythme.GetComponent<SpawnNote>().ClearList();
             balanceQTE.SetActive(false);
             isBalanceQTEActif = false;
+            GetComponent<PlayOneSound>().StopSound();
             return;
         }
     }

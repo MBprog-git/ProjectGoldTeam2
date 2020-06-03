@@ -48,6 +48,8 @@ public class GameManager : MonoBehaviour
     public GameObject mister;
     
 
+    public GameObject FlecheDroite;
+    public GameObject FlecheGauche;
     public GameObject particules1;
     public GameObject particules2;
     public GameObject particules3;
@@ -78,6 +80,8 @@ public class GameManager : MonoBehaviour
     SpriteRenderer spButtonSelfie;
     SpriteRenderer spButtonPhoto;
     SpriteRenderer spCantself;
+    Image spFlecheDroite;
+    Image spFlecheGauche;
     private PlayMultipleSound playSound;
     float timerVibro;
     float timerClock;
@@ -91,7 +95,9 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-     //   Fondu.color = new Color(Fondu.color.r, Fondu.color.g, Fondu.color.b, 1);
+        //   Fondu.color = new Color(Fondu.color.r, Fondu.color.g, Fondu.color.b, 1);
+        spFlecheDroite = FlecheDroite.GetComponent<Image>();
+        spFlecheGauche = FlecheGauche.GetComponent<Image>();
         spCantself = CantSelfie.GetComponent<SpriteRenderer>();
          spButtonSelfie = ButtonSelfie.GetComponent<SpriteRenderer>();
          spButtonPhoto = ButtonPhoto.GetComponent<SpriteRenderer>();
@@ -187,6 +193,8 @@ public class GameManager : MonoBehaviour
              spButtonJournal. color = new Color(spButtonJournal.color.r, spButtonJournal.color.g, spButtonJournal.color.b, Albedo);
         spTextCharge. color = new Color(spTextCharge.color.r, spTextCharge.color.g, spTextCharge.color.b, Albedo);
         spCantself. color = new Color(spCantself.color.r, spCantself.color.g, spCantself.color.b, Albedo);
+        spFlecheGauche. color = new Color(spFlecheGauche.color.r, spFlecheGauche.color.g, spFlecheGauche.color.b, Albedo);
+        spFlecheDroite. color = new Color(spFlecheDroite.color.r, spFlecheDroite.color.g, spFlecheDroite.color.b, Albedo);
         
     }
 
