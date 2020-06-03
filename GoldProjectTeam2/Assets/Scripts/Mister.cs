@@ -100,9 +100,8 @@ public class Mister : MonoBehaviour
         if (distanceToPlayer <= distanceForRythmeQTE && distanceToPlayer >= distanceForBalanceQTE && GameManager.instance.Player.GetComponent<PlayerMovement>().Hidden)
         {
             rythmQTE.SetActive(true);
-            rythmQTE.GetComponent<Activation>().ResetOnTransitionQTE();
-            balanceQTE.SetActive(false);
             isRythmQTEActif = true;
+            balanceQTE.SetActive(false);
             isBalanceQTEActif = false;
             GameManager.instance.qteZone.GetComponent<Zone>().isRestarting = true;
             
@@ -115,8 +114,9 @@ public class Mister : MonoBehaviour
             balanceQTE.SetActive(true);
             GameManager.instance.qteZone.GetComponent<Zone>().StartMovementZone();
             isBalanceQTEActif = true;
+            GameManager.instance.QTERythme.GetComponent<Activation>().CleanEmptyHeart();
+            rythmQTE.GetComponent<Activation>().ResetOnTransitionQTE();
             rythmQTE.SetActive(false);
-            GameManager.instance.QTERythme.GetComponent<SpawnNote>().ClearList();
             isRythmQTEActif = false;
             
             GetComponent<PlayOneSound>().PlaySound();
@@ -130,7 +130,7 @@ public class Mister : MonoBehaviour
 
             rythmQTE.SetActive(false);
             isRythmQTEActif = false;
-            GameManager.instance.QTERythme.GetComponent<SpawnNote>().ClearList();
+            GameManager.instance.QTERythme.GetComponent<Activation>().CleanEmptyHeart();
             balanceQTE.SetActive(false);
             isBalanceQTEActif = false;
             GetComponent<PlayOneSound>().StopSound();

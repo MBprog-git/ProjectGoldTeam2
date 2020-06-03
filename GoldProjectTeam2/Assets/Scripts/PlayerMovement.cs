@@ -165,7 +165,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void FailQTE()
     {
-        cam.orthographicSize -= 1.0f;
+        cam.orthographicSize -= 1f;
     }
 
     public void ResetCamera()

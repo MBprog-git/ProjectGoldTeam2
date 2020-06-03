@@ -159,4 +159,21 @@ public class Activation : MonoBehaviour
         twentyPercent.SetActive(false);
         twentyPercent.SetActive(false);
     }
+
+    public void CleanEmptyHeart()
+    {
+        if(transform.childCount > 1)
+        {
+            Destroy(transform.GetChild(1).gameObject);
+            Destroy(transform.GetChild(0).gameObject);
+        }
+        else if(transform.childCount == 1)
+        {
+            Destroy(transform.GetChild(0).gameObject);
+        }
+        else if(transform.childCount == 0)
+        {
+            return;
+        }
+    }
 }
