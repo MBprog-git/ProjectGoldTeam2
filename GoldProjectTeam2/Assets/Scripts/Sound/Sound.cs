@@ -27,7 +27,9 @@ public enum TYPE_AUDIO
     SfxCorbeau2,
     SfxCloche,
     Running,
-    SlamDoor
+    SlamDoor,
+    HeartBeatA,
+    HeartBeatB
 
 }
 

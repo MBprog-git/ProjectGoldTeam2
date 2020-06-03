@@ -5,9 +5,10 @@ using UnityEngine.UI;
 
 public class Activation : MonoBehaviour
 {
-    public int numberOfFailPossible;
     public GameObject smallerEmptyHeart;
     public GameObject biggerEmptyHeart;
+    public GameObject twentyPercent;
+    public GameObject thirtyPercent;
 
     Image image;
     Color oldColor;
@@ -99,12 +100,9 @@ public class Activation : MonoBehaviour
             }
 
         }
-
-        if (numberOfFail == numberOfFailPossible)
-        {
-            Debug.Log("GameOver");
-        }
+        OnFail();
     }
+
     private void ChangeFirstHeart()
     {
         firstHeart = transform.GetChild(0).gameObject;
@@ -119,5 +117,23 @@ public class Activation : MonoBehaviour
         }
 
         actualHeart = null;
+    }
+
+    private void OnFail()
+    {
+        switch(numberOfFail)
+        {
+            case 1:
+                twentyPercent.SetActive(true);
+                thirtyPercent.SetActive(false);
+                break;
+            case 2:
+                twentyPercent.SetActive(false);
+                thirtyPercent.SetActive(true);
+                break;
+            case 3:
+                Debug.Log("GameOver");
+                break;
+        }
     }
 }
