@@ -42,7 +42,7 @@ public class Activation : MonoBehaviour
       
             GameObject emptyHeartBig = Instantiate(biggerEmptyHeart);
             emptyHeartBig.transform.SetParent(rythm.transform);
-            emptyHeartBig.transform.localScale = new Vector3(18, 18, 1);
+            emptyHeartBig.transform.localScale = new Vector3(16, 16, 1);
         }
 
         ChangeFirstHeart();

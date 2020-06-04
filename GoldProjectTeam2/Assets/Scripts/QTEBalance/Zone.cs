@@ -1,37 +1,44 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class Zone : MonoBehaviour
 {
+    public Camera cam;
+    public Image outSideZone;
+
     public float zoneSpeed = 1.0f;
     public float zoneLimite = 5.0f;
+    public float rangeToRebounce = 300.0f;
+    public float timeOutSideToDie = 5.0f;
 
     private bool isInZone = false;
     private float currentPosition;
 
     public bool isRestarting = false;
-    public bool goToRight;
-    public bool goToLeft;
 
     private int randomNumber;
+
+    private float timeOutSideZone;
+    private int timeOutSideZoneSecond;
+    private Color tempColor;
+
     
     Rigidbody2D rb;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        cam.orthographic = true;
+        tempColor = outSideZone.color;
     }
 
-    //private void Start()
-    //{
-    //    rb.velocity = new Vector2(-zoneSpeed, 0);
-    //}
 
     void Update()
     {
-        StartCoroutine(GetRandomNumber());
-        //Debug.Log(randomNumber);
         currentPosition = transform.localPosition.x;
         if(currentPosition >= zoneLimite && currentPosition >= zoneLimite - 10)
         {
@@ -42,13 +49,27 @@ public class Zone : MonoBehaviour
             rb.velocity = new Vector2(zoneSpeed, 0);
         }
 
-        if(randomNumber < 0)
+        if(randomNumber < 0 && currentPosition >= -zoneLimite + rangeToRebounce)
         {
             rb.velocity = new Vector2(-zoneSpeed, 0);
         }
-        else if(randomNumber > -1)
+        else if(randomNumber > -1 && currentPosition <= zoneLimite - rangeToRebounce)
         {
             rb.velocity = new Vector2(zoneSpeed, 0);
+        }
+
+        if (!isInZone)
+        {
+            timeOutSideZone += Time.deltaTime;
+            timeOutSideZoneSecond = Convert.ToInt32(timeOutSideZone % 60);
+            cam.orthographicSize -= 0.005f;
+            tempColor.a += 0.005f;
+            outSideZone.color = tempColor;
+
+            if (timeOutSideZoneSecond >= timeOutSideToDie)
+            {
+                GameManager.instance.MyLoadScene("LoseScene");
+            }
         }
     }
 
@@ -56,6 +77,11 @@ public class Zone : MonoBehaviour
     {
         if(col.gameObject.tag == "Balance")
         {
+            timeOutSideZone = 0;
+            timeOutSideZoneSecond = 0;
+            cam.orthographicSize = 4;
+            tempColor.a = 0;
+            outSideZone.color = tempColor;
             isInZone = true;
         }
     }
@@ -67,7 +93,6 @@ public class Zone : MonoBehaviour
             if(!GameManager.instance.mister.GetComponent<Mister>().isAheadOfPlayer)
             {
                 isInZone = false;
-                GameManager.instance.MyLoadScene("LoseScene");
             }
         }
     }
@@ -76,15 +101,13 @@ public class Zone : MonoBehaviour
     {
         if(isRestarting)
         {
-          rb.velocity = new Vector2(zoneSpeed, 0);
+            InvokeRepeating("GetRandomNumber", 0.0f, 4.0f);
             isRestarting = false;
         }
     }
 
-    IEnumerator GetRandomNumber()
+    public void GetRandomNumber()
     {
         randomNumber = Random.Range(-1, 1);
-        yield return new WaitForSeconds(3);
-        Debug.Log("coroutine");
     }
 }
