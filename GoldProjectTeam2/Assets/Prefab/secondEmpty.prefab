@@ -123,4 +123,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   center: {fileID: 9184251833109017553}
-  scaleTime: 0.03
+  scaleTime: 0.05

@@ -88,7 +88,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   center: {fileID: 6845333106329125398}
-  scaleTime: 0.03
+  scaleTime: 0.05
 --- !u!1 &6845333106329125398
 GameObject:
   m_ObjectHideFlags: 0
