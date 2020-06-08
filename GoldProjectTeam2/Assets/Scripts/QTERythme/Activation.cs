@@ -134,7 +134,7 @@ public class Activation : MonoBehaviour
                 thirtyPercent.SetActive(true);
                 break;
             case 3:
-                Debug.Log("GameOver");
+                GameManager.instance.MyLoadScene("LoseScene");
                 break;
         }
     }
@@ -156,6 +156,7 @@ public class Activation : MonoBehaviour
     public void ResetOnTransitionQTE()
     {
         GameManager.instance.Player.GetComponent<PlayerMovement>().ResetCamera();
+        numberOfFail = 0;
         twentyPercent.SetActive(false);
         twentyPercent.SetActive(false);
     }
