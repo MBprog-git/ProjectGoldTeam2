@@ -178,12 +178,12 @@ public class GameManager : MonoBehaviour
             Fondu.color = new Color(Fondu.color.r, Fondu.color.g, Fondu.color.b, Fondu.color.a - Time.deltaTime) ;
         }*/
 
-        if (!IsMoving && Albedo<1) {
+        if (!IsMoving && !Player.GetComponent<PlayerMovement>().Hidden && Albedo<1) {
             Albedo += Time.deltaTime;
 
 
         }
-        else if(IsMoving && Albedo > 0)
+        else if((IsMoving || Player.GetComponent<PlayerMovement>().Hidden) && Albedo > 0)
         {
             Albedo -= Time.deltaTime;
 
