@@ -27,12 +27,14 @@ public class Zone : MonoBehaviour
     private Color tempColor;
 
     PlayOneSound sound;
+    private AudioSource source;
     
     Rigidbody2D rb;
 
     void Awake()
     {
         sound = GetComponent<PlayOneSound>();
+        source = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>();
         cam.orthographic = true;
         tempColor = outSideZone.color;
@@ -65,9 +67,10 @@ public class Zone : MonoBehaviour
             timeOutSideZone += Time.deltaTime;
             timeOutSideZoneSecond = Convert.ToInt32(timeOutSideZone % 60);
             cam.orthographicSize -= 0.005f;
-            tempColor.a += 0.005f;
+            tempColor.a += 0.002f;
             outSideZone.color = tempColor;
             sound.PlaySound();
+            source.volume += 0.01f;
             if (timeOutSideZoneSecond >= timeOutSideToDie)
             {
                 GameManager.instance.MyLoadScene("LoseScene");
@@ -85,6 +88,7 @@ public class Zone : MonoBehaviour
             tempColor.a = 0;
             outSideZone.color = tempColor;
             sound.StopSound();
+            source.volume = 0.5f;
             isInZone = true;
         }
     }
