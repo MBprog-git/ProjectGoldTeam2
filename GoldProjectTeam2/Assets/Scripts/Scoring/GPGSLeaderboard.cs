@@ -16,7 +16,8 @@ public class GPGSLeaderboard : MonoBehaviour
         {
             return;
         }
-        Social.ReportScore(PlayerPrefs.GetInt("TimeToUpdate"), GPGSIds.leaderboard_best_time, (bool success) =>
+        //Social.ReportScore(PlayerPrefs.GetInt("TimeToUpdate"), GPGSIds.leaderboard_best_time, (bool success) =>
+        Social.ReportScore(PlayerPrefs.GetInt("TimeToUpdate"), "CgkIkJiC890CEAIQAQ", (bool success) =>
        {
            if (success)
            {

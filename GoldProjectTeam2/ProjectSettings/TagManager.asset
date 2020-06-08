@@ -10,6 +10,7 @@ TagManager:
   - Balance
   - Hideout
   - TP
+  - Zone
   layers:
   - Default
   - TransparentFX

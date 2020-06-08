@@ -28,11 +28,12 @@ public enum TYPE_AUDIO
     SfxCloche,
     Running,
     SlamDoor,
-        Pluie,
-        Heartbeat,
-        Car,
-        HeartBeatA,
-        HeartBeatB
+    Pluie,
+    Heartbeat,
+    Car,
+    HeartBeatA,
+    HeartBeatB,
+    HearBeatLoop
 
 }
 

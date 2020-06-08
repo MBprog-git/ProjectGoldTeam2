@@ -7,32 +7,31 @@ using UnityEngine.SocialPlatforms;
 
 public class GPGSAuthentification : MonoBehaviour
 {
-    //public static PlayGamesPlatform platform;
+    public static PlayGamesPlatform platform;
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
-        PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder().Build();
-        //PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder().Build();
-        PlayGamesPlatform.InitializeInstance(config);
-        PlayGamesPlatform.DebugLogEnabled = true;
+        if (platform == null)
+        {
+            PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder().Build();
+            PlayGamesPlatform.InitializeInstance(config);
+            PlayGamesPlatform.DebugLogEnabled = true;
 
-        PlayGamesPlatform.Activate();
-        PlayGamesPlatform.Instance.Authenticate(SignInInteractivity.CanPromptOnce, (result) => {
-            // handle results
+            platform = PlayGamesPlatform.Activate();
+        }
+
+        Social.Active.localUser.Authenticate(success =>
+        {
+            if (success)
+            {
+                Debug.Log("log in success");
+            }
+            else
+            {
+                Debug.Log("fail to log");
+            }
         });
-
-        //Social.Active.localUser.Authenticate(success =>
-        //{
-        //    if (success)
-        //    {
-        //        Debug.Log("log in success");
-        //    }
-        //    else
-        //    {
-        //        Debug.Log("fail to log");
-        //    }
-        //});
     }
 
     //public void StartConnection()
