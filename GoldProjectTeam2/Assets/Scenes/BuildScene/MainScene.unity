@@ -19504,6 +19504,11 @@ PrefabInstance:
       propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7153595659153437295, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7849762447675750803, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
         type: 3}
       propertyPath: m_RootOrder
@@ -20879,7 +20884,7 @@ MonoBehaviour:
     playOnAwake: 0
   - audioFor: 31
     audio: {fileID: 8300000, guid: ecec946795e1a74438ae24ce5074de1a, type: 3}
-    volume: 0.5
+    volume: 1
     loop: 1
     playOnAwake: 0
   activeMusic: 1
