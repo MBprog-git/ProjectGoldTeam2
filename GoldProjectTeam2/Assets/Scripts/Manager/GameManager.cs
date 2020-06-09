@@ -260,6 +260,10 @@ public class GameManager : MonoBehaviour
                 }
 
                 break; 
+                 case 20:
+                GameManager.instance.MyLoadScene("LoseScene");
+
+                break; 
             
         }
     }
