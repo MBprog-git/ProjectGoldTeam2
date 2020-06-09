@@ -59,15 +59,17 @@ public class MainMenuManager : MonoBehaviour
     public void OpenCredits()
     {
         Credits.SetActive(true);
+        panelMenu.SetActive(false);
     }
       public void CloseCredits()
     {
         Credits.SetActive(false);
+        panelMenu.SetActive(true);
     }
 
     public void OpenLink(string Lien)
     {
-        if (Lien != null)
+        if (Lien == "0")
         {
             Application.OpenURL(Lien);
 
