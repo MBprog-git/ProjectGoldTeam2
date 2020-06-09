@@ -5,7 +5,7 @@ using UnityEngine;
 public class BoutonMB : MonoBehaviour
 {
     public int ActionID;
-   
+    public string Link;
     void Start()
     {
         
@@ -60,6 +60,14 @@ public class BoutonMB : MonoBehaviour
                /* GameManager.instance.Journal.GetComponent<JournalMB>().AddItems(transform.parent.gameObject.GetComponent<PhotoZone>().Myphoto);
                 transform.parent.gameObject.SetActive(false);*/
                 GameManager.instance.Journal.GetComponent<JournalMB>().AddItems(GameManager.instance.Photostock);
+
+                break;    
+            case 666:
+                if(Link != null)
+                {
+                Application.OpenURL(Link);
+
+                }
 
                 break;
         }

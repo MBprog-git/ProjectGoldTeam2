@@ -10,6 +10,7 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private GameObject panelOptions;
     [SerializeField] private GameObject panelMenu;
     [SerializeField] private GameObject panelHowToPlay;
+    [SerializeField] private GameObject Credits;
 
     public Animator animationMainMenu;
 
@@ -53,6 +54,24 @@ public class MainMenuManager : MonoBehaviour
     public void OpenLeaderboard()
     {
         Social.ShowLeaderboardUI();
+    }
+    
+    public void OpenCredits()
+    {
+        Credits.SetActive(true);
+    }
+      public void CloseCredits()
+    {
+        Credits.SetActive(false);
+    }
+
+    public void OpenLink(string Lien)
+    {
+        if (Lien != null)
+        {
+            Application.OpenURL(Lien);
+
+        }
     }
 
 }
