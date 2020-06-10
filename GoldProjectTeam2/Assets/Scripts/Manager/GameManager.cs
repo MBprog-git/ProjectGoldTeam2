@@ -2,22 +2,23 @@
 using UnityEngine.Experimental.Rendering.Universal;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 [RequireComponent(typeof(PlayMultipleSound))]
 public class GameManager : MonoBehaviour
 {
 
-     [Header("Timer Effet Photo")]
+    [Header("Timer Effet Photo")]
     [Space]
 
     public float FleurAction1 = 7;
     public float FleurAction2 = 30;
-    public float EauAction1 =15;
-    public float EauAction2=45;
-    public float CarAction1=35;
-    public float CarAction2=50;
-    public float CorbacAction1=10;
-    public float CorbacAction2=35;
+    public float EauAction1 = 15;
+    public float EauAction2 = 45;
+    public float CarAction1 = 35;
+    public float CarAction2 = 50;
+    public float CorbacAction1 = 10;
+    public float CorbacAction2 = 35;
 
     [Header("Cachette")]
     [Space]
@@ -28,7 +29,7 @@ public class GameManager : MonoBehaviour
     [Space]
     [Tooltip("X secondes IRL = 10 minutes en jeu")]
     public float RythmeClock;
-    public int heure= 12;
+    public int heure = 12;
     public int minute;
     public int timeSwitchToDemiLune = 19;
     public int timeSwitchToLune = 21;
@@ -46,7 +47,7 @@ public class GameManager : MonoBehaviour
     public GameObject qteZone;
     public GameObject QTERythme;
     public GameObject mister;
-    
+
 
     public GameObject FlecheDroite;
     public GameObject FlecheGauche;
@@ -64,6 +65,9 @@ public class GameManager : MonoBehaviour
     public GameObject ButtonJournal;
     public GameObject TxtPhotoCharge;
     public GameObject HideUi;
+    public List<GameObject> lightSource = new List<GameObject>();
+    public GameObject background;
+    public GameObject backgroundParalax;
     // public Image graindCouleur;
 
     int frame;
@@ -86,10 +90,15 @@ public class GameManager : MonoBehaviour
     float timerVibro;
     float timerClock;
 
+    SpriteRenderer backgroundImage;
+    SpriteRenderer backgroundParalaxImage;
+
+    Color tempColor;
+
 
     //public Vector2 misterPosition;
     //public      SpriteRenderer s;
-   // bool Selfie = true;
+    // bool Selfie = true;
 
     public static GameManager instance;
 
@@ -99,10 +108,12 @@ public class GameManager : MonoBehaviour
         spFlecheDroite = FlecheDroite.GetComponent<Image>();
         spFlecheGauche = FlecheGauche.GetComponent<Image>();
         spCantself = CantSelfie.GetComponent<SpriteRenderer>();
-         spButtonSelfie = ButtonSelfie.GetComponent<SpriteRenderer>();
-         spButtonPhoto = ButtonPhoto.GetComponent<SpriteRenderer>();
-         spButtonJournal = ButtonJournal.GetComponent<Image>();
+        spButtonSelfie = ButtonSelfie.GetComponent<SpriteRenderer>();
+        spButtonPhoto = ButtonPhoto.GetComponent<SpriteRenderer>();
+        spButtonJournal = ButtonJournal.GetComponent<Image>();
         spTextCharge = TxtPhotoCharge.GetComponent<Text>();
+        backgroundImage = background.GetComponent<SpriteRenderer>();
+        backgroundParalaxImage = backgroundParalax.GetComponent<SpriteRenderer>();
         if (instance == null)
             instance = this;
 
@@ -111,26 +122,27 @@ public class GameManager : MonoBehaviour
         timerClock = RythmeClock;
 
     }
-    
+
     void Start()
     {
         playSound = GetComponent<PlayMultipleSound>();
-      
+
         Clocky.text = heure + " : " + minute + "0";
         playSound.PlaySound(TYPE_AUDIO.MusiqueAmbianceSoleil);
 
 
     }
 
-   
+
     void Update()
     {
-        if(frame == 5)
+        if (frame == 5)
         {
 
-        Fondu.GetComponent<Animator>().SetTrigger("start");
+            Fondu.GetComponent<Animator>().SetTrigger("start");
             frame++;
-        }else if (frame < 5)
+        }
+        else if (frame < 5)
         {
             frame++;
         }
@@ -143,10 +155,10 @@ public class GameManager : MonoBehaviour
             UpdateTime();
         }
 
-       /* if (Input.GetKeyDown(KeyCode.M))
-        {
-          
-        }*/
+        /* if (Input.GetKeyDown(KeyCode.M))
+         {
+
+         }*/
         if (Input.GetMouseButtonUp(0))
         {
             Vector3 Mouspos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -157,7 +169,7 @@ public class GameManager : MonoBehaviour
                 {
                     hit2D.collider.GetComponent<BoutonMB>().Action();
                     break;
-                }   
+                }
                 if (hit2D.collider.tag == "Hideout")
                 {
                     Player.GetComponent<PlayerMovement>().HideMe(hit2D.collider.gameObject);
@@ -166,36 +178,37 @@ public class GameManager : MonoBehaviour
             }
         }
 
-    
+
 
 
     }
 
     public void FadeUi()
     {
-      /*  if (Fondu.color.a > 0)
-        {
-            Fondu.color = new Color(Fondu.color.r, Fondu.color.g, Fondu.color.b, Fondu.color.a - Time.deltaTime) ;
-        }*/
+        /*  if (Fondu.color.a > 0)
+          {
+              Fondu.color = new Color(Fondu.color.r, Fondu.color.g, Fondu.color.b, Fondu.color.a - Time.deltaTime) ;
+          }*/
 
-        if (!IsMoving && !Player.GetComponent<PlayerMovement>().Hidden && Albedo<1) {
+        if (!IsMoving && !Player.GetComponent<PlayerMovement>().Hidden && Albedo < 1)
+        {
             Albedo += Time.deltaTime;
 
 
         }
-        else if((IsMoving || Player.GetComponent<PlayerMovement>().Hidden) && Albedo > 0)
+        else if ((IsMoving || Player.GetComponent<PlayerMovement>().Hidden) && Albedo > 0)
         {
             Albedo -= Time.deltaTime;
 
         }
-             spButtonSelfie.color = new Color(spButtonSelfie.color.r, spButtonSelfie.color.g, spButtonSelfie.color.b, Albedo) ;
-             spButtonPhoto.color = new Color(spButtonPhoto.color.r, spButtonPhoto.color.g, spButtonPhoto.color.b, Albedo);
-             spButtonJournal. color = new Color(spButtonJournal.color.r, spButtonJournal.color.g, spButtonJournal.color.b, Albedo);
-        spTextCharge. color = new Color(spTextCharge.color.r, spTextCharge.color.g, spTextCharge.color.b, Albedo);
-        spCantself. color = new Color(spCantself.color.r, spCantself.color.g, spCantself.color.b, Albedo);
-        spFlecheGauche. color = new Color(spFlecheGauche.color.r, spFlecheGauche.color.g, spFlecheGauche.color.b, Albedo);
-        spFlecheDroite. color = new Color(spFlecheDroite.color.r, spFlecheDroite.color.g, spFlecheDroite.color.b, Albedo);
-        
+        spButtonSelfie.color = new Color(spButtonSelfie.color.r, spButtonSelfie.color.g, spButtonSelfie.color.b, Albedo);
+        spButtonPhoto.color = new Color(spButtonPhoto.color.r, spButtonPhoto.color.g, spButtonPhoto.color.b, Albedo);
+        spButtonJournal.color = new Color(spButtonJournal.color.r, spButtonJournal.color.g, spButtonJournal.color.b, Albedo);
+        spTextCharge.color = new Color(spTextCharge.color.r, spTextCharge.color.g, spTextCharge.color.b, Albedo);
+        spCantself.color = new Color(spCantself.color.r, spCantself.color.g, spCantself.color.b, Albedo);
+        spFlecheGauche.color = new Color(spFlecheGauche.color.r, spFlecheGauche.color.g, spFlecheGauche.color.b, Albedo);
+        spFlecheDroite.color = new Color(spFlecheDroite.color.r, spFlecheDroite.color.g, spFlecheDroite.color.b, Albedo);
+
     }
 
     public void doExitGame()
@@ -205,25 +218,29 @@ public class GameManager : MonoBehaviour
     public void MyLoadScene(string nameScene)
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(nameScene);
-     
+
     }
 
     void UpdateTime()
     {
-        minute ++;
-        if(minute == 6)
+        minute++;
+        if (minute == 6)
         {
             minute = 0;
             heure++;
-             
+
         }
 
         Clocky.text = heure + " : " + minute + "0";
 
-        if (SceneLight.intensity > 0.5f)
+        tempColor = backgroundImage.color;
+        if (SceneLight.intensity > 0.2f)
         {
+            SceneLight.intensity -= 0.05f;
 
-            SceneLight.intensity -= 0.01f;
+            tempColor = new Color(tempColor.r - 0.05f, tempColor.g - 0.05f, tempColor.b - 0.05f, tempColor.a);
+            backgroundImage.color = tempColor;
+            backgroundParalaxImage.color = tempColor;
         }
 
         timerClock = RythmeClock;
@@ -233,48 +250,51 @@ public class GameManager : MonoBehaviour
 
     public void HourEvent()
     {
-        switch(heure)
+        switch (heure)
         {
-
-
-            
             case 18:
                 particules1.SetActive(false);
                 particules2.SetActive(true);
 
-                if( playSound.GetEnumOfAudioPlaying() != TYPE_AUDIO.MusiqueAmbianceDemiLune)
+                for (int i = 0; i < lightSource.Count; i++)
                 {
-                    playSound.PlaySound(TYPE_AUDIO.MusiqueAmbianceDemiLune);
-                  
+                    lightSource[i].gameObject.SetActive(true);
                 }
 
-            break;   
-            
+                if (playSound.GetEnumOfAudioPlaying() != TYPE_AUDIO.MusiqueAmbianceDemiLune)
+                {
+                    playSound.PlaySound(TYPE_AUDIO.MusiqueAmbianceDemiLune);
+
+                }
+
+                break;
+
             case 19:
                 particules2.SetActive(false);
                 particules2.SetActive(true);
-                 if (playSound.GetEnumOfAudioPlaying() != TYPE_AUDIO.MusiqueAmbianceLune)
+
+                if (playSound.GetEnumOfAudioPlaying() != TYPE_AUDIO.MusiqueAmbianceLune)
                 {
                     playSound.PlaySound(TYPE_AUDIO.MusiqueAmbianceLune);
-                  
+
                 }
 
-                break; 
-                 case 20:
+                break;
+            case 20:
                 GameManager.instance.MyLoadScene("LoseScene");
 
-                break; 
-            
+                break;
+
         }
     }
 
     public void SpawnHid()
     {
-     /*   Vector2 pos1 = new Vector2(Player.transform.position.x + DecalHid1, Player.transform.position.y);
-        Vector2 pos2 = new Vector2(Player.transform.position.x + DecalHid2, Player.transform.position.y);
+        /*   Vector2 pos1 = new Vector2(Player.transform.position.x + DecalHid1, Player.transform.position.y);
+           Vector2 pos2 = new Vector2(Player.transform.position.x + DecalHid2, Player.transform.position.y);
 
-        Instantiate(Hideout, pos1, transform.rotation);
-        Instantiate(Hideout, pos2, transform.rotation);*/
+           Instantiate(Hideout, pos1, transform.rotation);
+           Instantiate(Hideout, pos2, transform.rotation);*/
     }
     public void VibraAleatoire()
     {
@@ -282,7 +302,7 @@ public class GameManager : MonoBehaviour
 
         if (timerVibro < 0)
         {
-        Handheld.Vibrate();
+            Handheld.Vibrate();
             int rand = Random.Range(45, 100);
             timerVibro = rand;
         }
@@ -301,7 +321,7 @@ public class GameManager : MonoBehaviour
         {
             ButtonSelfie.SetActive(false);
             ButtonPhoto.SetActive(true);
-                CantSelfie.SetActive(false);
+            CantSelfie.SetActive(false);
 
         }
         else
@@ -319,22 +339,22 @@ public class GameManager : MonoBehaviour
 
 
 
-        /* public void SpawnMan()
-         {
-             Instantiate(mister, misterPosition, transform.rotation);
-         }*/
+    /* public void SpawnMan()
+     {
+         Instantiate(mister, misterPosition, transform.rotation);
+     }*/
 
-        /* public void TestFonct()
-         {
-             Texture2D t = s.sprite.texture;
-              Color32[] pix = t.GetPixels32();
-              Debug.Log(pix.Length);
+    /* public void TestFonct()
+     {
+         Texture2D t = s.sprite.texture;
+          Color32[] pix = t.GetPixels32();
+          Debug.Log(pix.Length);
 
-             List<Color> pix = new List<Color>();
-             pix.AddRange(t.GetPixels());
+         List<Color> pix = new List<Color>();
+         pix.AddRange(t.GetPixels());
 
-             Debug.Log("Transparent : " + pix.FindAll(x => x == Color.clear).Count);
-             Debug.Log("White : " + pix.FindAll(x => x == Color.white).Count);
-             Debug.Log("Black : " + pix.FindAll(x => x == Color.black).Count);
-         }*/
-    }
+         Debug.Log("Transparent : " + pix.FindAll(x => x == Color.clear).Count);
+         Debug.Log("White : " + pix.FindAll(x => x == Color.white).Count);
+         Debug.Log("Black : " + pix.FindAll(x => x == Color.black).Count);
+     }*/
+}

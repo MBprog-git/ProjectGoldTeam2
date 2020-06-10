@@ -158,7 +158,7 @@ public class Activation : MonoBehaviour
         GameManager.instance.Player.GetComponent<PlayerMovement>().ResetCamera();
         numberOfFail = 0;
         twentyPercent.SetActive(false);
-        twentyPercent.SetActive(false);
+        thirtyPercent.SetActive(false);
     }
 
     public void CleanEmptyHeart()
