@@ -19459,6 +19459,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1305854870 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4308690718087787964, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1374988433}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1351935715
 GameObject:
   m_ObjectHideFlags: 0
@@ -19852,10 +19858,15 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3508645413797786516, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
+        type: 3}
+      propertyPath: m_CullTransparentMesh
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3508645413797786520, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
         type: 3}
       propertyPath: m_Name
-      value: FlecheD
+      value: PauseButton
       objectReference: {fileID: 0}
     - target: {fileID: 3508645413797786521, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
         type: 3}
@@ -19911,6 +19922,11 @@ PrefabInstance:
     - target: {fileID: 3508645413797786523, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
         type: 3}
       propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3508645413901322217, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
+        type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3508645413974842874, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
@@ -20113,6 +20129,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -40
+      objectReference: {fileID: 0}
+    - target: {fileID: 3508645415141805404, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3508645415141805405, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
         type: 3}
@@ -20474,7 +20495,7 @@ PrefabInstance:
     - target: {fileID: 4308690718087787961, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
         type: 3}
       propertyPath: speed
-      value: 15
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4308690718087787967, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
         type: 3}
@@ -20526,6 +20547,11 @@ PrefabInstance:
       propertyPath: outSideZone
       value: 
       objectReference: {fileID: 1589261473}
+    - target: {fileID: 4308690718351026172, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
+        type: 3}
+      propertyPath: heart
+      value: 
+      objectReference: {fileID: 1305854870}
     - target: {fileID: 4415379068541393009, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
         type: 3}
       propertyPath: m_Size.x
@@ -21996,7 +22022,7 @@ MonoBehaviour:
   - audioFor: 32
     audio: {fileID: 8300000, guid: 720f71f533bfbcd47a916e22e8cb24e7, type: 3}
     volume: 1
-    loop: 1
+    loop: 0
     playOnAwake: 0
   activeMusic: 1
   activeSfx: 1

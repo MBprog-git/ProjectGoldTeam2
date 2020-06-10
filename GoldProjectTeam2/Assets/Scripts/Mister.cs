@@ -102,6 +102,12 @@ public class Mister : MonoBehaviour
             }
         }
 
+        if (distanceToPlayer < 5 && distanceToPlayer > 2)
+        {
+            GetComponent<PlayOneSound>().PlaySound();
+            Debug.Log("creepy");
+        }
+
         if (distanceToPlayer <= distanceForRythmeQTE && distanceToPlayer >= distanceForBalanceQTE && GameManager.instance.Player.GetComponent<PlayerMovement>().Hidden)
         {
             rythmQTE.SetActive(true);
@@ -110,13 +116,14 @@ public class Mister : MonoBehaviour
             isBalanceQTEActif = false;
             GameManager.instance.qteZone.GetComponent<Zone>().isRestarting = true;
             
-            GetComponent<PlayOneSound>().PlaySound();
+            //GetComponent<PlayOneSound>().PlaySound();
             return;
         }
 
         if (distanceToPlayer <= distanceForBalanceQTE && distanceToPlayer >= -distanceForRythmeQTE && GameManager.instance.Player.GetComponent<PlayerMovement>().Hidden)
         {
             balanceQTE.SetActive(true);
+            GameManager.instance.qteZone.GetComponent<Zone>().ResetPosition();
             GameManager.instance.qteZone.GetComponent<Zone>().StartMovementZone();
             isBalanceQTEActif = true;
             GameManager.instance.QTERythme.GetComponent<Activation>().CleanEmptyHeart();
@@ -124,7 +131,7 @@ public class Mister : MonoBehaviour
             rythmQTE.SetActive(false);
             isRythmQTEActif = false;
             
-            GetComponent<PlayOneSound>().PlaySound();
+            //GetComponent<PlayOneSound>().PlaySound();
             return;
         }
 

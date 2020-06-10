@@ -357,7 +357,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   declencherAudio: 0
   isMusique: 0
-  typeAudio: 27
+  typeAudio: 32
 --- !u!114 &4129801036879465816
 MonoBehaviour:
   m_ObjectHideFlags: 0

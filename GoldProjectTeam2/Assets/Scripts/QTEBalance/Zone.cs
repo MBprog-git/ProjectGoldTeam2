@@ -9,6 +9,7 @@ public class Zone : MonoBehaviour
 {
     public Camera cam;
     public Image outSideZone;
+    public GameObject heart;
 
     public float zoneSpeed = 1.0f;
     public float zoneLimite = 5.0f;
@@ -116,5 +117,15 @@ public class Zone : MonoBehaviour
     public void GetRandomNumber()
     {
         randomNumber = Random.Range(-1, 1);
+    }
+
+    public void ResetPosition()
+    {
+        if(isRestarting)
+        {
+        transform.localPosition = new Vector2(0, 0);
+        heart.transform.localPosition = new Vector2(0, 0);
+
+        }
     }
 }
