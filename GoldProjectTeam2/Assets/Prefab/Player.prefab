@@ -356,6 +356,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActionID: 8
+  Link: 
 --- !u!1 &936861081
 GameObject:
   m_ObjectHideFlags: 0
@@ -1000,6 +1001,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActionID: 6
+  Link: 
 --- !u!1 &1930880810
 GameObject:
   m_ObjectHideFlags: 0
@@ -1122,6 +1124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActionID: 7
+  Link: 
 --- !u!1 &521208177953907865
 GameObject:
   m_ObjectHideFlags: 0
@@ -1211,8 +1214,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6128132959663706144}
+  - component: {fileID: 2237922980893505632}
   - component: {fileID: 5597953042212495810}
+  - component: {fileID: 5523817265760783590}
   m_Layer: 0
   m_Name: UI_Cachette1
   m_TagString: Untagged
@@ -1220,8 +1224,8 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!4 &6128132959663706144
-Transform:
+--- !u!224 &2237922980893505632
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1234,6 +1238,11 @@ Transform:
   m_Father: {fileID: 3508645414558562061}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -1900.8, y: -1069.2}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &5597953042212495810
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1284,6 +1293,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!223 &5523817265760783590
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 546608511821493362}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1 &549017656146852382
 GameObject:
   m_ObjectHideFlags: 0
@@ -2278,7 +2308,7 @@ RectTransform:
   m_Children:
   - {fileID: 3508645413901322218}
   - {fileID: 3508645413797786521}
-  - {fileID: 6128132959663706144}
+  - {fileID: 2237922980893505632}
   - {fileID: 1752501190167138802}
   - {fileID: 7365825270859325311}
   - {fileID: 1297905696}
@@ -4366,6 +4396,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActionID: 10
+  Link: 
 --- !u!61 &8887692581757367701
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5084,6 +5115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActionID: 9
+  Link: 
 --- !u!95 &3912495767443625660
 Animator:
   serializedVersion: 3

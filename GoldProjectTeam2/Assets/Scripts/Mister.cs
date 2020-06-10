@@ -74,18 +74,23 @@ public class Mister : MonoBehaviour
     {
         distanceToPlayer = (player.transform.position.x - transform.position.x) ;
 
-        if (distanceToPlayer <= halfwayDistance && halfway == false)
+        if (distanceToPlayer <= halfwayDistance && halfway == false && distanceToPlayer > 0)
         {
             halfway = true;
             Debug.Log("halfway");
             Handheld.Vibrate();
         }
 
-        if (distanceToPlayer <= almostInScreenDistance && almostInScreen == false)
+        if (distanceToPlayer <= almostInScreenDistance && almostInScreen == false && distanceToPlayer>0)
         {
             almostInScreen = true;
             Debug.Log("Almost in screen");
             Handheld.Vibrate();
+        }
+        if (distanceToPlayer < 0)
+        {
+            almostInScreen = false;
+            halfway = false;
         }
 
         if (!isRandomDistanceVibrationActivated)
