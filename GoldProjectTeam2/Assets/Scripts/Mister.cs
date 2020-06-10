@@ -102,10 +102,9 @@ public class Mister : MonoBehaviour
             }
         }
 
-        if (distanceToPlayer < 5 && distanceToPlayer > 2)
+        if (distanceToPlayer < 5 && distanceToPlayer > 3)
         {
             GetComponent<PlayOneSound>().PlaySound();
-            Debug.Log("creepy");
         }
 
         if (distanceToPlayer <= distanceForRythmeQTE && distanceToPlayer >= distanceForBalanceQTE && GameManager.instance.Player.GetComponent<PlayerMovement>().Hidden)
