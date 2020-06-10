@@ -67,7 +67,7 @@ public class Zone : MonoBehaviour
             timeOutSideZone += Time.deltaTime;
             timeOutSideZoneSecond = Convert.ToInt32(timeOutSideZone % 60);
             cam.orthographicSize -= 0.005f;
-            tempColor.a += 0.002f;
+            tempColor.a += 0.005f;
             outSideZone.color = tempColor;
             sound.PlaySound();
             source.volume += 0.01f;

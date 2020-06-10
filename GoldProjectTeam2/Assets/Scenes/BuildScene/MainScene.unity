@@ -21993,6 +21993,11 @@ MonoBehaviour:
     volume: 1
     loop: 1
     playOnAwake: 0
+  - audioFor: 32
+    audio: {fileID: 8300000, guid: 720f71f533bfbcd47a916e22e8cb24e7, type: 3}
+    volume: 1
+    loop: 1
+    playOnAwake: 0
   activeMusic: 1
   activeSfx: 1
   mainMixerAudio: {fileID: 24100000, guid: 449f015ef7c17b7449dced3b300f5e5c, type: 2}
