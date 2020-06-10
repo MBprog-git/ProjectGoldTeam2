@@ -18498,7 +18498,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -19787,7 +19787,7 @@ PrefabInstance:
     - target: {fileID: 1859072048125336629, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 100
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 2237922980893505632, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
         type: 3}
@@ -19818,6 +19818,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 2839135272893138074, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 2839135272893138074, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 190
+      objectReference: {fileID: 0}
+    - target: {fileID: 2839135272893138074, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 830
+      objectReference: {fileID: 0}
+    - target: {fileID: 2839135272893138074, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -440
       objectReference: {fileID: 0}
     - target: {fileID: 3016247719279324543, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
         type: 3}
@@ -20539,6 +20559,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 300
       objectReference: {fileID: 0}
+    - target: {fileID: 4308690718087787967, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 4308690718351026162, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -20547,7 +20572,7 @@ PrefabInstance:
     - target: {fileID: 4308690718351026162, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 285
+      value: 310
       objectReference: {fileID: 0}
     - target: {fileID: 4308690718351026172, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
         type: 3}
@@ -20579,6 +20604,11 @@ PrefabInstance:
       propertyPath: heart
       value: 
       objectReference: {fileID: 1305854870}
+    - target: {fileID: 4308690718351026172, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
+        type: 3}
+      propertyPath: clip
+      value: 
+      objectReference: {fileID: 8300000, guid: d23de4974686fda49b00c4c0b6de5708, type: 3}
     - target: {fileID: 4415379068541393009, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
         type: 3}
       propertyPath: m_Size.x
@@ -20587,12 +20617,12 @@ PrefabInstance:
     - target: {fileID: 4415379068541393009, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
         type: 3}
       propertyPath: m_Size.y
-      value: 250
+      value: 310
       objectReference: {fileID: 0}
     - target: {fileID: 4415379068541393009, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
         type: 3}
       propertyPath: m_Offset.y
-      value: -0.96855927
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4573997429691689921, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
         type: 3}
@@ -20602,7 +20632,7 @@ PrefabInstance:
     - target: {fileID: 4573997429691689921, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
         type: 3}
       propertyPath: m_Size.y
-      value: 200
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 4573997429691689921, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
         type: 3}
@@ -20612,7 +20642,7 @@ PrefabInstance:
     - target: {fileID: 4573997429691689921, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
         type: 3}
       propertyPath: m_Size.x
-      value: 200
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 4573997429691689921, guid: 53ae6985a8e15ad4d9a0b129b62b82b7,
         type: 3}
@@ -22066,7 +22096,7 @@ MonoBehaviour:
     playOnAwake: 0
   - audioFor: 32
     audio: {fileID: 8300000, guid: 720f71f533bfbcd47a916e22e8cb24e7, type: 3}
-    volume: 1
+    volume: 0.7
     loop: 0
     playOnAwake: 0
   activeMusic: 1

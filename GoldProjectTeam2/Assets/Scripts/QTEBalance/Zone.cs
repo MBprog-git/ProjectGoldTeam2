@@ -70,7 +70,6 @@ public class Zone : MonoBehaviour
             cam.orthographicSize -= 0.005f;
             tempColor.a += 0.005f;
             outSideZone.color = tempColor;
-            sound.PlaySound();
             source.volume += 0.01f;
             if (timeOutSideZoneSecond >= timeOutSideToDie)
             {
@@ -89,7 +88,7 @@ public class Zone : MonoBehaviour
             tempColor.a = 0;
             outSideZone.color = tempColor;
             sound.StopSound();
-            source.volume = 0.5f;
+            source.volume = 0.2f;
             isInZone = true;
         }
     }
@@ -100,6 +99,7 @@ public class Zone : MonoBehaviour
         {
             if(!GameManager.instance.mister.GetComponent<Mister>().isAheadOfPlayer)
             {
+                sound.PlaySound();
                 isInZone = false;
             }
         }
