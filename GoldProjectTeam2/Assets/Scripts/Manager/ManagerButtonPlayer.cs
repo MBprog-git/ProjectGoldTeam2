@@ -41,6 +41,7 @@ public class ManagerButtonPlayer : MonoBehaviour
 
     public void ButtonPause()
     {
+        
         panelPlay.SetActive(false);
         panelPause.SetActive(true);
         Time.timeScale = 0;
@@ -48,6 +49,7 @@ public class ManagerButtonPlayer : MonoBehaviour
 
     public void ButtonReturnPause()
     {
+
         panelPlay.SetActive(true);
         panelPause.SetActive(false);
         GameManager.instance.Journal.GetComponent<JournalMB>().CallOut();
@@ -70,5 +72,10 @@ public class ManagerButtonPlayer : MonoBehaviour
     public void ButtonExit()
     {
         Application.Quit();
+    }    
+    
+    public void RestartScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

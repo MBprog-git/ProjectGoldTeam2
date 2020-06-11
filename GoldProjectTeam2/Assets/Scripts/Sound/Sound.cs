@@ -33,7 +33,8 @@ public enum TYPE_AUDIO
     Car,
     HeartBeatA,
     HeartBeatB,
-    HearBeatLoop
+    HearBeatLoop,
+    SoundMister
 
 }
 

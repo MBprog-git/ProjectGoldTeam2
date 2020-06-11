@@ -9,6 +9,7 @@ public class Zone : MonoBehaviour
 {
     public Camera cam;
     public Image outSideZone;
+    public GameObject heart;
 
     public float zoneSpeed = 1.0f;
     public float zoneLimite = 5.0f;
@@ -67,9 +68,8 @@ public class Zone : MonoBehaviour
             timeOutSideZone += Time.deltaTime;
             timeOutSideZoneSecond = Convert.ToInt32(timeOutSideZone % 60);
             cam.orthographicSize -= 0.005f;
-            tempColor.a += 0.002f;
+            tempColor.a += 0.005f;
             outSideZone.color = tempColor;
-            sound.PlaySound();
             source.volume += 0.01f;
             if (timeOutSideZoneSecond >= timeOutSideToDie)
             {
@@ -88,7 +88,7 @@ public class Zone : MonoBehaviour
             tempColor.a = 0;
             outSideZone.color = tempColor;
             sound.StopSound();
-            source.volume = 0.5f;
+            source.volume = 0.2f;
             isInZone = true;
         }
     }
@@ -99,6 +99,7 @@ public class Zone : MonoBehaviour
         {
             if(!GameManager.instance.mister.GetComponent<Mister>().isAheadOfPlayer)
             {
+                sound.PlaySound();
                 isInZone = false;
             }
         }
@@ -116,5 +117,15 @@ public class Zone : MonoBehaviour
     public void GetRandomNumber()
     {
         randomNumber = Random.Range(-1, 1);
+    }
+
+    public void ResetPosition()
+    {
+        if(isRestarting)
+        {
+        transform.localPosition = new Vector2(0, 0);
+        heart.transform.localPosition = new Vector2(0, 0);
+
+        }
     }
 }
